@@ -38,15 +38,17 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: example/docker-files/Dockerfile
-    image: demoshop
+      dockerfile: bombay/docker-files/Dockerfile
+    image: bombayshop
     environment:
-      - DJANGO_SHOP_TUTORIAL
-      - POSTGRES_DB=myshop_$DJANGO_SHOP_TUTORIAL
+      - POSTGRES_DB=myshop_bombay
     env_file:
-      - example/docker-files/databases.environ
+      - bombay/docker-files/databases.environ
     volumes:
       - shopmedia:/web/workdir
+      - ./bombay/myshop:/web/myshop
+      - ./bombay/fixtures/media:/web/media
+      - ./bombay/fixtures/myshop.json:/web/bombay/fixtures/myshop.json
     command: uwsgi --ini uwsgi.ini
     depends_on:
       - postgresdb
@@ -59,14 +61,13 @@ services:
 
   worker:
     restart: always
-    image: demoshop
+    image: bombayshop
     environment:
-      - DJANGO_SHOP_TUTORIAL
-      - POSTGRES_DB=myshop_$DJANGO_SHOP_TUTORIAL
+      - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
     env_file:
-      - example/docker-files/databases.environ
-      - example/docker-files/email.environ
+      - bombay/docker-files/databases.environ
+      - bombay/docker-files/email.environ
     command: su django -c /web/worker.py
     volumes:
       - shopmedia:/web/workdir
