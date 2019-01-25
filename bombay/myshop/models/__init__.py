@@ -8,11 +8,14 @@ from shop.models.defaults.cart_item import CartItem
 from shop.models.defaults.customer import Customer
 
 __all__ = ['ShippingAddress', 'BillingAddress', 'Cart', 'CartItem', 'Customer', 'OrderItem',
-           'Commodity', 'SmartCard', 'SmartPhoneModel', 'SmartPhoneVariant', 'Delivery', 'DeliveryItem']
+           'Commodity', 'SmartCard', 'SmartPhoneModel', 'SmartPhoneVariant', 'Delivery', 'DeliveryItem',
+           'ClothesModel', 'ClothesVariant']
 
+from .bombay.dresses import ClothesModel, ClothesVariant
 from .bombay.order import OrderItem
 from .bombay.product import Product
 from .bombay.commodity import Commodity
+from .bombay.dresses import ClothesModel, ClothesVariant
 from .bombay.smartcard import SmartCard
 from .bombay.smartphone import SmartPhoneModel, SmartPhoneVariant
 from shop.models.defaults.delivery import Delivery, DeliveryItem

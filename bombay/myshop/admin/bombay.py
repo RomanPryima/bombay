@@ -16,7 +16,7 @@ from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildMode
 
 from shop.admin.product import CMSPageAsCategoryMixin, ProductImageInline, InvalidateProductCacheMixin, CMSPageFilter
 
-from myshop.models import Product, Commodity, SmartCard, SmartPhoneVariant, SmartPhoneModel
+from myshop.models import Product, Commodity, SmartCard, SmartPhoneVariant, SmartPhoneModel, ClothesModel, ClothesVariant
 from myshop.models.bombay.smartphone import OperatingSystem
 
 
@@ -104,15 +104,51 @@ class SmartPhoneAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translata
     render_text_index.short_description = _("Text Index")
 
 
+class ClothesInline(admin.TabularInline):
+    model = ClothesVariant
+    extra = 0
+
+
+@admin.register(ClothesModel)
+class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+                      CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
+    base_model = Product
+    fieldsets = [
+        (None, {
+            'fields': ['product_name', 'slug', 'active'],
+        }),
+        (_("Translatable Fields"), {
+            'fields': ['caption', 'description'],
+        }),
+        (_("Properties"), {
+            'fields': ['manufacturer', 'country_of_origin'],
+        }),
+    ]
+    filter_horizontal = ['cms_pages']
+    inlines = [ProductImageInline, ClothesInline]
+    prepopulated_fields = {'slug': ['product_name'],}
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            # since SortableAdminMixin is missing on this class, ordering has to be computed by hand
+            max_order = self.base_model.objects.aggregate(max_order=Max('order'))['max_order']
+            obj.order = max_order + 1 if max_order else 1
+        super(ClothesAdmin, self).save_model(request, obj, form, change)
+
+    def render_text_index(self, instance):
+        template = get_template('search/indexes/myshop/commodity_text.txt')
+        return template.render(Context({'object': instance}))
+    render_text_index.short_description = _("Text Index")
+
 @admin.register(Product)
 class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     base_model = Product
-    child_models = [SmartPhoneModel, SmartCard, Commodity]
+    child_models = [SmartPhoneModel, SmartCard, Commodity, ClothesModel]
     list_display = ['product_name', 'get_price', 'product_type', 'active']
     list_display_links = ['product_name']
     search_fields = ['product_name']
     list_filter = [PolymorphicChildModelFilter, CMSPageFilter]
-    list_per_page = 250
+    list_per_page = 50
     list_max_show_all = 1000
 
     def get_price(self, obj):

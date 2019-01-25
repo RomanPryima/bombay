@@ -11,7 +11,7 @@ from parler.managers import TranslatableManager, TranslatableQuerySet
 from polymorphic.query import PolymorphicQuerySet
 from shop.models.product import BaseProductManager, BaseProduct, CMSPageReferenceMixin
 from shop.models.defaults.mapping import ProductPage, ProductImage
-from ..manufacturer import Manufacturer
+from ..manufacturer import CountryOfOrigin, Manufacturer
 
 
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
@@ -49,6 +49,12 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
     manufacturer = models.ForeignKey(
         Manufacturer,
         verbose_name=_("Manufacturer"),
+    )
+
+    country_of_origin = models.ForeignKey(
+        CountryOfOrigin,
+        verbose_name=_("Country of origin"),
+        null=True
     )
 
     # controlling the catalog

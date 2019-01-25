@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',
     'djangocms_text_ckeditor',
     'django_select2',
+    'djangocms_style',
     'cmsplugin_cascade',
     'cmsplugin_cascade.clipboard',
     'cmsplugin_cascade.sharable',
@@ -147,7 +148,6 @@ MIGRATION_MODULES = {
 ROOT_URLCONF = 'myshop.urls'
 
 WSGI_APPLICATION = 'wsgi.application'
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -159,7 +159,7 @@ if os.getenv('POSTGRES_DB') and os.getenv('POSTGRES_USER'):
     # override database with
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB'),
+        'NAME': os.getenv('do'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
@@ -171,31 +171,35 @@ if os.getenv('POSTGRES_DB') and os.getenv('POSTGRES_USER'):
 
 LANGUAGE_CODE = 'en'
 
+LOCALE_PATHS = (
+    os.path.join(WORK_DIR, 'locale'),
+    os.path.join(WORK_DIR, 'myshop/locale'),
+)
 
 USE_I18N = True
 
 LANGUAGES = (
-    ('en', "English"),
-    ('de', "Deutsch"),
-    ('ru', "Русский"),
+    ('en', 'English'),
+    ('uk', 'Українська'),
+    ('ru', 'Русский'),
 )
 
 PARLER_DEFAULT_LANGUAGE = 'en'
 
 PARLER_LANGUAGES = {
     1: (
-        {'code': 'de'},
         {'code': 'en'},
+        {'code': 'uk'},
         {'code': 'ru'},
     ),
     'default': {
-        'fallbacks': ['de', 'en'],
+        'fallbacks': ['en'],
     },
 }
 
 CMS_LANGUAGES = {
     'default': {
-        'fallbacks': ['en', 'de'],
+        'fallbacks': ['en'],
         'redirect_on_fallback': True,
         'public': True,
         'hide_untranslated': False,
@@ -208,9 +212,15 @@ CMS_LANGUAGES = {
         'redirect_on_fallback': True,
     }, {
         'public': True,
-        'code': 'de',
+            'code': 'uk',
         'hide_untranslated': False,
-        'name': 'Deutsch',
+            'name': 'Українська',
+            'redirect_on_fallback': True,
+        }, {
+            'public': True,
+            'code': 'ru',
+            'hide_untranslated': False,
+            'name': 'Русский',
         'redirect_on_fallback': True,
     },)
 }
@@ -609,10 +619,10 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 if USE_I18N:
-    HAYSTACK_CONNECTIONS['de'] = {
+    HAYSTACK_CONNECTIONS['uk'] = {
         'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
         'URL': 'http://{}:9200/'.format(ELASTICSEARCH_HOST),
-        'INDEX_NAME': 'myshop-bombay-de',
+        'INDEX_NAME': 'myshop-bombay-uk',
     }
 
 HAYSTACK_ROUTERS = [
@@ -623,7 +633,7 @@ HAYSTACK_ROUTERS = [
 # settings for django-shop and its plugins
 
 SHOP_VALUE_ADDED_TAX = Decimal(19)
-SHOP_DEFAULT_CURRENCY = 'EUR'
+SHOP_DEFAULT_CURRENCY = 'UAH'
 SHOP_PRODUCT_SUMMARY_SERIALIZER = 'myshop.serializers.ProductSummarySerializer'
 
 SHOP_CART_MODIFIERS = ['myshop.polymorphic_modifiers.MyShopCartModifier']
