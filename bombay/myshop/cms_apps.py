@@ -12,12 +12,7 @@ from shop.cms_apphooks import CatalogListCMSApp, CatalogSearchCMSApp, OrderCMSAp
 
 class CatalogListApp(CatalogListCMSApp):
     def get_urls(self, page=None, language=None, **kwargs):
-        if settings.SHOP_TUTORIAL in ['bombay', 'polymorphic']:
-            return ['myshop.urls.polymorphic_products']
-        elif settings.SHOP_TUTORIAL == 'i18n_commodity':
-            return ['myshop.urls.i18n_products']
-        else:
-            return ['myshop.urls.simple_products']
+        return ['myshop.urls.polymorphic_products']
 
 apphook_pool.register(CatalogListApp)
 

@@ -9,22 +9,33 @@
 			<div class="row">
 				<div class="col-xs-12 col-sm-3">
 					<a href="/">
-						<img class="brand-logo" src="{% static 'shop/bombay-shop-logo.png' %}" alt="Bombayshop" height="80" />
+						<img class="brand-logo" src="{% static 'shop/bombay-shop-logo.png' %}" alt="django-SHOP"
+							 height="100"/>
 					</a>
 				</div>
 				<div class="col-xs-12 col-sm-9">
+					<div class="row">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="tel:+380939227227"><i class="fa fa-phone"></i>&nbsp;+380939227227</a></li>
-						{% with dropdown_extra_class="expanded-nav" %}
+						<li><a href="tel:+380939227227"><h4><i class="fa fa-phone"></i>&nbsp;<em>+38 093 922 72 27</em>
+						</h4></a></li>
+						{% with dropdown_extra_class="expanded-nav h4" %}
 						{% language_chooser "shop/navbar/language-chooser.html" %}
 						{% include "shop/navbar/login-logout.html" %}
 						{% endwith %}
-					</ul>
+						</ul>
+					</div>
+					<div class="row">
+						<ul class="nav navbar-nav navbar-right">
+							<li>{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form navbar-right hidden-xs" %}</li>
+							<li>{% cart_icon %}</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	{{ block.super }}
+	{% with black as background-color %}{{ block.super }}{% endwith %}
+
 	<div class="container">
 		<div class="form-group visible-xs">
 			{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form" %}
@@ -42,14 +53,12 @@
 {% endblock navbar %}
 
 {% block navbar-nav %}
-	{{ block.super }}
-	<ul class="nav navbar-nav navbar-right">
-		{% with dropdown_extra_class="collapsed-nav" %}
-		{% language_chooser "shop/navbar/language-chooser.html" %}
-		{% include "shop/navbar/login-logout.html" %}
-		{% endwith %}
-		{% include "shop/navbar/watch-icon.html" %}
-		<li>{% cart_icon %}</li>
-	</ul>
-	{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form navbar-right hidden-xs" %}
+
+<div class="row">
+	<div class="col-xs-12 col-sm-8 navbar-blue pull-right">
+		{{ block.super }}
+	</div>
+</div>
+
+
 {% endblock %}
