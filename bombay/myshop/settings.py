@@ -90,6 +90,7 @@ INSTALLED_APPS = [
     'djangocms_text_ckeditor',
     'django_select2',
     'djangocms_style',
+    'djangocms_file',
     'cmsplugin_cascade',
     'cmsplugin_cascade.clipboard',
     'cmsplugin_cascade.sharable',

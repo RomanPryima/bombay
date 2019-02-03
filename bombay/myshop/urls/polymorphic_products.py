@@ -11,7 +11,7 @@ from django.conf.urls import url
 from shop.search.views import CMSPageCatalogWrapper
 from shop.views.catalog import AddToCartView, ProductRetrieveView
 
-from myshop.filters import ManufacturerFilterSet
+from myshop.filters import ManufacturerFilterSet, CountryOfOriginFilterSet
 from myshop.serializers import (AddSmartPhoneToCartSerializer, CatalogSearchSerializer)
 
 
