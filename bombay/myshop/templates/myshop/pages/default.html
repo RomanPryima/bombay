@@ -28,8 +28,6 @@
 </div>
 {% endplaceholder %}{% endblock main-content %}
 
-{% block footer %}{% static_placeholder "Static Footer" or %}
-<div class="container">
-	<p class="text-muted">Place sticky footer content here.</p>
-</div>
-{% endstatic_placeholder %}{% endblock footer %}
+{% block footer %}
+	{% include "myshop/pages/footer.html" %}
+{% endblock footer %}

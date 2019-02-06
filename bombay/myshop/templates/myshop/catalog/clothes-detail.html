@@ -6,29 +6,68 @@
 	<div class="row product-detail">
 		<div class="col-xs-12 col-md-8">
 			<h1>{% render_model product "product_name" %}</h1>
-			<pre class="images">
-			{% for img in product.images.all %}
-				{% thumbnail img 250x250 crop as thumb %}
-				<img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ product.product_name }}">
-			{% endfor %}
-			</pre>
+			<div class="images">
+				<div id="img-container" style="max-height: 300;">
+					<img class="img-responsive" src="{{ product.sample_image.url }}" alt="{{ product.sample_image }}">
+				</div>
+			</div>
 		</div>
 		<div class="col-xs-12 col-md-8">
 			{{ product.description|safe }}
 			<table class="table table-bordered">
 				<tbody class="table-striped">
 					<tr>
-						<td>{% trans "Card Type" %}</td>
-						<td>{{ product.get_card_type_display }}</td>
+						<td>{% trans "Category" %}</td>
+						<td>{{ product.category }}</td>
 					</tr>
+					{% if product.country_of_origin %}
 					<tr>
 						<td>{% trans "Country of origin" %}</td>
 						<td>{{ product.country_of_origin }}</td>
 					</tr>
+					{% endif %}
+					{% if product.manufacturer %}
 					<tr>
 						<td>{% trans "Manufacturer" %}</td>
 						<td>{{ product.manufacturer }}</td>
 					</tr>
+					{% endif %}
+					{% if product.color %}
+					<tr>
+						<td>{% trans "Color" %}</td>
+						<td>{{ product.color }}</td>
+					</tr>
+					{% endif %}
+					{% if product.color %}
+					<tr>
+						<td>{% trans "Sezon" %}</td>
+						<td>{{ product.sezon }}</td>
+					</tr>
+					{% endif %}
+					{% if product.fabric %}
+					<tr>
+						<td>{% trans "Fabric" %}</td>
+						<td>{{ product.fabric }}</td>
+					</tr>
+					{% endif %}
+					{% if product.composition %}
+					<tr>
+						<td>{% trans "Composition" %}</td>
+						<td>{{ product.composition }}</td>
+					</tr>
+					{% endif %}
+					{% if product.decoration %}
+					<tr>
+						<td>{% trans "Decoration" %}</td>
+						<td>{{ product.decoration }}</td>
+					</tr>
+					{% endif %}
+					{% if product.condition %}
+					<tr>
+						<td>{% trans "Condition" %}</td>
+						<td>{{ product.condition }}</td>
+					</tr>
+					{% endif %}
 				</tbody>
 			</table>
 			<!-- include "Add to Cart" dialog box -->

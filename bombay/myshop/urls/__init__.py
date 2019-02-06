@@ -28,6 +28,7 @@ i18n_urls = (
     url(r'^', include('cms.urls')),
 )
 urlpatterns = [
+    url('^contact/', include('contact_us.urls')),
     url(r'^robots\.txt$', render_robots),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     url(r'^shop/', include('shop.urls', namespace='shop')),

@@ -117,6 +117,7 @@ INSTALLED_APPS = [
     'easy_thumbnails.optimize',
     'post_office',
     'haystack',
+    'contact_us',
     'shop',
     'shop_stripe',
     'myshop',
