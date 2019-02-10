@@ -27,7 +27,7 @@ CLASSIFIERS = [
 setup(
     author="Jacob Rief",
     author_email="jacob.rief@gmail.com",
-    name="django-shop",
+    name="bombay-shop",
     version=shop.__version__,
     description="A RESTful e-commerce framework based on Django",
     long_description=long_description,

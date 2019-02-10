@@ -17,6 +17,6 @@ class OrderAdmin(PrintOrderAdminMixin, DeliveryOrderAdminMixin, OrderAdmin):
 
 admin.site.register(Order, OrderAdmin)
 
-__all__ = ['commodity', 'customer']
+__all__ = ['customer']
 
 admin.site.site_header = "Bombay-SHOP administration"

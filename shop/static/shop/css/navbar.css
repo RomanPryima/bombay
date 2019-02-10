@@ -1,0 +1,22 @@
+.navbar {
+  background-color: #d9d9d9; }
+
+.navbar-nav .shop-dropdown-forms {
+  padding: 10px 15px; }
+  .navbar-nav .shop-dropdown-forms .btn {
+    margin-bottom: 10px; }
+
+.navbar-blue .navbar-nav li a {
+	background-color: #016d8b;
+	color: #ffff;
+}
+
+.navbar-blue .navbar-nav li a:hover {
+	background-color: #004b5f;
+	color: #ffff;
+}
+
+.navbar-blue .dropdown-menu {
+  background-color: #016d8b;
+}
+

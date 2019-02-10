@@ -11,4 +11,5 @@ class ProductsSitemap(Sitemap):
     i18n = True
 
     def items(self):
-        return ProductModel.objects.all()
+        pass
+        # return ProductModel.objects.all()

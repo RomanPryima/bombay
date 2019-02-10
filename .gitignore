@@ -33,6 +33,7 @@ workdir/
 django-shop-workdir_*
 example/
 logs/
+bombay_env
 bombay/fixtures/
 bombay/media/
 bombay/static/

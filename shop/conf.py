@@ -59,7 +59,7 @@ class DefaultSettings(object):
         For further information about formatting currency amounts, please refer to
         https://docs.microsoft.com/en-us/globalization/locale/currency-formatting
         """
-        return self._setting('SHOP_MONEY_FORMAT', '{minus}{symbol} {amount}')
+        return self._setting('SHOP_MONEY_FORMAT', '{amount} {symbol}')
 
     @property
     def SHOP_DECIMAL_PLACES(self):

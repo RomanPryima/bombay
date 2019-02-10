@@ -55,9 +55,9 @@ class Command(BaseCommand):
     def clear_compressor_cache(self):
         from django.core.cache import caches
         from django.core.cache.backends.base import InvalidCacheBackendError
-        from compressor.conf import settings
+        from compressor.conf import settings as s
 
-        cache_dir = os.path.join(settings.STATIC_ROOT, settings.COMPRESS_OUTPUT_DIR)
+        cache_dir = os.path.join(s.STATIC_ROOT, s.COMPRESS_OUTPUT_DIR)
         if settings.COMPRESS_ENABLED is False or os.listdir(cache_dir) != []:
             return
         try:

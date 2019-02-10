@@ -1,0 +1,39 @@
+{% load i18n cms_tags static menu_tags sekizai_tags sass_tags %}
+{% addtoblock "js" %}
+<script src="{% static 'node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js' %}"></script>
+{% endaddtoblock %}
+{% add_data "ng-requires" "ui.bootstrap" %}
+{% addtoblock "js" %}
+<script src="{% static 'shop/js/utils.js' %}" type="text/javascript"></script>
+{% endaddtoblock %}
+{% addtoblock "js" %}
+<script src="{% static 'shop/js/catalog.js' %}" type="text/javascript"></script>
+{% endaddtoblock %}
+{% add_data "ng-requires" "django.shop.catalog" %}
+{% block catalog-list %}
+{% addtoblock "css" %}
+<link href="{% sass_src 'shop/css/product-list.scss' %}" rel="stylesheet" type="text/css"/>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+{% endaddtoblock %}
+<shop-catalog-list infinite-scroll="{{ infinite_scroll|yesno:'true,false' }}">
+	<div>
+		{% for category in categories %}
+		 <div class="col-md-4 col-sm-6">
+		<div class="box" style="max-width:80%; max-height:80%;">
+			<a href="{% page_url category.page %}">
+			<img  src="{{ category.image.url }}" alt="{{ category.name }}">
+			<div class="box-content">
+				<h3 class="title">
+					{{ category.name }}
+				</h3>
+			</div>
+			</a>
+		</div>
+		 </div>
+		{% endfor %}
+	</div>
+</shop-catalog-list>
+{% endblock catalog-list %}
+{% block paginator %}
+{% include "shop/catalog/paginator.html" %}
+{% endblock %}

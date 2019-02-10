@@ -22,13 +22,13 @@ def render_robots(request):
 
 i18n_urls = (
     url(r'^admin/', include(admin.site.urls)),
+    url('^contact/', include('contact_us.urls')),
     url(r'^password-reset-confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/?$',
         PasswordResetConfirm.as_view(template_name='myshop/pages/password-reset-confirm.html'),
         name='password_reset_confirm'),
     url(r'^', include('cms.urls')),
 )
 urlpatterns = [
-    url('^contact/', include('contact_us.urls')),
     url(r'^robots\.txt$', render_robots),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     url(r'^shop/', include('shop.urls', namespace='shop')),

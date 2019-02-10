@@ -176,6 +176,8 @@ LANGUAGE_CODE = 'en'
 LOCALE_PATHS = (
     os.path.join(WORK_DIR, 'locale'),
     os.path.join(WORK_DIR, 'myshop/locale'),
+    os.path.join(WORK_DIR, '../shop/locale'),
+    os.path.join(WORK_DIR, '../contact_us/locale'),
 )
 
 USE_I18N = True

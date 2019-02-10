@@ -42,13 +42,15 @@ services:
     image: bombayshop
     environment:
       - POSTGRES_DB=myshop_bombay
+      - DJANGO_SETTINGS_MODULE=myshop.settings
     env_file:
       - bombay/docker-files/databases.environ
     volumes:
       - shopmedia:/web/workdir
       - ./bombay/myshop:/web/myshop
-      - ./bombay/fixtures/media:/web/media
-      - ./bombay/fixtures/myshop.json:/web/bombay/fixtures/myshop.json
+      - ./bombay/media:/web/media
+      - ./bombay/static:/web/static
+      - ./bombay/myfixtures/bombay.json:/web/bombay/myfixtures/bombay.json
     command: uwsgi --ini uwsgi.ini
     depends_on:
       - postgresdb
@@ -71,6 +73,9 @@ services:
     command: su django -c /web/worker.py
     volumes:
       - shopmedia:/web/workdir
+      - ./bombay/myshop:/web/myshop
+      - ./bombay/media:/web/media
+      - ./bombay/static:/web/static
     depends_on:
       - postgresdb
       - redishost

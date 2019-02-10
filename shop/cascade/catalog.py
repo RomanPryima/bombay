@@ -5,7 +5,7 @@ from django.contrib.admin import StackedInline
 from django.forms import widgets
 from django.forms.models import ModelForm
 from django.template.loader import select_template
-from django.utils.translation import ugettext_lazy as _, ugettext
+from django.utils.translation import ugettext_lazy as _, ugettext, get_language
 
 from cms.plugin_pool import plugin_pool
 from cms.utils.compat.dj import is_installed
@@ -14,7 +14,9 @@ from cmsplugin_cascade.models import SortableInlineCascadeElement
 from cmsplugin_cascade.fields import GlossaryField
 
 from shop.conf import app_settings
+from shop.models.categories import Category
 from shop.models.product import ProductModel
+
 from .plugin_base import ShopPluginBase, ProductSelectField
 
 if is_installed('adminsortable2'):
@@ -57,6 +59,37 @@ class ShopCatalogPlugin(ShopPluginBase):
         return ugettext("Manual Pagination")
 
 plugin_pool.register_plugin(ShopCatalogPlugin)
+
+
+class ShopCategoryPlugin(ShopPluginBase):
+    name = _("Categories List View")
+    require_parent = True
+    parent_classes = ('BootstrapColumnPlugin', 'SimpleWrapperPlugin',)
+    cache = False
+    render_template = 'shop/catalog/category-list.html'
+
+    infinite_scroll = GlossaryField(
+        widgets.CheckboxInput(),
+        label=_("Infinite Scroll"),
+        initial=True,
+        help_text=_("Shall the categories list view scroll infinitely?"),
+    )
+
+
+    def render(self, context, instance, placeholder):
+        context = super(ShopCategoryPlugin, self).render(context, instance, placeholder)
+        categories = Category.objects.all().language(get_language())
+        context['categories'] = [_ for _ in categories]
+        context['infinite_scroll'] = bool(instance.glossary.get('infinite_scroll', True))
+        return context
+
+    @classmethod
+    def get_identifier(cls, obj):
+        if obj.glossary.get('infinite_scroll', True):
+            return ugettext("Infinite Scroll")
+        return ugettext("Manual Pagination")
+
+plugin_pool.register_plugin(ShopCategoryPlugin)
 
 
 class ShopAddToCartPlugin(ShopPluginBase):

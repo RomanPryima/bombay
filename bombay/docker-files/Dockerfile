@@ -5,7 +5,7 @@ LABEL Description="Run bombay-SHOP"
 RUN mkdir /web
 WORKDIR /web
 ARG DJANGO_WORKDIR=/web/workdir
-ARG DJANGO_STATIC_ROOT=/web/staticfiles
+ARG DJANGO_STATIC_ROOT=/web/static
 ARG DJANGO_MEDIA_ROOT=/web/media
 
 # install packages outside of PyPI
@@ -17,6 +17,7 @@ RUN apt-get install -y nodejs optipng jpegoptim
 ADD setup.py /web/setup.py
 ADD README.md /web/README.md
 ADD shop /web/shop
+ADD contact_us /web/contact_us
 ADD email_auth /web/email_auth
 ADD bombay/myshop /web/myshop
 ADD requirements /web/requirements
@@ -41,8 +42,8 @@ ENV DJANGO_STATIC_ROOT=$DJANGO_STATIC_ROOT
 ENV DJANGO_MEDIA_ROOT=$DJANGO_MEDIA_ROOT
 ENV DJANGO_WORKDIR=$DJANGO_WORKDIR
 RUN mkdir -p $DJANGO_STATIC_ROOT/CACHE
-RUN DJANGO_SHOP_TUTORIAL=commodity python manage.py compilescss
-RUN DJANGO_SHOP_TUTORIAL=commodity python manage.py collectstatic --noinput --ignore='*.scss'
+RUN python manage.py compilescss
+RUN python manage.py collectstatic --noinput --ignore='*.scss'
 RUN chown -R django.django $DJANGO_STATIC_ROOT/CACHE
 
 # handle media files in external volume

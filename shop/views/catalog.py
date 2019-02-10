@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 import os
 
 from django.db import models
-from django.http.response import Http404, HttpResponseRedirect
+from django.http.response import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.utils.cache import add_never_cache_headers
 from django.utils.translation import get_language_from_request
