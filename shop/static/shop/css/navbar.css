@@ -16,6 +16,11 @@
 	color: #ffff;
 }
 
+.navbar-blue .navbar-nav .active a {
+	background-color: #004b5f;
+	color: #ffff;
+}
+cd
 .navbar-blue .dropdown-menu {
   background-color: #016d8b;
 }

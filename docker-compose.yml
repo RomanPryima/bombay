@@ -41,13 +41,15 @@ services:
       dockerfile: bombay/docker-files/Dockerfile
     image: bombayshop
     environment:
+      - DJANGO_DEBUG=1
       - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
     env_file:
       - bombay/docker-files/databases.environ
     volumes:
-      - shopmedia:/web/workdir
+#      - shopmedia:/web/workdir
       - ./bombay/myshop:/web/myshop
+      - ./contact_us:/web/contact_us
       - ./bombay/media:/web/media
       - ./bombay/static:/web/static
       - ./bombay/myfixtures/bombay.json:/web/bombay/myfixtures/bombay.json
@@ -65,6 +67,7 @@ services:
     restart: always
     image: bombayshop
     environment:
+      - DJANGO_DEBUG=1
       - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
     env_file:
@@ -72,7 +75,8 @@ services:
       - bombay/docker-files/email.environ
     command: su django -c /web/worker.py
     volumes:
-      - shopmedia:/web/workdir
+#      - shopmedia:/web/workdir
+      - ./contact_us:/web/contact_us
       - ./bombay/myshop:/web/myshop
       - ./bombay/media:/web/media
       - ./bombay/static:/web/static

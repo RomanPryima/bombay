@@ -1,0 +1,27 @@
+bsp-scrollpanel ul {
+  margin: 0;
+  padding: 5px;
+  display: block;
+  overflow-x: hidden;
+  list-style-type: none;
+  white-space: nowrap;
+  margin-left: 20px;
+  transition: margin-left 0.5s; }
+  bsp-scrollpanel ul li {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    width: 200px;
+    overflow: auto;
+    white-space: initial; }
+    bsp-scrollpanel ul li figure {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      min-height: 340px; }
+      bsp-scrollpanel ul li figure a:hover, bsp-scrollpanel ul li figure a:active {
+        text-decoration: none; }
+      bsp-scrollpanel ul li figure h4 {
+        min-height: 38px; }
+      bsp-scrollpanel ul li figure figcaption {
+        margin-top: 5px;
+        min-height: 50px; }

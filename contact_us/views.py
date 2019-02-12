@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 from django.template import loader
 from django.views.generic.edit import FormView
 
-from contact_us.forms import ContactUsForm, SUBJECT_CHOICES
+from contact_us.forms import ContactUsForm
 from contact_us.models import Feedback
 from django.utils.translation import ugettext as _
 
@@ -21,11 +21,8 @@ class ContactUsView(FormView):
         if not self.request.user.is_anonymous:
             initial['name'] = self.request.user.get_full_name()
             initial['email'] = self.request.user.email
-        initial['subject'] = 'info'
+            initial['subject'] = self.subject
         return initial
-
-    def form_invalid(self, form):
-        return form.errors
 
     def form_valid(self, form):
         form_data = form.cleaned_data
@@ -36,5 +33,4 @@ class ContactUsView(FormView):
             message=form_data.get('message'),
         )
         feedback.save()
-        import pdb; pdb.set_trace()
         return super(ContactUsView, self).form_valid(form)

@@ -15,9 +15,7 @@ class ContactUsForm(forms.Form):
     name = forms.CharField(required=True, max_length=512)
     email = forms.EmailField(required=True)
 
-    subject = forms.ChoiceField(
-        required=True, choices=SUBJECT_CHOICES,
-        widget=forms.Select(attrs={'class': "form-control"}))
+    subject = forms.CharField(required=True, max_length=120)
 
     message = forms.CharField(
         widget=forms.Textarea(attrs={'class': "form-control"}),

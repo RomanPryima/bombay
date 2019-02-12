@@ -1,0 +1,514 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-02-08 19:22+0200\n"
+"PO-Revision-Date: 2019-02-08 19:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: myshop/admin/bombay.py:54 myshop/admin/bombay.py:111
+#: myshop/admin/manufacturer.py:18
+msgid "Translatable Fields"
+msgstr ""
+
+#: myshop/admin/bombay.py:57
+msgid "Properties"
+msgstr "Властивості"
+
+#: myshop/admin/bombay.py:133
+msgid "Price starting at"
+msgstr "Ціна починається від"
+
+#: myshop/apps.py:13
+msgid "My Shop"
+msgstr "Магазин Бомбей"
+
+#: myshop/cms_wizards.py:15
+msgid "New Commodity"
+msgstr "Новий товар"
+
+#: myshop/cms_wizards.py:18
+msgid "Create a new Commodity instance"
+msgstr "Створити нову одиницю товару"
+
+#: myshop/filters.py:25
+msgid "Any Manufacturer"
+msgstr "Будь-який виробник"
+
+#: myshop/filters.py:26
+msgid "Restrict product on this manufacturer only"
+msgstr ""
+
+#: myshop/filters.py:50
+msgid "Any country of origin"
+msgstr "Будь-яка країна походження"
+
+#: myshop/filters.py:51
+msgid "Restrict product on this country of origin only"
+msgstr ""
+
+#: myshop/management/commands/initialize_bombay_shop.py:21
+msgid "Initialize the workdir to run the bombay myshop."
+msgstr ""
+
+#: myshop/models/bombay/commodity.py:17 myshop/models/bombay/dresses.py:17
+#: myshop/models/bombay/smartcard.py:16 myshop/models/bombay/smartphone.py:167
+#, fuzzy
+#| msgid "Unit Price"
+msgid "Unit price"
+msgstr "Ціна за одиницю"
+
+#: myshop/models/bombay/commodity.py:19 myshop/models/bombay/dresses.py:19
+#: myshop/models/bombay/smartcard.py:18 myshop/models/bombay/smartphone.py:169
+msgid "Net price for this product"
+msgstr "Ціна продукту"
+
+#: myshop/models/bombay/commodity.py:23 myshop/models/bombay/dresses.py:23
+#: myshop/models/bombay/smartcard.py:38 myshop/models/bombay/smartphone.py:161
+#, fuzzy
+#| msgid "Product Code"
+msgid "Product code"
+msgstr "Код продукту"
+
+#: myshop/models/bombay/commodity.py:35
+msgid "Commodity"
+msgstr "Товар"
+
+#: myshop/models/bombay/commodity.py:36
+msgid "Commodities"
+msgstr "Товари"
+
+#: myshop/models/bombay/dresses.py:30 myshop/models/bombay/smartcard.py:50
+#: myshop/models/bombay/smartphone.py:110
+msgid "Description"
+msgstr "Опис"
+
+#: myshop/models/bombay/dresses.py:32
+msgid "Full description used in the catalog's detail view of Clothes."
+msgstr "Повний опис для перегляду деталей продукту (одяг)"
+
+#: myshop/models/bombay/dresses.py:34
+msgid "Color of product"
+msgstr "Колір продукту"
+
+#: myshop/models/bombay/dresses.py:36
+msgid "Product season"
+msgstr "Сезон продукту"
+
+#: myshop/models/bombay/dresses.py:38
+msgid "Fabric of product"
+msgstr "Тканина продукту"
+
+#: myshop/models/bombay/dresses.py:40 myshop/models/bombay/dresses.py:41
+msgid "Composition of product material"
+msgstr "Склад матеріалу продукту"
+
+#: myshop/models/bombay/dresses.py:43 myshop/models/bombay/dresses.py:44
+#, fuzzy
+#| msgid "Decoration"
+msgid "Decoration and features"
+msgstr "Оздоблення"
+
+#: myshop/models/bombay/dresses.py:45
+msgid "New"
+msgstr "Новий"
+
+#: myshop/models/bombay/dresses.py:45
+msgid "Used"
+msgstr "Користований"
+
+#: myshop/models/bombay/dresses.py:46
+msgid "Condition of product"
+msgstr "Стан продукту"
+
+#: myshop/models/bombay/dresses.py:53
+msgid "Clothes (singular)"
+msgstr "Одяг"
+
+#: myshop/models/bombay/dresses.py:54
+msgid "Clothes"
+msgstr "Одяг"
+
+#: myshop/models/bombay/order.py:13
+msgid "Ordered quantity"
+msgstr "Замовлена кількість"
+
+#: myshop/models/bombay/order.py:14
+msgid "Item canceled "
+msgstr "Одиниця скасована"
+
+#: myshop/models/bombay/product.py:38
+msgid "Product Name"
+msgstr "Назва продукту"
+
+#: myshop/models/bombay/product.py:43
+msgid "Slug"
+msgstr "Відображення для пошукових систем"
+
+#: myshop/models/bombay/product.py:52
+#: myshop/templates/myshop/catalog/clothes-detail.html:31
+#: myshop/templates/myshop/catalog/smartcard-detail.html:29
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:25
+msgid "Manufacturer"
+msgstr "Виробник"
+
+#: myshop/models/bombay/product.py:58 myshop/models/manufacturer.py:27
+#, fuzzy
+#| msgid "Country of origin"
+msgid "Countries of origin"
+msgstr "Країна походження"
+
+#: myshop/models/bombay/product.py:64
+#, fuzzy
+#| msgid "Category"
+msgid "Categories"
+msgstr "Категорія"
+
+#: myshop/models/bombay/product.py:70
+msgid "Sort by"
+msgstr "Сортування за"
+
+#: myshop/models/bombay/product.py:77
+msgid "Choose list view this product shall appear on."
+msgstr ""
+
+#: myshop/models/bombay/product.py:87
+#, fuzzy
+#| msgid "Product Code"
+msgid "Product"
+msgstr "Код продукту"
+
+#: myshop/models/bombay/product.py:88
+#, fuzzy
+#| msgid "Product Code"
+msgid "Products"
+msgstr "Код продукту"
+
+#: myshop/models/bombay/product.py:111
+#, fuzzy
+#| msgid "Composition"
+msgid "Caption"
+msgstr "Склад"
+
+#: myshop/models/bombay/product.py:115
+msgid "Short description used in the catalog's list view of products."
+msgstr "Повний опис для перегляду продукту в каталозі."
+
+#: myshop/models/bombay/smartcard.py:25
+#: myshop/templates/myshop/catalog/smartcard-detail.html:21
+msgid "Card Type"
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:32
+msgid "Transfer Speed"
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:44
+msgid "Storage Capacity"
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:45
+msgid "Storage capacity in GB"
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:52
+msgid "Full description used in the catalog's detail view of Smart Cards."
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:59
+msgid "Smart Card"
+msgstr ""
+
+#: myshop/models/bombay/smartcard.py:60
+msgid "Smart Cards"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:18 myshop/models/manufacturer.py:12
+msgid "Name"
+msgstr "Ім'я"
+
+#: myshop/models/bombay/smartphone.py:43
+msgid "Battery type"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:48
+msgid "Capacity"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:49
+msgid "Battery capacity in mAh"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:53
+msgid "RAM"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:54
+msgid "RAM storage in MB"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:58
+msgid "WiFi"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:60
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:37
+msgid "WiFi Connectivity"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:64
+msgid "Bluetooth"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:66
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:41
+msgid "Bluetooth Connectivity"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:70
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:45
+msgid "GPS"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:72
+msgid "GPS integrated"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:77
+msgid "Operating System"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:81
+msgid "Width"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:84
+msgid "Width in mm"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:88
+msgid "Height"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:91
+msgid "Height in mm"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:95
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:53
+msgid "Weight"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:98
+msgid "Weight in gram"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:102
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:57
+msgid "Screen size"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:105
+msgid "Diagonal screen size in inch"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:112
+msgid "Full description used in the catalog's detail view of Smart Phones."
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:119
+msgid "Smart Phone"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:120
+msgid "Smart Phones"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:156
+msgid "Smartphone Model"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:173
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:8
+msgid "Internal Storage"
+msgstr ""
+
+#: myshop/models/bombay/smartphone.py:174
+msgid "Internal storage in MB"
+msgstr ""
+
+#: myshop/models/manufacturer.py:20 myshop/models/manufacturer.py:26
+#: myshop/templates/myshop/catalog/clothes-detail.html:25
+msgid "Country of origin"
+msgstr "Країна походження"
+
+#: myshop/modifiers.py:17
+msgid "Postal shipping"
+msgstr "Доставка поштою"
+
+#: myshop/modifiers.py:24
+msgid "Shipping costs"
+msgstr "Вартість доставки"
+
+#: myshop/modifiers.py:33
+msgid "Customer pickups the goods"
+msgstr "Самовивіз"
+
+#: myshop/settings.py:453
+msgid "Default Page"
+msgstr ""
+
+#: myshop/settings.py:454
+msgid "Test Page"
+msgstr ""
+
+#: myshop/settings.py:531
+#, fuzzy
+#| msgid "Product Code"
+msgid "Product Heading"
+msgstr "Код продукту"
+
+#: myshop/settings.py:532
+#, fuzzy
+#| msgid "Manufacturer"
+msgid "Manufacturer Filter"
+msgstr "Виробник"
+
+#: myshop/settings.py:535
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: myshop/settings.py:536
+msgid "Add Commodity to Cart"
+msgstr "Додати товар до кошика"
+
+#: myshop/settings.py:671
+msgid "Thanks for purchasing at MyShop"
+msgstr "Дякуємо за покупку в нашому магазині."
+
+#: myshop/templates/myshop/cart/editable.html:9
+#: myshop/templates/myshop/cart/static.html:11
+#: myshop/templates/myshop/order/detail.html:10
+msgid "Product Code"
+msgstr "Код продукту"
+
+#: myshop/templates/myshop/cart/editable.html:25
+msgid "Remove"
+msgstr "Видалити"
+
+#: myshop/templates/myshop/cart/editable.html:29
+msgid "Watch Item"
+msgstr "Переглянути зразок"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:20
+msgid "Category"
+msgstr "Категорія"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:37
+msgid "Color"
+msgstr "Колір"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:43
+msgid "Sezon"
+msgstr "Сезон"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:49
+msgid "Fabric"
+msgstr "Тканина"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:55
+msgid "Composition"
+msgstr "Склад"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:61
+msgid "Decoration"
+msgstr "Оздоблення"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:67
+msgid "Condition"
+msgstr "Стан"
+
+#: myshop/templates/myshop/catalog/commodity-add2cart.html:8
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:10
+msgid "Unit Price"
+msgstr "Ціна за одиницю"
+
+#: myshop/templates/myshop/catalog/commodity-add2cart.html:9
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:11
+msgid "Subtotal"
+msgstr "Попередній підсумок"
+
+#: myshop/templates/myshop/catalog/commodity-add2cart.html:20
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:40
+msgid "Watch product"
+msgstr "Переглянути продукт"
+
+#: myshop/templates/myshop/catalog/commodity-add2cart.html:24
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:43
+msgid "Add to cart"
+msgstr "Додати до кошика"
+
+#: myshop/templates/myshop/catalog/smartcard-detail.html:25
+msgid "Storage capacity"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:9
+msgid "Quantity"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:20
+msgid "Pluggable"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:29
+msgid "Battery"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:33
+msgid "RAM Storage"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:49
+msgid "Dimensions"
+msgstr ""
+
+#: myshop/templates/myshop/catalog/smartphonemodel-detail.html:58
+msgid "inch"
+msgstr ""
+
+#: myshop/templates/myshop/pages/footer.html:15
+msgid "колоритного одягу і аксесуарів"
+msgstr ""
+
+#: myshop/templates/myshop/pages/footer.html:16
+msgid "м.Львів,"
+msgstr ""
+
+#: myshop/templates/myshop/pages/footer.html:17
+msgid "вул. Дудаєва,"
+msgstr ""
+
+#: myshop/templates/myshop/pages/footer.html:36
+msgid "Contact us"
+msgstr "Написати нам"
+
+#: myshop/templates/myshop/pages/footer.html:50
+msgid "Bombay - The Shop of color women's clothes."
+msgstr "Бомбей - магазин колоритного жіночого одягу."
+
+#: myshop/templates/myshop/pages/password-reset-confirm.html:4
+msgid "Password Reset Confirm"
+msgstr "Підтвердження скидання паролю"

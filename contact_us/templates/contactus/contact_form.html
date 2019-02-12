@@ -6,12 +6,14 @@
 			<div class="col-md-12">
 				<div class="text-center"><h2>{% trans "Your opinion is important for us." %}</h2></div>
 				<div class="form-group  {% if form.name.errors %}has-error{% endif %}">
+					{{ form.name.errors }}
 					<label for="name">
 						{% trans "Name" %}</label>
 					<input type="text" class="form-control" id="name" name="name"
 						   value="{% if form.data.name %}{{form.data.name}}{% else %}{{form.initial.name}}{% endif %}" required="required"/>
 				</div>
 				<div class="form-group {% if form.subject.errors %}has-error{% endif %}">
+					{{ form.email.errors }}
 					<label for="email">
 						{% trans "Email Address" %}</label>
 					<div class="input-group">
@@ -21,8 +23,13 @@
 							    value="{% if form.data.email %}{{form.data.email}}{% else %}{{form.initial.email}}{% endif %}" required="required"/></div>
 				</div>
 				<div class="form-group  {% if form.subject.errors %}has-error{% endif %}">
+					{{ form.subject.errors }}
 					<label for="subject">{% trans "Subject" %}</label>
-					{{form.subject}}
+					<div class="input-group">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span>
+                                </span>
+					<input type="text" class="form-control" id="subject" name="subject"
+							    value="{% if form.data.subject %}{{form.data.subject}}{% else %}{{form.initial.subject}}{% endif %}" required="required"/></div>
 				</div>
 				<div class="form-group  {% if form.message.errors %}has-error{% endif %}">
 					<label for="name">{% trans "Message" %}</label>
@@ -40,4 +47,18 @@
 			</div>
 		</div>
 	</form>
+	<script>
+		$( "#contactus-form" ).on( "submit", function sendFeedback(event) {
+	event.preventDefault();
+	 $.ajax({ // create an AJAX call...
+        data: $(this).serialize(),
+        type: $(this).attr('method'),
+        url: $(this).attr('action'),
+        success: function(response) {
+            $('#contactus-place').html(response);
+        }
+    });
+	})
+
+	</script>
 </div>
