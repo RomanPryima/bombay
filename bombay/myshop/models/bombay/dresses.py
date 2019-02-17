@@ -28,10 +28,10 @@ class Clothes(Product):
         help_text=_("Net price for this product"),
     )
 
-    discounted_price = MoneyField(
-        _("Discounted price"),
+    price_without_discount = MoneyField(
+        _("Price without discount"),
         decimal_places=2,
-        help_text=_("Price for this product after applying a discount."),
+        help_text=_("Price for this product without applying a discount."),
     )
 
     product_code = models.CharField(
@@ -42,6 +42,10 @@ class Clothes(Product):
 
     gender = models.CharField(_('Gender'), max_length=15, choices=GENDERS)
     season = models.CharField(_('Seson'), max_length=15, choices=SEASONS)
+
+    condition = models.CharField(choices=[(_('new'), _('New')), (_('used'), _('Used'))],
+                                 verbose_name=_('Condition of product'), help_text=_('Condition of product'),
+                                 max_length=255, null=True, blank=True)
 
     multilingual = TranslatedFields(
         description=HTMLField(
@@ -58,16 +62,15 @@ class Clothes(Product):
                                      blank=True),
         decoration=models.CharField(verbose_name=_('Decoration and features'),
                                     help_text=_('Decoration and features'), max_length=255, null=True, blank=True),
-        condition=models.CharField(choices=[(_('new'), _('New')), (_('used'), _('Used'))],
-                                   verbose_name=_('Condition of product'), help_text=_('Condition of product'),
-                                   max_length=255, null=True, blank=True)
     )
 
     default_manager = TranslatableManager()
 
     @property
     def discount(self):
-        return '{} %'.format(str(round((self.unit_price - self.discounted_price) / self.unit_price, 0)))
+        return '- {} %'.format(
+            str(round((self.price_without_discount.__float__() - self.unit_price.__float__()) /
+                      self.unit_price.__float__() * 100, 0)))
 
     class Meta:
         verbose_name = _("Clothes")

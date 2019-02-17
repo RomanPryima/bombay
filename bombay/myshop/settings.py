@@ -56,7 +56,7 @@ SITE_ID = 1
 # system time zone.
 TIME_ZONE = 'Europe/Kiev'
 
-USE_THOUSAND_SEPARATOR = True
+USE_THOUSAND_SEPARATOR = False
 
 # Application definition
 

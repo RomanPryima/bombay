@@ -12,27 +12,33 @@
 <div class="container">
 	<div class="row product-detail">
 		<div class="col-xs-12 col-md-12">
-			<div class="col-xs-10 col-md-10">
+			<div class="col-xs-8 col-md-8">
 				<h1>{% render_model product "product_name" %}</h1>
 			</div>
-			<div class="col-xs-2 col-md-2 pull-right">
-				<span class="label label-primary" style="color: #e6ffff">{{ product.availability }}</span>
-			</div>
-			<div class="images col-xs-12 col-md-12 text-center">
-				<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails is-ready">
-					<a href="{{ product.images.all.1.url }}">
-						<img src="{{ product.images.all.0.url }}" style="max-height: 30em;" alt="{{ product.product_name }}" >
-					</a>
+			<div class="col-xs-4 col-md-4">
+				<div class="promoBox">
+					<aside><h3>{{ product.discount }}</h3></aside>
+					<h4 style="color: #4f85bb">{{ product.availability }}</h4>
+					<h3>{{ product.unit_price }}</h3>
+					<p><del>{{ product.price_without_discount }}</del></p>
 				</div>
-				<div class="thumbnails">
-					{% for img in product.images.all %}
-
-						{% thumbnail img 250x250 as thumb %}
-						<a href="{{ img.url }}" data-standard="{{ img.url }}">
-							<img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ product.product_name }}">
-						</a>
-
-					{% endfor %}
+			</div>
+			</div>
+			<div class="col-xs-2 col-md-2 thumbnails" style="margin-right: 2%; margin-bottom: 2%;">
+				{% for img in product.images.all %}
+				{% thumbnail img 150x150 as thumb %}
+				<a href="{{ img.url }}" data-standard="{{ img.url }}">
+					<img style="margin-right: 2%; margin-bottom: 2%;" src="{{ thumb.url }}" width="{{ thumb.width }}"
+						 height="{{ thumb.height }}" alt="{{ product.product_name }}">
+				</a>
+				{% endfor %}
+			</div>
+			<div class="images col-xs-8 col-md-8 text-center">
+				<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails is-ready">
+					<a href="{{ product.images.all.0.url }}">
+						<img src="{{ product.images.all.0.url }}" style="max-height: 35em;"
+							 alt="{{ product.product_name }}">
+					</a>
 				</div>
 			</div>
 		</div>
@@ -64,8 +70,8 @@
 					{% endif %}
 					{% if product.color %}
 					<tr>
-						<td>{% trans "Sezon" %}</td>
-						<td>{{ product.sezon }}</td>
+						<td>{% trans "Season" %}</td>
+						<td>{{ product.season }}</td>
 					</tr>
 					{% endif %}
 					{% if product.fabric %}
