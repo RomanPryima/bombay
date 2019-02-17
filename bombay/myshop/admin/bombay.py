@@ -16,8 +16,8 @@ from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildMode
 
 from shop.admin.product import CMSPageAsCategoryMixin, ProductImageInline, InvalidateProductCacheMixin, CMSPageFilter
 
-from myshop.models import Product, Commodity, SmartCard, SmartPhoneVariant, SmartPhoneModel, Clothes
-from myshop.models.bombay.smartphone import OperatingSystem
+from myshop.models import Product, Commodity, SmartCard, SmartPhoneVariant, SmartPhoneModel, Clothes, ClothesVariant
+# from myshop.models.bombay.smartphone import OperatingSystem
 
 
 # @admin.register(Commodity)
@@ -43,24 +43,24 @@ from myshop.models.bombay.smartphone import OperatingSystem
 #     prepopulated_fields = {'slug': ['product_name']}
 
 
-@admin.register(SmartCard)
-class SmartCardAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
-                     CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
-    base_model = Product
-    fieldsets = [
-        (None, {
-            'fields': ['product_name', 'slug', 'product_code', 'unit_price', 'active'],
-        }),
-        (_("Translatable Fields"), {
-            'fields': ['caption', 'description'],
-        }),
-        (_("Properties"), {
-            'fields': ['manufacturer', 'storage', 'card_type', 'speed'],
-        }),
-    ]
-    filter_horizontal = ['cms_pages']
-    inlines = [ProductImageInline]
-    prepopulated_fields = {'slug': ['product_name']}
+# @admin.register(SmartCard)
+# class SmartCardAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+#                      CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
+#     base_model = Product
+#     fieldsets = [
+#         (None, {
+#             'fields': ['product_name', 'slug', 'product_code', 'unit_price', 'active'],
+#         }),
+#         (_("Translatable Fields"), {
+#             'fields': ['caption', 'description'],
+#         }),
+#         (_("Properties"), {
+#             'fields': ['manufacturer', 'storage', 'card_type', 'speed'],
+#         }),
+#     ]
+#     filter_horizontal = ['cms_pages']
+#     inlines = [ProductImageInline]
+    # prepopulated_fields = {'slug': ['product_name']}
 
 # admin.site.register(OperatingSystem, admin.ModelAdmin)
 
@@ -99,28 +99,49 @@ class SmartCardAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
 #     render_text_index.short_description = _("Text Index")
 
 
+class ClothesInline(admin.TabularInline):
+    model = ClothesVariant
+    extra = 0
+
+
 @admin.register(Clothes)
 class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
                      CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
     base_model = Product
     fieldsets = [
         (None, {
-            'fields': ['product_name', 'slug', 'product_code', 'unit_price', 'active', 'country_of_origin', 'category',
-                       'color', 'sezon', 'fabric', 'composition','decoration', 'condition', 'manufacturer'],
+            'fields': ['product_name',
+                       'availability',
+                       'product_code',
+                       'slug',
+                       'unit_price',
+                       'discounted_price',
+                       'active',
+                       'country_of_origin',
+                       'category',
+                       'color',
+                       'fabric',
+                       'season',
+                       'composition',
+                       'decoration',
+                       'condition',
+                       'manufacturer',
+                       'gender',
+                       ],
         }),
         (_("Translatable Fields"), {
             'fields': ['caption', 'description'],
         }),
     ]
     filter_horizontal = ['cms_pages']
-    inlines = [ProductImageInline]
-    prepopulated_fields = {'slug': ['product_name']}
+    inlines = [ProductImageInline, ClothesInline]
+    prepopulated_fields = {'slug': ['product_code']}
+
 
 @admin.register(Product)
 class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     base_model = Product
-    # child_models = [SmartPhoneModel, SmartCard, Commodity, Clothes]
-    child_models = [SmartCard, Clothes]
+    child_models = [Clothes]
     list_display = ['product_name', 'get_price', 'product_type', 'active']
     list_display_links = ['product_name']
     search_fields = ['product_name']

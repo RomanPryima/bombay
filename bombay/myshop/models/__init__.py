@@ -15,7 +15,7 @@ from .bombay.dresses import Clothes
 from .bombay.order import OrderItem
 from .bombay.product import Product
 from .bombay.commodity import Commodity
-from .bombay.dresses import Clothes
+from .bombay.dresses import Clothes, ClothesVariant
 from .bombay.smartcard import SmartCard
 from .bombay.smartphone import SmartPhoneModel, SmartPhoneVariant
 from shop.models.defaults.delivery import Delivery, DeliveryItem

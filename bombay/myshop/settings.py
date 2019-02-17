@@ -636,7 +636,7 @@ HAYSTACK_ROUTERS = [
 ############################################
 # settings for django-shop and its plugins
 
-SHOP_VALUE_ADDED_TAX = Decimal(19)
+SHOP_VALUE_ADDED_TAX = Decimal(0)
 SHOP_DEFAULT_CURRENCY = 'UAH'
 SHOP_PRODUCT_SUMMARY_SERIALIZER = 'myshop.serializers.ProductSummarySerializer'
 

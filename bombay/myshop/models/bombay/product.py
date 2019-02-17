@@ -15,6 +15,13 @@ from shop.models.defaults.mapping import ProductPage, ProductImage
 from ..manufacturer import CountryOfOrigin, Manufacturer
 
 
+AVAILABILITY = (
+    ('available', _('Available')),
+    ('not_available', _('Not available')),
+    ('on_order', _('On Order')),
+    ('avaiting_delivery', _('Avaiting Delivery')),
+)
+
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
     pass
 
@@ -34,9 +41,12 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
     our different product types. These common fields are also used to build up the view displaying
     a list of all products.
     """
-    product_name = models.CharField(
-        _("Product Name"),
-        max_length=255,
+    product_name = TranslatedField()
+
+    availability = models.CharField(
+        _('Availability'),
+        max_length=50,
+        choices=AVAILABILITY
     )
 
     slug = models.SlugField(
@@ -55,13 +65,13 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
 
     country_of_origin = models.ForeignKey(
         CountryOfOrigin,
-        verbose_name=_("Countries of origin"),
+        verbose_name=_("Country of origin"),
         null=True, blank=True
     )
 
     category = models.ForeignKey(
         Category,
-        verbose_name=_("Categories"),
+        verbose_name=_("Category"),
         null=True,  blank=True
     )
 
@@ -105,6 +115,11 @@ class ProductTranslation(TranslatedFieldsModel):
         Product,
         related_name='translations',
         null=True,
+    )
+
+    product_name = models.CharField(
+        _("Product Name"),
+        max_length=255,
     )
 
     caption = HTMLField(

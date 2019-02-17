@@ -7,7 +7,6 @@
 	{{ block.super }}
 	{% addtoblock "css" %}<link href="{% sass_src 'myshop/css/product-detail.scss' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
 	{% addtoblock "js" %}<script src="https://unpkg.com/js-image-zoom@0.4.1/js-image-zoom.js" type="text/javascript"></script>{% endaddtoblock %}
-	{% addtoblock "js" %}<script src="{% static 'myshop/js/zoom.js' %}" type="text/javascript"></script>{% endaddtoblock %}
 {% endblock head %}
 
 {% block main-content %}

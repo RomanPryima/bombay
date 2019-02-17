@@ -74,7 +74,7 @@ class Command(BaseCommand):
             fixture = '/web/bombay/myfixtures/bombay.json'
             call_command('loaddata', fixture)
         except Exception:
-            fixture = './myfixtures/bombay.json'
+            fixture = './myfixtures/from_docker/bombay.json'
             call_command('loaddata', fixture)
 
         call_command('fix_filer_bug_965')
