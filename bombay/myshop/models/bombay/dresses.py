@@ -69,7 +69,7 @@ class Clothes(Product):
     @property
     def discount(self):
         return '- {} %'.format(
-            str(round((self.price_without_discount.__float__() - self.unit_price.__float__()) /
+            int(round((self.price_without_discount.__float__() - self.unit_price.__float__()) /
                       self.unit_price.__float__() * 100, 0)))
 
     class Meta:

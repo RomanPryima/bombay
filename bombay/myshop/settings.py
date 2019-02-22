@@ -119,7 +119,6 @@ INSTALLED_APPS = [
     'haystack',
     'contact_us',
     'shop',
-    'shop_stripe',
     'myshop',
 ]
 INSTALLED_APPS.append('parler')
@@ -642,9 +641,11 @@ SHOP_PRODUCT_SUMMARY_SERIALIZER = 'myshop.serializers.ProductSummarySerializer'
 
 SHOP_CART_MODIFIERS = ['myshop.polymorphic_modifiers.MyShopCartModifier']
 SHOP_CART_MODIFIERS.extend([
-    'shop.modifiers.taxes.CartExcludedTaxModifier',
+    # 'shop.modifiers.taxes.CartExcludedTaxModifier',
+    'myshop.modifiers.NovaPoshtaModifier',
     'myshop.modifiers.PostalShippingModifier',
     'myshop.modifiers.CustomerPickupModifier',
+    'myshop.modifiers.AddressDeliveryModifier',
     'shop.modifiers.defaults.PayInAdvanceModifier',
 ])
 
