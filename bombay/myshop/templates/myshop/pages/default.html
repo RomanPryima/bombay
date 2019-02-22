@@ -12,9 +12,11 @@
 	{% include "myshop/pages/navbar.html" with navbar_classes="navbar-default navbar-fixed-top" %}
 {% endblock header %}
 
+{% comment %}
 {% block breadcrumb %}{% placeholder "Breadcrumb" or %}
 	{% include "shop/breadcrumb/default.html" %}
 {% endplaceholder %}{% endblock breadcrumb %}
+{% endcomment %}
 
 {% block main-content %}{% placeholder "Main Content" inherit or %}
 <div class="container">
