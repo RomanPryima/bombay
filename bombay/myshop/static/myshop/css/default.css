@@ -3161,7 +3161,7 @@ tbody.collapse.in {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background-color: #016d8b;
+  background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
@@ -8398,7 +8398,7 @@ shop-auth-form .ng-invalid.ng-touched {
   display: none; }
 
 .btn-contactus {
-  background: #016d8b;
+  background: #fff;
   color: #ffff;
   width: 180px;
   padding: 4px 0;

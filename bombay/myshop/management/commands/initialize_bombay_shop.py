@@ -71,10 +71,10 @@ class Command(BaseCommand):
         self.clear_compressor_cache()
         call_command('migrate')
         try:
-            fixture = '/web/bombay/myfixtures/bombay.json'
+            fixture = '/web/fixtures/bombay.json'
             call_command('loaddata', fixture)
         except Exception:
-            fixture = './myfixtures/from_docker/bombay.json'
+            fixture = './fixtures/bombay.json'
             call_command('loaddata', fixture)
 
         call_command('fix_filer_bug_965')

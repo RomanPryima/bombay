@@ -10,8 +10,13 @@ from shop.serializers.bases import ProductSerializer
 from shop.search.serializers import ProductSearchSerializer as BaseProductSearchSerializer
 
 from myshop.search_indexes import myshop_search_index_classes
+from .polymorphic import (SmartCardSerializer, ClothesSerializer, AddClothesToCartSerializer,
+                          SmartPhoneSerializer, AddSmartPhoneToCartSerializer)
 
-__all__ = ['ProductSummarySerializer', 'ProductSearchSerializer', 'CatalogSearchSerializer']
+
+__all__ = ['ProductSummarySerializer', 'ProductSearchSerializer', 'CatalogSearchSerializer',
+           'SmartCardSerializer', 'SmartPhoneSerializer', 'AddSmartPhoneToCartSerializer',
+           'ClothesSerializer', 'AddClothesToCartSerializer']
 
 
 class ProductSummarySerializer(ProductSerializer):
@@ -22,29 +27,6 @@ class ProductSummarySerializer(ProductSerializer):
 
     def get_media(self, product):
         return self.render_html(product, 'media')
-
-if settings.SHOP_TUTORIAL in ['commodity', 'i18n_commodity']:
-
-    class ProductDetailSerializer(ProductSerializer):
-        class Meta(ProductSerializer.Meta):
-            fields = ['product_name', 'slug', 'unit_price', 'product_code']
-
-    __all__.append('ProductDetailSerializer')
-
-elif settings.SHOP_TUTORIAL in ['smartcard', 'i18n_smartcard']:
-
-    class ProductDetailSerializer(ProductSerializer):
-        class Meta(ProductSerializer.Meta):
-            fields = ['product_name', 'slug', 'unit_price', 'manufacturer', 'card_type', 'speed',
-                      'product_code', 'storage']
-
-    __all__.append('ProductDetailSerializer')
-
-elif settings.SHOP_TUTORIAL in ['bombay', 'polymorphic']:
-
-    from .polymorphic import (SmartCardSerializer, SmartPhoneSerializer, AddSmartPhoneToCartSerializer)
-
-    __all__.extend(['SmartCardSerializer', 'SmartPhoneSerializer', 'AddSmartPhoneToCartSerializer'])
 
 
 class ProductSearchSerializer(BaseProductSearchSerializer):

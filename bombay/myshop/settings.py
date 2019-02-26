@@ -187,11 +187,11 @@ LANGUAGES = (
     ('ru', 'Русский'),
 )
 
-PARLER_DEFAULT_LANGUAGE = 'en'
+PARLER_DEFAULT_LANGUAGE = 'uk'
 
 PARLER_LANGUAGES = {
     1: (
-        {'code': 'en'},
+        # {'code': 'en'},
         {'code': 'uk'},
         {'code': 'ru'},
     ),
@@ -202,18 +202,20 @@ PARLER_LANGUAGES = {
 
 CMS_LANGUAGES = {
     'default': {
-        'fallbacks': ['en'],
+        'fallbacks': ['uk'],
         'redirect_on_fallback': True,
         'public': True,
         'hide_untranslated': False,
     },
-    1: ({
+    1: (
+        {
         'public': True,
         'code': 'en',
         'hide_untranslated': False,
         'name': 'English',
         'redirect_on_fallback': True,
-    }, {
+    },
+        {
         'public': True,
             'code': 'uk',
         'hide_untranslated': False,
@@ -642,10 +644,11 @@ SHOP_PRODUCT_SUMMARY_SERIALIZER = 'myshop.serializers.ProductSummarySerializer'
 SHOP_CART_MODIFIERS = ['myshop.polymorphic_modifiers.MyShopCartModifier']
 SHOP_CART_MODIFIERS.extend([
     # 'shop.modifiers.taxes.CartExcludedTaxModifier',
-    'myshop.modifiers.NovaPoshtaModifier',
     'myshop.modifiers.PostalShippingModifier',
     'myshop.modifiers.CustomerPickupModifier',
     'myshop.modifiers.AddressDeliveryModifier',
+    'myshop.modifiers.NovaPoshtaModifier',
+    'myshop.modifiers.CashOnDeliveryPaymentModifier',
     'shop.modifiers.defaults.PayInAdvanceModifier',
 ])
 

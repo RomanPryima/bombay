@@ -18,6 +18,7 @@ SEASONS = (
     ('fall', _('Fall')),
     ('winter', _('Winter')),
 )
+
 SIZES = [(_, _) for _ in range(44, 68)]
 
 class Clothes(Product):
@@ -78,6 +79,24 @@ class Clothes(Product):
 
     def get_price(self, request):
         return self.unit_price
+
+    def is_in_cart(self, cart, watched=False, **kwargs):
+        from shop.models.cart import CartItemModel
+        try:
+            product_code = kwargs['product_code']
+        except KeyError:
+            return
+        cart_item_qs = CartItemModel.objects.filter(cart=cart, product=self)
+        for cart_item in cart_item_qs:
+            if cart_item.product_code == product_code:
+                return cart_item
+
+    def get_product_variant(self, **kwargs):
+        try:
+            return self.variants.get(**kwargs)
+        except ClothesVariant.DoesNotExist as e:
+            raise Clothes.DoesNotExist(e)
+
 
 
 class ClothesVariant(models.Model):

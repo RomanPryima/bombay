@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from decimal import Decimal
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import FieldError, ObjectDoesNotExist
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from shop.models import order
@@ -17,7 +17,13 @@ class OrderItem(order.BaseOrderItem):
         super(OrderItem, self).populate_from_cart_item(cart_item, request)
         # the product's unit_price must be fetched from the product's variant
         try:
-            variant = cart_item.product.get_product_variant(product_code=cart_item.product_code)
-            self._unit_price = Decimal(variant.unit_price)
+            try:
+                variant = cart_item.product.get_product_variant(product_size=cart_item.extra.get('product_size'))
+            except FieldError:
+                variant = cart_item.product.get_product_variant(product_code=cart_item.product_code)
+            try:
+                cart_item.unit_price = variant.product.unit_price
+            except AttributeError:
+                cart_item.unit_price = variant.unit_price
         except (KeyError, ObjectDoesNotExist) as e:
             raise CartItemModel.DoesNotExist(e)

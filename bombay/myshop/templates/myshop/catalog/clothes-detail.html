@@ -10,7 +10,7 @@
 
 {% block main-content %}
 <div class="container">
-	<div class="row product-detail">
+	<div class="row product-detail" style="margin: 7%;">
 		<div class="col-xs-12 col-md-12">
 			<div class="col-xs-8 col-md-8">
 				<h1>{% render_model product "product_name" %}</h1>
@@ -18,7 +18,7 @@
 			<div class="col-xs-4 col-md-4">
 				<div class="promoBox">
 					<aside><h3>{{ product.discount }}</h3></aside>
-					<h4 style="color: #4f85bb">{{ product.availability }}</h4>
+					<h4 style="color: #4f85bb">{{ product.get_availability_display }}</h4>
 					<h3 style="color: red;">{{ product.unit_price }}</h3>
 					<p><del>{{ product.price_without_discount }}</del></p>
 				</div>
@@ -47,6 +47,10 @@
 			<table class="table table-bordered">
 				<tbody class="table-striped">
 					<tr>
+						<td>{% trans "Gender" %}</td>
+						<td>{{ product.get_gender_display }}</td>
+					</tr>
+					<tr>
 						<td>{% trans "Category" %}</td>
 						<td>{{ product.category }}</td>
 					</tr>
@@ -71,7 +75,7 @@
 					{% if product.color %}
 					<tr>
 						<td>{% trans "Season" %}</td>
-						<td>{{ product.season }}</td>
+						<td>{{ product.get_season_display }}</td>
 					</tr>
 					{% endif %}
 					{% if product.fabric %}
@@ -95,13 +99,13 @@
 					{% if product.condition %}
 					<tr>
 						<td>{% trans "Condition" %}</td>
-						<td>{{ product.condition }}</td>
+						<td>{{ product.get_condition_display }}</td>
 					</tr>
 					{% endif %}
 				</tbody>
 			</table>
 			<!-- include "Add to Cart" dialog box -->
-			{% include "shop/catalog/product-add2cart.html" %}
+			{% include "myshop/catalog/clothes-add2cart.html" %}
 		</div>
 	</div>
 </div>
