@@ -48,7 +48,6 @@
 }
 .box:hover img {
   opacity: 0.7;
-  filter: grayscale(50%) hue-rotate(180deg);
   transform: scale(1.2);
 }
 .box .box-content {

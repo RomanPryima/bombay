@@ -193,7 +193,7 @@ class BaseCustomer(with_metaclass(deferred.ForeignKeyBuilder, models.Model)):
     object is created for anonymous customers also (with unusable password).
     """
     user = models.OneToOneField(
-        settings.Fz,
+        settings.AUTH_USER_MODEL,
         primary_key=True,
     )
 

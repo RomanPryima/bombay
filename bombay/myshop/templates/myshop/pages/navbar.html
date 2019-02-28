@@ -4,30 +4,29 @@
 {% page_url 'shop-watch-list' as shop_watch_list_url %}{% if not shop_watch_list_url %}{% url "shop-watch-list" as shop_watch_list_url %}{% endif %}
 
 {% block navbar %}
-	<div class="navbar-extra-top">
+	<div class="navbar-extra-top" style="background-color: #fff;">
+		<div style="line-height:40px; text-align:center; width:100%; color:white; background-color: #016d8b; font-size:15px;"><em>{% trans "МОДА ВІД 40 ДО 68 РОЗМІРУ................ГАРАНТІЯ ПОВЕРНЕННЯ ТА ОБМІНУ ТОВАРУ................ГНУЧКА СИСТЕМА ЗНИЖОК" %}</em></div>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-3">
-					<a href="/">
-						<img class="brand-logo" src="{% static 'shop/bombay-shop-logo.png' %}" alt="Bombay-SHOP"
-							 height="80"/>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-9">
+				<div class="col-xs-12 col-sm-12">
 					<div class="row">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="tel:+380939227227"><h4><i class="fa fa-phone"></i>&nbsp;<em>+38 093 922 72 27</em>
-						</h4></a></li>
-						{% with dropdown_extra_class="expanded-nav h4" %}
-						{% language_chooser "shop/navbar/language-chooser.html" %}
-						{% include "shop/navbar/login-logout.html" %}
-						{% endwith %}
+							<ul class="nav navbar-nav">
+							<li>
+								<a href="tel:+380939227227" style="padding-top: 5px;"><h4><i class="fa fa-phone"></i>&nbsp;<em>+380939227227&nbsp;&nbsp;&nbsp;{% trans "м.Львів,  вул. Дудаєва, 3" %}</em>
+								</h4>
+								</a>
+							</li>
 						</ul>
-					</div>
-					<div class="row">
-						<ul class="nav navbar-nav navbar-right">
-							<li>{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form navbar-right hidden-xs" %}</li>
-							<li>{% cart_icon %}</li>
+					<ul class="nav navbar-nav navbar-right">
+
+						<li>{% with dropdown_extra_class="expanded-nav h4" %}</li>
+						<li>{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form navbar-right hidden-xs" %}</li>
+						<li>{% cart_icon %}</li>
+						{% with navbar as dropdown_extra_class %}
+						<li>{% language_chooser "shop/navbar/language-chooser.html" %}</li>
+						<li>{% include "shop/navbar/login-logout.html" %}</li>
+						{% endwith %}
+						{% endwith %}
 						</ul>
 					</div>
 				</div>
@@ -54,8 +53,14 @@
 
 {% block navbar-nav %}
 
-<div class="row">
-	<div class="col-xs-12 col-sm-8 navbar-blue pull-right">
+<div class="row" style="margin-top: 3%">
+	<div class="col-xs-12 col-sm-2">
+		<a href="/">
+			<img class="brand-logo" src="{% static 'shop/bombay-shop-logo.png' %}" alt="Bombay-SHOP"
+				 height="62"/>
+		</a>
+	</div>
+	<div class="col-xs-12 col-sm-10 navbar-blue pull-right" style="padding-top: 1%;">
 		{{ block.super }}
 	</div>
 </div>
