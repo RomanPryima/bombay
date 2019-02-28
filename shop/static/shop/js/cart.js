@@ -59,7 +59,7 @@ djangoShopModule.directive('shopCartItem', function() {
 					data: cartItem
 				}).then(function(response) {
 					angular.extend($scope.cart_item, response.data.cart_item);
-					angular.extend($scope.cart, response.data.cart);
+						angular.extend($scope.cart, response.data.cart);
 					$rootScope.$broadcast('shop.carticon.caption');
 				}).finally(function() {
 					isLoading = false;

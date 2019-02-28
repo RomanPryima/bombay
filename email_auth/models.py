@@ -9,6 +9,7 @@ settings.py, otherwise the default Django or another customized implementation w
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser, UserManager as BaseUserManager
 from django.core.exceptions import ValidationError
+from django.db.models import CharField
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
@@ -29,6 +30,7 @@ class User(AbstractUser):
     email field is only used in addition. It must be unique only for users marked as active.
     """
     objects = UserManager()
+    phone = CharField(_('phone'), max_length=30, blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
@@ -40,12 +42,15 @@ class User(AbstractUser):
         swappable = 'AUTH_USER_MODEL'
 
     def get_username(self):
-        return self.email
+        if self.email:
+            return self.email
+        else:
+            return self.get_full_name()
 
     def __str__(self):
         if self.is_staff or self.is_superuser:
             return self.username
-        return self.email or '<anonymous>'
+        return self.email or self.get_full_name()
 
     def get_full_name(self):
         full_name = super(User, self).get_full_name()
@@ -53,21 +58,21 @@ class User(AbstractUser):
             return full_name
         return self.get_short_name()
 
-    def get_short_name(self):
+    def captionget_short_name(self):
         short_name = super(User, self).get_short_name()
         if short_name:
             return short_name
-        return self.email
+        return self.phone
 
     def validate_unique(self, exclude=None):
         """
-        Since the email address is used as the primary identifier, we must ensure that it is
+        Since the phone is used as the primary identifier, we must ensure that it is
         unique. However, this can not be done on the field declaration since is only applies to
         active users. Inactive users can not login anyway, so we don't need a unique constraint
         for them.
         """
         super(User, self).validate_unique(exclude)
-        if self.email and get_user_model().objects.exclude(id=self.id).filter(is_active=True,
-                                                                              email__exact=self.email).exists():
-            msg = _("A customer with the e-mail address ‘{email}’ already exists.")
-            raise ValidationError({'email': msg.format(email=self.email)})
+        if self.phone and get_user_model().objects.exclude(id=self.id).filter(is_active=True,
+                                                                              phone__exact=self.phone).exists():
+            msg = _("A customer with the e-mail address ‘{phone}’ already exists.")
+            raise ValidationError({'phone': msg.format(phone=self.phone)})

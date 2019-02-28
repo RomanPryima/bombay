@@ -7,7 +7,9 @@
 {% addtoblock "js" %}<script src="{% static 'shop/js/catalog.js' %}" type="text/javascript"></script>{% endaddtoblock %}
 {% add_data "ng-requires" "django.shop.catalog" %}
 
+{% comment %}
 {% page_url "shop-watch-list" as shop_watch_list_url %}{% if not shop_watch_list_url %}{% url "shop-watch-list" as shop_watch_list_url %}{% endif %}
+{% endcomment %}
 
 {% block add-product-to-cart-panel %}{% with inline_styles=instance.inline_styles %}
 <div class="panel panel-default"{% if inline_styles %} style="{{ inline_styles }}"{% endif %}>
@@ -31,6 +33,7 @@
 					</div>
 				</td>
 				<td ng-bind="context.unit_price"></td>
+				<td ng-if="context.discounted_price" ng-bind="context"></td>
 				<td ng-bind="context.subtotal"></td>
 			</tr>
 		{% if request.session.is_empty %}{% spaceless %}

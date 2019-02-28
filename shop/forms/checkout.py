@@ -21,14 +21,15 @@ class CustomerForm(DialogModelForm):
     scope_prefix = 'customer'
     legend = _("Customer's Details")
 
-    email = fields.EmailField(label=_("Email address"))
+    # email = fields.EmailField(label=_("Email address"), required=False)
     first_name = fields.CharField(label=_("First Name"))
     last_name = fields.CharField(label=_("Last Name"))
+    phone = fields.CharField(label=_("Phone"))
 
     class Meta:
         model = CustomerModel
         exclude = ['user', 'recognized', 'number', 'last_access']
-        custom_fields = ['email', 'first_name', 'last_name']
+        custom_fields = ['first_name', 'last_name', 'phone', ]
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         initial = dict(initial) if initial else {}
@@ -53,13 +54,14 @@ class CustomerForm(DialogModelForm):
 class GuestForm(UniqueEmailValidationMixin, DialogModelForm):
     scope_prefix = 'guest'
     form_name = 'customer_form'  # Override form name to reuse template `customer-form.html`
-    legend = _("Customer's Email")
+    legend = _("Customer's Data")
 
-    email = fields.EmailField(label=_("Email address"))
+    # email = fields.EmailField(label=_("Email address"), required=False,)
+    phone = fields.IntegerField(label=_("Phone"))
 
     class Meta:
         model = get_user_model()  # since we only use the email field, use the User model directly
-        fields = ['email']
+        fields = ['phone', 'first_name', 'last_name']
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         if isinstance(instance, CustomerModel):
@@ -86,7 +88,7 @@ class AddressForm(DialogModelForm):
         label="use primary address",  # label will be overridden by Shipping/Billing/AddressForm
         required=False,
         initial=True,
-        widget=CheckboxInput(),
+        widget=widgets.HiddenInput(),
     )
 
     plugin_fields = ['plugin_id', 'plugin_order', 'use_primary_address']
@@ -247,6 +249,7 @@ class ShippingAddressForm(AddressForm):
 
     def set_address(self, cart, instance):
         cart.shipping_address = instance if not self['use_primary_address'].value() else None
+        cart.shipping_address = instance if not self['use_primary_address'].value() else None
 
 
 class BillingAddressForm(AddressForm):
@@ -309,6 +312,10 @@ class ShippingMethodForm(DialogForm):
         label=_("Shipping Method"),
         widget=RadioSelect(attrs={'ng-change': 'updateMethod()'}),
     )
+
+    np_branch = fields.CharField(label=_("City and branch No. if Nova Poshta delivery was chosen"),
+                                 required=False,
+                                 widget=widgets.TextInput)
 
     def __init__(self, *args, **kwargs):
         choices = [m.get_choice() for m in cart_modifiers_pool.get_shipping_modifiers()

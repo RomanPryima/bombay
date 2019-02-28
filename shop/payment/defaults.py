@@ -28,6 +28,22 @@ class ForwardFundPayment(PaymentProvider):
         return 'window.location.href="{}";'.format(thank_you_url)
 
 
+class CashOnDeliveryPayment(PaymentProvider):
+    namespace = 'cash-on-delivery-payment'
+
+    def get_payment_request(self, cart, request):
+        order = OrderModel.objects.create_from_cart(cart, request)
+        order.populate_from_cart(cart, request)
+        if order.total == 0:
+            order.no_payment_required()
+        else:
+            order.order_received()
+        order.save()
+        thank_you_url = OrderModel.objects.get_latest_url()
+        return 'window.location.href="{}";'.format(thank_you_url)
+
+
+
 class ManualPaymentWorkflowMixin(object):
     """
     Add this class to `settings.SHOP_ORDER_WORKFLOWS` to mix it into your `OrderModel`.
@@ -51,7 +67,7 @@ class ManualPaymentWorkflowMixin(object):
     def is_fully_paid(self):
         return super(ManualPaymentWorkflowMixin, self).is_fully_paid()
 
-    @transition(field='status', source=['created'], target='no_payment_required')
+    @transition(field='status', source=['created', 'order_received'], target='no_payment_required')
     def no_payment_required(self):
         """
         Signals that an Order can proceed directly, by confirming a payment of value zero.

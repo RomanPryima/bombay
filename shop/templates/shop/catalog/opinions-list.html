@@ -1,0 +1,42 @@
+{% load i18n static sekizai_tags sass_tags %}
+
+
+<div id="OpinionCarousel" class="carousel slide"  style="margin-top: 3em; margin-bottom: 3em" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+	  {% for opinion in opinions %}
+	  {% if opinion == opinions.0 %}
+    <li data-target="#OpinionCarousel" data-slide-to="" class="active"></li>
+	  {% else %}
+	  <li data-target="#OpinionCarousel" data-slide-to=""></li>
+     {% endif %}
+	 {% endfor %} 
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+	{% for opinion in opinions %}
+ 	{% if opinion == opinions.0 %}
+	  <div class="item active">
+    {% else %}
+	  <div class="item">
+    {% endif %}
+      <img src="http://www.pptbackgrounds.org/uploads/dark-blue-background-backgrounds-wallpapers.jpg" style="height: 200px; width: 100%;" alt="opinion bg">
+		<div class="carousel-caption">
+        <h3>{{ opinion.user_name }}</h3>
+        <p>{{ opinion.message }}/p>
+      </div>
+	</div>
+	{% endfor %}
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#OpinionCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#OpinionCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

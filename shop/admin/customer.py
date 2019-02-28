@@ -41,6 +41,7 @@ class CustomerCreationForm(UserCreationForm):
 
 class CustomerChangeForm(UserChangeForm):
     email = forms.EmailField(required=False)
+    phone = forms.CharField(required=False, max_length=30)
 
     class Meta(UserChangeForm.Meta):
         model = get_user_model()
@@ -49,6 +50,7 @@ class CustomerChangeForm(UserChangeForm):
         initial = kwargs.get('initial', {})
         instance = kwargs.get('instance')
         initial['email'] = instance.email or ''
+        initial['phone'] = instance.phone or ''
         super(CustomerChangeForm, self).__init__(initial=initial, *args, **kwargs)
 
     def clean_email(self):

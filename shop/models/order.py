@@ -24,6 +24,7 @@ from cms.models import Page
 
 from shop.conf import app_settings
 from shop.models.cart import CartItemModel
+from shop.models.customer import BaseCustomer
 from shop.models.fields import JSONField
 from shop.money.fields import MoneyField, MoneyMaker
 from shop import deferred

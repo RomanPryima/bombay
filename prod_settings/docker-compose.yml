@@ -5,7 +5,7 @@ services:
     restart: always
     image: postgres
     env_file:
-      - example/docker-files/databases.environ
+      - settings/databases.environ
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
@@ -36,23 +36,20 @@ services:
 
   wsgiapp:
     restart: always
-    build:
-      context: .
-      dockerfile: bombay/docker-files/Dockerfile
     image: bombayshop
     environment:
-      - DJANGO_DEBUG=1
+      - DJANGO_DEBUG=0
       - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
+      - VIRTUAL_HOST=www.bombayshop.com.ua
+      - VIRTUAL_PROTO=uwsgi
+      - LETSENCRYPT_HOST=www.bombayshop.com.ua
+      - LETSENCRYPT_EMAIL=ssladmin@bombayshop.com.ua
     env_file:
-      - bombay/docker-files/databases.environ
+      - settings/databases.environ
     volumes:
       - shopmedia:/web/workdir
-#      - ./bombay/myshop:/web/myshop
-#      - ./contact_us:/web/contact_us
-#      - ./bombay/media:/web/media
-#      - ./bombay/static:/web/static
-#      - ./bombay/myfixtures/bombay.json:/web/bombay/myfixtures/bombay.json
+      - ./bombay.json:/web/fixtures/bombay.json
     command: uwsgi --ini uwsgi.ini
     depends_on:
       - postgresdb
@@ -60,8 +57,7 @@ services:
       - elasticsearch
     networks:
       - shopnet
-    ports:
-      - 9009:9009
+      - nginx-proxy
 
   worker:
     restart: always
@@ -71,27 +67,26 @@ services:
       - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
     env_file:
-      - bombay/docker-files/databases.environ
-      - bombay/docker-files/email.environ
+      - settings/databases.environ
+      - settings/email.environ
     command: su django -c /web/worker.py
     volumes:
       - shopmedia:/web/workdir
-#      - ./contact_us:/web/contact_us
-#      - ./bombay/myshop:/web/myshop
-#      - ./bombay/media:/web/media
-#      - ./bombay/static:/web/static
+      - ./bombay.json:/web/fixtures/bombay.json
     depends_on:
       - postgresdb
       - redishost
     networks:
       - shopnet
 
-
 networks:
   shopnet:
+  nginx-proxy:
+      external: true
 
 volumes:
   pgdata:
   redisdata:
   shopmedia:
   esdata:
+

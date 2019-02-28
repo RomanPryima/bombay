@@ -193,7 +193,6 @@ class CheckoutAddressPlugin(DialogFormPluginBase):
         form_data = self.super(CheckoutAddressPlugin, self).get_form_data(context, instance, placeholder)
         if form_data['cart'] is None:
             raise PermissionDenied("Can not proceed to checkout without cart")
-
         address = self.get_address(form_data['cart'], instance)
         if instance.glossary.get('allow_multiple'):
             form_data.update(multi_addr=True)

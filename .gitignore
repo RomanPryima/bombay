@@ -37,5 +37,5 @@ bombay_env
 bombay/fixtures/
 bombay/media/
 bombay/static/
-bombay/myshop/static/
 local_run.sh
+*/migrations/

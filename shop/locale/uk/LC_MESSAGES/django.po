@@ -7,78 +7,83 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 13:56+0200\n"
-"PO-Revision-Date: 2019-02-08 17:13+0200\n"
+"POT-Creation-Date: 2019-02-24 23:04+0200\n"
+"PO-Revision-Date: 2019-02-25 09:24+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.7.1\n"
+
+#: admin/categories.py:12
+msgid "Translatable Fields"
+msgstr ""
 
 #: admin/customer.py:34
 msgctxt "customer"
 msgid "Number"
-msgstr ""
+msgstr "Номер"
 
-#: admin/customer.py:59
+#: admin/customer.py:61
 msgid "Customer State"
-msgstr ""
+msgstr "Стан користувача"
 
-#: admin/customer.py:104
+#: admin/customer.py:106
 msgid "Username"
 msgstr "Ім'я користувача"
 
-#: admin/customer.py:109
-msgid "Administrator"
-msgstr ""
-
 #: admin/customer.py:111
-msgid "Staff"
-msgstr ""
+msgid "Administrator"
+msgstr "Адміністратор"
 
 #: admin/customer.py:113
+msgid "Staff"
+msgstr "Персонал"
+
+#: admin/customer.py:115
 msgid "User"
-msgstr ""
+msgstr "Користувач"
 
-#: admin/customer.py:120
+#: admin/customer.py:122
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
-#: admin/customer.py:125
+#: admin/customer.py:127
 msgid "No data"
 msgstr "Відсутні дані"
 
-#: admin/customer.py:126 models/customer.py:207
+#: admin/customer.py:128 models/customer.py:207
 msgid "Last accessed"
-msgstr ""
+msgstr "Останній вхід"
 
-#: admin/customer.py:133
+#: admin/customer.py:135
 msgid "Unexpired"
-msgstr ""
+msgstr "Дійсний"
 
-#: admin/customer.py:149 models/cart.py:169 models/order.py:181
+#: admin/customer.py:151 admin/order.py:145 models/cart.py:169
+#: models/order.py:182
 msgid "Customer"
-msgstr ""
+msgstr "Замовник"
 
-#: admin/customer.py:150
+#: admin/customer.py:152
 msgid "Customers"
-msgstr ""
+msgstr "Замовники"
 
 #: admin/defaults/commodity.py:23
 msgid "Common Fields"
-msgstr ""
+msgstr "Спільні поля"
 
 #: admin/defaults/customer.py:14
 msgid "Addresses"
-msgstr ""
+msgstr "Адреси"
 
 #: admin/defaults/customer.py:20 models/defaults/customer.py:20
 msgid "Customer Number"
-msgstr ""
+msgstr "Номер замовника"
 
 #: admin/defaults/customer.py:25 cascade/checkout.py:147
 #: templates/shop/admin/order-extra.html:5
@@ -126,9 +131,9 @@ msgstr "кількість/одиниць"
 msgid "Delivery Note"
 msgstr "Коментар для доставки"
 
-#: admin/delivery.py:147
+#: admin/delivery.py:147 admin/order.py:225
 msgid "Print out"
-msgstr ""
+msgstr "Роздрук документа"
 
 #: admin/delivery.py:152
 msgid "Pending"
@@ -155,54 +160,51 @@ msgid "Mail Recipient"
 msgstr "Адресат"
 
 #: admin/order.py:70 admin/order.py:137
-msgctxt "admin"
 msgid "Extra data"
-msgstr ""
+msgstr "Додаткові дані"
 
-#: admin/order.py:74
-msgctxt "admin"
+#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:9
+#: templates/shop/order/list.html:17
 msgid "Status"
 msgstr "Статус"
 
 #: admin/order.py:115
-msgctxt "admin"
 msgid "Order number"
 msgstr "Номер замовлення"
 
-#: admin/order.py:119
-msgctxt "admin"
+#: admin/order.py:119 models/order.py:204 templates/shop/cart/editable.html:27
+#: templates/shop/cart/editable.html:58 templates/shop/cart/static.html:11
+#: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
+#: templates/shop/email/order.html:51 templates/shop/order/detail.html:20
+#: templates/shop/order/detail.html:65 templates/shop/print/order.html:12
+#: templates/shop/print/order.html:58
 msgid "Total"
-msgstr "Разом"
+msgstr "Підсумок"
 
-#: admin/order.py:123
-msgctxt "admin"
+#: admin/order.py:123 models/order.py:199 templates/shop/cart/editable.html:48
+#: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
+#: templates/shop/catalog/product-add2cart.html:23
+#: templates/shop/email/order.html:41 templates/shop/order/detail.html:53
+#: templates/shop/print/order.html:44
 msgid "Subtotal"
-msgstr ""
+msgstr "Попередній підсумок"
 
 #: admin/order.py:127
-msgctxt "admin"
 msgid "Outstanding amount"
-msgstr ""
+msgstr "Залишилось до оплати"
 
-#: admin/order.py:145
-msgctxt "admin"
-msgid "Customer"
-msgstr "Замовник"
+#: admin/order.py:149
+msgid "Customer's data"
+msgstr "Дані замовника"
 
-#: admin/order.py:211
-msgctxt "admin"
+#: admin/order.py:215
 msgid "Order Confirmation"
-msgstr ""
+msgstr "Підтвердження замовлення"
 
-#: admin/order.py:213
-msgctxt "admin"
+#: admin/order.py:217 templates/shop/print/invoice.html:4
+#: templates/shop/print/invoice.html:7
 msgid "Invoice"
-msgstr ""
-
-#: admin/order.py:221
-msgctxt "admin"
-msgid "Print out"
-msgstr ""
+msgstr "Рахунок"
 
 #: admin/product.py:57 models/related.py:28
 msgid "Categories"
@@ -218,7 +220,7 @@ msgstr "Категорія"
 
 #: apps.py:10
 msgid "Shop"
-msgstr ""
+msgstr "Магазин"
 
 #: cascade/auth.py:18
 msgid "Login Form"
@@ -226,43 +228,43 @@ msgstr "Форма входу"
 
 #: cascade/auth.py:19
 msgid "Login & Reset Form"
-msgstr ""
+msgstr "Форма входу і скидання паролю"
 
 #: cascade/auth.py:20
 msgid "Logout Form"
-msgstr ""
+msgstr "Форма виходу"
 
 #: cascade/auth.py:21
 msgid "Shared Login/Logout Form"
-msgstr ""
+msgstr "Спільна форма входу/виходу"
 
 #: cascade/auth.py:22
 msgid "Password Reset Form"
-msgstr ""
+msgstr "Форма скидання паролю"
 
 #: cascade/auth.py:23
 msgid "Change Password Form"
-msgstr ""
+msgstr "Форма зміни паролю"
 
 #: cascade/auth.py:24
 msgid "Register User"
-msgstr ""
+msgstr "Реєстраця користувача"
 
 #: cascade/auth.py:25 templates/shop/auth/continue-as-guest.html:11
 msgid "Continue as guest"
-msgstr ""
+msgstr "Продовжити, як гість."
 
 #: cascade/auth.py:30 cascade/checkout.py:42 cascade/plugin_base.py:121
 msgid "CMS Page"
-msgstr ""
+msgstr "CMS Сторінка"
 
 #: cascade/auth.py:30 cascade/checkout.py:43
 msgid "Reload Page"
-msgstr ""
+msgstr "Перезавантажити сторінку"
 
 #: cascade/auth.py:30
 msgid "Do Nothing"
-msgstr ""
+msgstr "Нічого не робити"
 
 #: cascade/auth.py:31
 msgid "Rendered Form"
@@ -274,7 +276,7 @@ msgstr ""
 
 #: cascade/auth.py:46
 msgid "Authentication"
-msgstr ""
+msgstr "Аутентифікація"
 
 #: cascade/auth.py:56
 msgid "unknown"
@@ -310,19 +312,19 @@ msgstr ""
 
 #: cascade/cart.py:21
 msgid "Cart"
-msgstr ""
+msgstr "Кошик"
 
 #: cascade/cart.py:27
 msgid "Editable Cart"
-msgstr ""
+msgstr "Кошик, котрий можна редагувати"
 
 #: cascade/cart.py:27
 msgid "Static Cart"
-msgstr ""
+msgstr "Статичний кошик"
 
 #: cascade/cart.py:28
 msgid "Cart Summary"
-msgstr ""
+msgstr "Товарів у кошику на суму"
 
 #: cascade/cart.py:28 templates/shop/navbar/watch-icon.html:7
 msgid "Watch List"
@@ -332,58 +334,72 @@ msgstr ""
 msgid "Shall the cart be editable or a static summary?"
 msgstr ""
 
-#: cascade/catalog.py:27
+#: cascade/catalog.py:32
 msgid "Catalog List View"
-msgstr ""
+msgstr "Каталог"
 
-#: cascade/catalog.py:34 cascade/catalog.py:56 cascade/search.py:36
-#: cascade/search.py:63
+#: cascade/catalog.py:39 cascade/catalog.py:61 cascade/catalog.py:76
+#: cascade/catalog.py:92 cascade/search.py:36 cascade/search.py:63
 msgid "Infinite Scroll"
 msgstr ""
 
-#: cascade/catalog.py:36
+#: cascade/catalog.py:41
 msgid "Shall the product list view scroll infinitely?"
 msgstr ""
 
-#: cascade/catalog.py:57 cascade/search.py:64
+#: cascade/catalog.py:62 cascade/catalog.py:93 cascade/search.py:64
 msgid "Manual Pagination"
 msgstr ""
 
-#: cascade/catalog.py:63
+#: cascade/catalog.py:68
+#, fuzzy
+#| msgid "Categories"
+msgid "Categories List View"
+msgstr "Категорії"
+
+#: cascade/catalog.py:78
+msgid "Shall the categories list view scroll infinitely?"
+msgstr ""
+
+#: cascade/catalog.py:100
+msgid "Opinions List View"
+msgstr "Відгуки"
+
+#: cascade/catalog.py:118
 msgid "Add Product to Cart"
-msgstr ""
+msgstr "Додати продукт до кошика"
 
-#: cascade/catalog.py:82
+#: cascade/catalog.py:137
 msgid "Related Product"
-msgstr ""
+msgstr "Подібні продукти"
 
-#: cascade/catalog.py:83
+#: cascade/catalog.py:138
 msgid "Choose related product"
-msgstr ""
+msgstr "Вибрати відповідний продукт"
 
-#: cascade/catalog.py:121 cascade/plugin_base.py:121 models/order.py:476
+#: cascade/catalog.py:176 cascade/plugin_base.py:121 models/order.py:477
 #: models/product.py:105 templates/shop/cart/editable.html:25
 #: templates/shop/cart/static.html:9 templates/shop/cart/watch.html:16
-#: templates/shop/email/order.html:11 templates/shop/order/detail.html:20
+#: templates/shop/email/order.html:11 templates/shop/order/detail.html:17
 #: templates/shop/print/order.html:9
 msgid "Product"
-msgstr ""
+msgstr "Продукт"
 
-#: cascade/catalog.py:122 cascade/catalog.py:126
+#: cascade/catalog.py:177 cascade/catalog.py:181
 msgid "Product Gallery"
-msgstr ""
+msgstr "Галерея продуктів"
 
 #: cascade/checkout.py:40 cascade/order.py:64 cascade/processbar.py:95
 msgid "Button Content"
-msgstr ""
+msgstr "Вміст кнопки"
 
 #: cascade/checkout.py:44
 msgid "Purchase Now"
-msgstr ""
+msgstr "Придбати"
 
 #: cascade/checkout.py:52
 msgid "Proceed Button"
-msgstr ""
+msgstr "Продовжити"
 
 #: cascade/checkout.py:62
 msgid "Disable if invalid"
@@ -395,27 +411,27 @@ msgstr ""
 
 #: cascade/checkout.py:114
 msgid "Customer Form"
-msgstr ""
+msgstr "Форма замовника"
 
 #: cascade/checkout.py:119
 msgid "Only registered customers can access this form."
-msgstr ""
+msgstr "Форма доступна лише зареєстрованим користувачам"
 
 #: cascade/checkout.py:131
 msgid "Guest Form"
-msgstr ""
+msgstr "Гостьова форма"
 
 #: cascade/checkout.py:136
 msgid "Only guest customers can access this form."
-msgstr ""
+msgstr "Форма доступна лише незараєстрованим користувачам"
 
 #: cascade/checkout.py:144
 msgid "Checkout Address Form"
-msgstr ""
+msgstr "Форма Адреси для оформлення"
 
 #: cascade/checkout.py:151
 msgid "Address Form"
-msgstr ""
+msgstr "Форма адреси"
 
 #: cascade/checkout.py:157
 msgid "Multiple Addresses"
@@ -434,56 +450,56 @@ msgid ""
 "Allow the customer to use the primary address, if this is the secondary form."
 msgstr ""
 
-#: cascade/checkout.py:215
+#: cascade/checkout.py:214
 msgctxt "get_identifier"
 msgid "for {} {}"
 msgstr ""
 
-#: cascade/checkout.py:234
+#: cascade/checkout.py:233
 msgid "Payment Method Form"
-msgstr ""
+msgstr "Форма метода оплати"
 
-#: cascade/checkout.py:240 cascade/checkout.py:271
+#: cascade/checkout.py:239 cascade/checkout.py:270
 msgid "Show additional charge"
-msgstr ""
+msgstr "Показати доаткові витрати"
 
-#: cascade/checkout.py:242
+#: cascade/checkout.py:241
 msgid ""
 "Add an extra line showing the additional charge depending on the chosen "
 "payment method."
 msgstr ""
 
-#: cascade/checkout.py:265
+#: cascade/checkout.py:264
 msgid "Shipping Method Form"
-msgstr ""
+msgstr "Форма методу доставки"
 
-#: cascade/checkout.py:273
+#: cascade/checkout.py:272
 msgid ""
 "Add an extra line showing the additional charge depending on the chosen "
 "shipping method."
 msgstr ""
 
-#: cascade/checkout.py:296
+#: cascade/checkout.py:295
 msgid "Extra Annotation Form"
 msgstr ""
 
-#: cascade/checkout.py:314
+#: cascade/checkout.py:313
 msgid "Accept Condition (deprecated)"
 msgstr ""
 
-#: cascade/checkout.py:334
+#: cascade/checkout.py:333
 msgid "HTML content"
 msgstr ""
 
-#: cascade/checkout.py:378
+#: cascade/checkout.py:377
 msgid "Accept Condition"
 msgstr ""
 
-#: cascade/checkout.py:399
+#: cascade/checkout.py:398
 msgid "Required Form Fields"
 msgstr ""
 
-#: cascade/checkout.py:418
+#: cascade/checkout.py:417
 msgid "Manage Set of Forms"
 msgstr ""
 
@@ -558,15 +574,15 @@ msgstr ""
 #: cascade/plugin_base.py:204
 msgctxt "get_identifier"
 msgid "as {}"
-msgstr ""
+msgstr "як {}"
 
 #: cascade/processbar.py:28
 msgid "Steps"
-msgstr ""
+msgstr "Кроки"
 
 #: cascade/processbar.py:29
 msgid "Number of steps for this proceed bar."
-msgstr ""
+msgstr "Кількість кроків для цього індикатора прогресу."
 
 #: cascade/processbar.py:33
 msgid "Process Bar"
@@ -575,25 +591,25 @@ msgstr ""
 #: cascade/processbar.py:44
 msgid "with {} page"
 msgid_plural "with {} pages"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "з {} сторінкою"
+msgstr[1] "з {} сторінками"
+msgstr[2] "з {} сторінками"
 
 #: cascade/processbar.py:70
 msgid "Process Step"
-msgstr ""
+msgstr "Крок процесу"
 
 #: cascade/processbar.py:78
 msgid "Step Title"
-msgstr ""
+msgstr "Назва кроку"
 
 #: cascade/processbar.py:106
 msgid "Next Step Button"
-msgstr ""
+msgstr "Наступний крок"
 
 #: cascade/search.py:28
 msgid "Search Results"
-msgstr ""
+msgstr "Результати пошуку"
 
 #: cascade/search.py:38
 msgid "Shall the search results scroll infinitely?"
@@ -618,45 +634,45 @@ msgstr ""
 #: forms/auth.py:26 templates/shop/auth/login-reset.html:14
 #: templates/shop/auth/login.html:11 templates/shop/auth/reset.html:11
 msgid "Your e-mail address"
-msgstr ""
+msgstr "Ваша ел. адреса"
 
 #: forms/auth.py:27
 msgid "E-mail address"
-msgstr ""
+msgstr "Електронна адреса"
 
 #: forms/auth.py:31
 msgid "Preset password"
-msgstr ""
+msgstr "Скинути пароль"
 
 #: forms/auth.py:34
 msgid "Send a randomly generated password to your e-mail address."
-msgstr ""
+msgstr "Встановити випадково згенерований пароль "
 
 #: forms/auth.py:38
 msgid "The two password fields didn't match."
-msgstr ""
+msgstr "Паролі не співпадають"
 
 #: forms/auth.py:42 templates/shop/auth/password-reset-confirm.html:14
 msgid "New password"
-msgstr ""
+msgstr "Новий пароль"
 
 #: forms/auth.py:43 forms/auth.py:51 templates/shop/auth/login.html:22
 #: templates/shop/auth/login.html:25 templates/shop/navbar/login-logout.html:51
 #: templates/shop/navbar/login-logout.html:54
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 #: forms/auth.py:49
 msgid "New password confirmation"
-msgstr ""
+msgstr "Підтвердження нового паролю"
 
 #: forms/auth.py:52
 msgid "Confirm the password."
-msgstr ""
+msgstr "Підтвердіть пароль"
 
 #: forms/base.py:107
 msgid "Please provide a valid e-mail address"
-msgstr ""
+msgstr "Будь ласка, введіть правильниий email."
 
 #: forms/base.py:110
 #, python-brace-format
@@ -664,82 +680,89 @@ msgid ""
 "A customer with the e-mail address '{email}' already exists.\n"
 "If you have used this address previously, try to reset the password."
 msgstr ""
+"Користувач з ел. адресою '{email}' вже існує \n"
+"Якщо Ви ви використовували її раніше, спробуйте скинути пароль."
 
 #: forms/checkout.py:22
 msgid "Customer's Details"
-msgstr ""
-
-#: forms/checkout.py:24 forms/checkout.py:58
-msgid "Email address"
-msgstr ""
+msgstr "Дані Користувача"
 
 #: forms/checkout.py:25
 msgid "First Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: forms/checkout.py:26
 msgid "Last Name"
-msgstr ""
+msgstr "Прізвище"
 
-#: forms/checkout.py:56
-msgid "Customer's Email"
-msgstr ""
+#: forms/checkout.py:27 forms/checkout.py:60
+msgid "Phone"
+msgstr "Номер телефону"
 
-#: forms/checkout.py:231 models/defaults/address.py:24
+#: forms/checkout.py:57
+msgid "Customer's Data"
+msgstr "Дані замовника"
+
+#: forms/checkout.py:233 models/defaults/address.py:25
 #: models/defaults/order.py:21
 #: templates/shop/email/customer-information.html:14
 #: templates/shop/order/list.html:16
 msgid "Shipping Address"
-msgstr ""
+msgstr "Адреса доставки"
 
-#: forms/checkout.py:241
+#: forms/checkout.py:243
 msgid "Use billing address for shipping"
 msgstr ""
 
-#: forms/checkout.py:254 models/defaults/address.py:30
+#: forms/checkout.py:257 models/defaults/address.py:31
 #: models/defaults/order.py:28
 #: templates/shop/email/customer-information.html:10
 msgid "Billing Address"
 msgstr ""
 
-#: forms/checkout.py:261
+#: forms/checkout.py:264
 msgid "Use shipping address for billing"
 msgstr ""
 
-#: forms/checkout.py:276
+#: forms/checkout.py:279
 msgid "Payment Method"
-msgstr ""
+msgstr "Метод оплати"
 
-#: forms/checkout.py:309
+#: forms/checkout.py:312
 msgid "Shipping Method"
-msgstr ""
+msgstr "Метод доставки"
 
-#: forms/checkout.py:341
-msgid "Extra annotation for this order"
+#: forms/checkout.py:316
+msgid "City and branch No. if Nova Poshta delivery was chosen"
 msgstr ""
+"Населений пункт і номер відділення, якщо вибрана доставка \"Новою Поштою\"."
+
+#: forms/checkout.py:348
+msgid "Extra annotation for this order"
+msgstr "Додаткова інформація для цього замовлення"
 
 #: forms/wizards.py:15 models/defaults/commodity.py:88
 #: models/defaults/commodity.py:106
 msgid "Product Name"
-msgstr ""
+msgstr "Назва продукту"
 
-#: forms/wizards.py:17 models/defaults/commodity.py:89
+#: forms/wizards.py:17 models/categories.py:20 models/defaults/commodity.py:89
 #: models/defaults/commodity.py:122
 msgid "Slug"
-msgstr ""
+msgstr "Відображення для пошукових систем"
 
 #: forms/wizards.py:18 models/defaults/commodity.py:90
 #: models/defaults/commodity.py:123
 msgid "Caption"
-msgstr ""
+msgstr "Підпис"
 
 #: management/commands/shopcustomers.py:9
 msgid "Collect information about all customers which accessed this shop."
-msgstr ""
+msgstr "Зібрати інформацію про всіх замовників цього магзину"
 
 #: management/commands/shopcustomers.py:13
 msgid "Delete customers with expired sessions."
-msgstr ""
+msgstr "Видалити замовників з сессією, що закінчилась."
 
 #: management/commands/shopcustomers.py:34
 #, python-brace-format
@@ -748,6 +771,9 @@ msgid ""
 "expired={expired}, active={active}, guests={guests}, "
 "registered={registered}, staff={staff}."
 msgstr ""
+"Замовників в цьому магазині: разом={total}, анонімні={anonymous}, "
+"протерміновані={expired}, активні={active}, гості={guests}, "
+"зареєстровані={registered}, персонал={staff}."
 
 #: models/address.py:35
 msgid "Priority for using this address"
@@ -755,7 +781,7 @@ msgstr ""
 
 #: models/address.py:55
 msgid "Address"
-msgstr ""
+msgstr "Адреса"
 
 #: models/address.py:76
 msgid "Afghanistan"
@@ -1681,9 +1707,9 @@ msgstr ""
 msgid "Uganda"
 msgstr ""
 
-#: models/address.py:307
+#: models/address.py:307 models/address.py:333
 msgid "Ukraine"
-msgstr ""
+msgstr "Україна"
 
 #: models/address.py:308
 msgid "United Arab Emirates"
@@ -1750,45 +1776,57 @@ msgid "Zimbabwe"
 msgstr ""
 
 #: models/cart.py:82 models/defaults/commodity.py:49
-#: models/defaults/commodity.py:107 models/order.py:464
+#: models/defaults/commodity.py:107 models/order.py:465
 msgid "Product code"
-msgstr ""
+msgstr "Код продукту"
 
 #: models/cart.py:86
 msgid "Product code of added item."
-msgstr ""
+msgstr "Код продукту доданої одиниці"
 
 #: models/cart.py:89
 msgid "Arbitrary information for this cart item"
-msgstr ""
+msgstr "Довільна інформація для цієї одиниці"
 
 #: models/cart.py:95
 msgid "Cart item"
-msgstr ""
+msgstr "Товар"
 
 #: models/cart.py:96
 msgid "Cart items"
-msgstr ""
+msgstr "Товари"
 
-#: models/cart.py:174 models/order.py:208 models/product.py:88
+#: models/cart.py:174 models/order.py:209 models/product.py:88
 msgid "Created at"
-msgstr ""
+msgstr "Створено"
 
-#: models/cart.py:179 models/order.py:213 models/product.py:93
+#: models/cart.py:179 models/order.py:214 models/product.py:93
 msgid "Updated at"
-msgstr ""
+msgstr "Оновлено"
 
 #: models/cart.py:183
 msgid "Arbitrary information for this cart"
-msgstr ""
+msgstr "Довільна інформація для цієї одиниці"
 
 #: models/cart.py:190
 msgid "Shopping Cart"
-msgstr ""
+msgstr "Кошик"
 
 #: models/cart.py:191
 msgid "Shopping Carts"
-msgstr ""
+msgstr "Кошики"
+
+#: models/categories.py:13
+msgid "Product category"
+msgstr "Категорія продуктів"
+
+#: models/categories.py:26
+msgid "Product catgory"
+msgstr "Категорія продуктів"
+
+#: models/categories.py:27
+msgid "Product catgories"
+msgstr "Категорії продуктів"
 
 #: models/customer.py:32
 msgid "CustomerState.UNRECOGNIZED"
@@ -1804,7 +1842,7 @@ msgstr ""
 
 #: models/customer.py:201
 msgid "Recognized as"
-msgstr ""
+msgstr "Розпізнаний як"
 
 #: models/customer.py:203
 msgid "Designates the state the customer is recognized as."
@@ -1812,64 +1850,64 @@ msgstr ""
 
 #: models/customer.py:213
 msgid "Extra information about this customer"
-msgstr ""
+msgstr "Додаткова інформація про цього користувача"
 
 #: models/defaults/address.py:11
 msgid "Full name"
-msgstr ""
+msgstr "Повне ім'я"
 
 #: models/defaults/address.py:12
 msgid "Address line 1"
-msgstr ""
-
-#: models/defaults/address.py:13
-msgid "Address line 2"
-msgstr ""
+msgstr "Адреса"
 
 #: models/defaults/address.py:14
 msgid "ZIP / Postal code"
-msgstr ""
+msgstr "Поштовий індекс"
 
 #: models/defaults/address.py:15
-msgid "City"
-msgstr ""
+msgid "Region"
+msgstr "Область"
 
 #: models/defaults/address.py:16
+msgid "City"
+msgstr "Нас. пункт"
+
+#: models/defaults/address.py:17
 msgid "Country"
-msgstr ""
+msgstr "Країна"
 
-#: models/defaults/address.py:25
+#: models/defaults/address.py:26
 msgid "Shipping Addresses"
-msgstr ""
+msgstr "Адреса доставки"
 
-#: models/defaults/address.py:31
+#: models/defaults/address.py:32
 msgid "Billing Addresses"
 msgstr ""
 
 #: models/defaults/commodity.py:50 models/defaults/commodity.py:108
-#: models/order.py:480
+#: models/order.py:481
 msgid "Unit price"
-msgstr ""
+msgstr "Ціна за одиницю"
 
 #: models/defaults/commodity.py:51 models/defaults/commodity.py:109
 msgid "Net price for this product"
-msgstr ""
+msgstr "Ціна за одиницю"
 
 #: models/defaults/commodity.py:54 models/defaults/commodity.py:112
 msgid "Sort by"
-msgstr ""
+msgstr "Сортувати за"
 
 #: models/defaults/commodity.py:56 models/defaults/commodity.py:114
 msgid "Choose list view this product shall appear on."
-msgstr ""
+msgstr "Виберіть список для відображення цього продукту"
 
 #: models/defaults/commodity.py:57 models/defaults/commodity.py:115
 msgid "Sample Image"
-msgstr ""
+msgstr "Зображення товару"
 
 #: models/defaults/commodity.py:58 models/defaults/commodity.py:116
 msgid "Sample image used in the catalog's list view."
-msgstr ""
+msgstr "Зображення для перегляду продукту в каталозі."
 
 #: models/defaults/commodity.py:59 models/defaults/commodity.py:117
 msgid "Show Breadcrumb"
@@ -1881,35 +1919,35 @@ msgstr ""
 
 #: models/defaults/commodity.py:76 models/defaults/commodity.py:134
 msgid "Commodity"
-msgstr ""
+msgstr "Товар"
 
 #: models/defaults/commodity.py:77 models/defaults/commodity.py:135
 msgid "Commodities"
-msgstr ""
+msgstr "Товари"
 
 #: models/defaults/commodity.py:91 models/defaults/commodity.py:124
 msgid "Short description for the catalog list view."
-msgstr ""
+msgstr "Короткий опис для перегляду продукту в каталозі."
 
 #: models/defaults/customer.py:17
 msgid "Mrs."
-msgstr ""
+msgstr "Пані"
 
 #: models/defaults/customer.py:17
 msgid "Mr."
-msgstr ""
+msgstr "Пан"
 
 #: models/defaults/customer.py:17
 msgid "(n/a)"
-msgstr ""
+msgstr "не визначено"
 
 #: models/defaults/order.py:14
 msgid "Order Number"
-msgstr ""
+msgstr "Номер замовлення"
 
 #: models/defaults/order.py:24
 msgid "Shipping address at the moment of purchase."
-msgstr ""
+msgstr "Адреса доставки на момент покупки"
 
 #: models/defaults/order.py:31
 msgid "Billing address at the moment of purchase."
@@ -1918,32 +1956,32 @@ msgstr ""
 #: models/defaults/order.py:35
 msgctxt "order_models"
 msgid "Order"
-msgstr ""
+msgstr "Замовлення"
 
 #: models/defaults/order.py:36
 msgctxt "order_models"
 msgid "Orders"
-msgstr ""
+msgstr "Замовлення"
 
 #: models/defaults/order_item.py:12
 msgid "Ordered quantity"
-msgstr ""
+msgstr "Замовлена кількість"
 
 #: models/delivery.py:23
 msgid "Shipping ID"
-msgstr ""
+msgstr "ID доставки"
 
-#: models/delivery.py:27 models/order.py:422
+#: models/delivery.py:27 models/order.py:423
 msgid "The transaction processor's reference"
 msgstr ""
 
 #: models/delivery.py:37
 msgid "Shipped at"
-msgstr ""
+msgstr "Доставлено"
 
 #: models/delivery.py:43
 msgid "Shipping method"
-msgstr ""
+msgstr "Метод доставки"
 
 #: models/delivery.py:45
 msgid "The shipping backend used to deliver the items for this order"
@@ -1951,15 +1989,15 @@ msgstr ""
 
 #: models/delivery.py:50 models/delivery.py:73
 msgid "Delivery"
-msgstr ""
+msgstr "Доставка"
 
 #: models/delivery.py:51
 msgid "Deliveries"
-msgstr ""
+msgstr "Доставки"
 
 #: models/delivery.py:54
 msgid "Delivery ID: {}"
-msgstr ""
+msgstr "ID доставк:{}"
 
 #: models/delivery.py:74
 msgid "Refer to the shipping provider used to ship this item"
@@ -1967,15 +2005,15 @@ msgstr ""
 
 #: models/delivery.py:79
 msgid "Ordered item"
-msgstr ""
+msgstr "Замовлена одиниця"
 
 #: models/delivery.py:84
 msgid "Deliver item"
-msgstr ""
+msgstr "Доставлена одиниця"
 
 #: models/delivery.py:85
 msgid "Deliver items"
-msgstr ""
+msgstr "Доставлені одиниці"
 
 #: models/fields.py:51
 msgid "."
@@ -2003,168 +2041,146 @@ msgstr ""
 
 #: models/notification.py:90
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 #: models/notification.py:99
 msgid "Whom to notify"
-msgstr ""
+msgstr "Кого повідомити"
 
 #: models/notification.py:112
 msgid "Template"
-msgstr ""
+msgstr "Шаблон"
 
 #: models/notification.py:118
 msgid "Notification"
-msgstr ""
+msgstr "Повідомлення"
 
 #: models/notification.py:119
 msgid "Notifications"
-msgstr ""
+msgstr "Повідомлення"
 
-#: models/order.py:90
+#: models/order.py:91
 msgid "Only signed in customers can view their orders"
-msgstr ""
-
-#: models/order.py:168
-msgid "New order without content"
-msgstr ""
+msgstr "Лише користувачі, що увійшли можуть бачити їхні замовлення."
 
 #: models/order.py:169
-msgid "Order freshly created"
-msgstr ""
+msgid "New order without content"
+msgstr "Нове замовлення без вмісту"
 
 #: models/order.py:170
-msgid "Payment confirmed"
-msgstr ""
+msgid "Order freshly created"
+msgstr "замовлення щойно створене"
 
 #: models/order.py:171
+msgid "Payment confirmed"
+msgstr "Оплату підтверджено"
+
+#: models/order.py:172
 msgid "Payment declined"
-msgstr ""
+msgstr "Оплату скасовано"
 
-#: models/order.py:188 templates/shop/order/detail.html:11
-#: templates/shop/order/list.html:17
-msgid "Status"
-msgstr ""
-
-#: models/order.py:194
+#: models/order.py:195
 msgid "Currency in which this order was concluded"
-msgstr ""
+msgstr "Валюта замовлення"
 
-#: models/order.py:198 templates/shop/cart/editable.html:48
-#: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
-#: templates/shop/catalog/product-add2cart.html:23
-#: templates/shop/email/order.html:41 templates/shop/order/detail.html:54
-#: templates/shop/print/order.html:44
-msgid "Subtotal"
-msgstr ""
-
-#: models/order.py:203 templates/shop/cart/editable.html:27
-#: templates/shop/cart/editable.html:58 templates/shop/cart/static.html:11
-#: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
-#: templates/shop/email/order.html:51 templates/shop/order/detail.html:22
-#: templates/shop/order/detail.html:66 templates/shop/print/order.html:12
-#: templates/shop/print/order.html:58
-msgid "Total"
-msgstr ""
-
-#: models/order.py:218 models/order.py:494
+#: models/order.py:219 models/order.py:495
 msgid "Extra fields"
-msgstr ""
+msgstr "Додаткові поля"
 
-#: models/order.py:219
+#: models/order.py:220
 msgid "Arbitrary information for this order object on the moment of purchase."
-msgstr ""
+msgstr "Додаткова інформація для цього замовлення на момент покупки"
 
-#: models/order.py:223
+#: models/order.py:224
 msgid "Parts of the Request objects on the moment of purchase."
 msgstr ""
 
-#: models/order.py:399
+#: models/order.py:400
 msgctxt "order_models"
 msgid "State"
-msgstr ""
+msgstr "Стан"
 
-#: models/order.py:411 models/order.py:452 templates/shop/order/detail.html:9
+#: models/order.py:412 models/order.py:453
 msgid "Order"
-msgstr ""
-
-#: models/order.py:415
-msgid "Amount paid"
-msgstr ""
+msgstr "Замовлення"
 
 #: models/order.py:416
+msgid "Amount paid"
+msgstr "Сплачена сума"
+
+#: models/order.py:417
 msgid "How much was paid with this particular transfer."
-msgstr ""
+msgstr "Оплачено за цією транзакцією"
 
-#: models/order.py:420
+#: models/order.py:421
 msgid "Transaction ID"
-msgstr ""
+msgstr "ID транзакції"
 
-#: models/order.py:426
+#: models/order.py:427
 msgid "Received at"
-msgstr ""
+msgstr "Отримано"
 
-#: models/order.py:431
+#: models/order.py:432
 msgid "Payment method"
-msgstr ""
+msgstr "Метод оплати"
 
-#: models/order.py:433
+#: models/order.py:434
 msgid "The payment backend used to process the purchase"
-msgstr ""
-
-#: models/order.py:437
-msgctxt "order_models"
-msgid "Order payment"
 msgstr ""
 
 #: models/order.py:438
 msgctxt "order_models"
+msgid "Order payment"
+msgstr "Оплата замовлення"
+
+#: models/order.py:439
+msgctxt "order_models"
 msgid "Order payments"
-msgstr ""
+msgstr "Оплати замовлень"
 
-#: models/order.py:441
+#: models/order.py:442
 msgid "Payment ID: {}"
-msgstr ""
+msgstr "ID оплати:  {}"
 
-#: models/order.py:456
+#: models/order.py:457
 msgid "Product name"
-msgstr ""
+msgstr "Назва продукту"
 
-#: models/order.py:460
+#: models/order.py:461
 msgid "Product name at the moment of purchase."
-msgstr ""
+msgstr "Назва продукту на момент покупки"
 
-#: models/order.py:468
+#: models/order.py:469
 msgid "Product code at the moment of purchase."
-msgstr ""
+msgstr "Код продукту на момент покупки"
 
-#: models/order.py:482
+#: models/order.py:483
 msgid "Products unit price at the moment of purchase."
-msgstr ""
+msgstr "Ціна за одиницю на момент покупки."
 
-#: models/order.py:487
+#: models/order.py:488
 msgid "Line Total"
-msgstr ""
+msgstr "Разом"
 
-#: models/order.py:489
+#: models/order.py:490
 msgid "Line total on the invoice at the moment of purchase."
 msgstr ""
 
-#: models/order.py:495
+#: models/order.py:496
 msgid "Arbitrary information for this order item"
 msgstr ""
 
-#: models/order.py:500
-msgid "Order item"
-msgstr ""
-
 #: models/order.py:501
+msgid "Order item"
+msgstr "Товар в замовленні"
+
+#: models/order.py:502
 msgid "Order items"
-msgstr ""
+msgstr "Товари в замовленні"
 
 #: models/product.py:98
 msgid "Active"
-msgstr ""
+msgstr "Активний"
 
 #: models/product.py:100
 msgid "Is this product publicly visible."
@@ -2172,27 +2188,27 @@ msgstr ""
 
 #: models/product.py:106
 msgid "Products"
-msgstr ""
+msgstr "Продукти"
 
 #: models/product.py:113
 msgid "Product type"
-msgstr ""
+msgstr "Типи продуктів"
 
 #: models/related.py:43
 msgid "Product Image"
-msgstr ""
+msgstr "Зображення продукту"
 
 #: models/related.py:44
 msgid "Product Images"
-msgstr ""
+msgstr "Зображення продукту"
 
 #: modifiers/defaults.py:41
 msgid "Pay in advance"
-msgstr ""
+msgstr "Оплата наперед"
 
 #: modifiers/defaults.py:53
 msgid "Self collection"
-msgstr ""
+msgstr "Самовивіз"
 
 #: modifiers/taxes.py:26
 msgid "plus {}% VAT"
@@ -2303,78 +2319,94 @@ msgstr ""
 msgid "Swedish Kronor"
 msgstr ""
 
-#: payment/defaults.py:38
+#: payment/defaults.py:54
 msgid "Awaiting a forward fund payment"
-msgstr ""
+msgstr "Очікує попередню оплату"
 
-#: payment/defaults.py:39
+#: payment/defaults.py:55
 msgid "Prepayment deposited"
-msgstr ""
+msgstr "Передоплату внесено"
 
-#: payment/defaults.py:40
+#: payment/defaults.py:56
 msgid "No Payment Required"
-msgstr ""
+msgstr "Оплата не потрібна"
 
-#: payment/defaults.py:71
+#: payment/defaults.py:87
 msgid "Deposited too little"
-msgstr ""
+msgstr "Внесено недостатньо"
 
-#: payment/defaults.py:78
+#: payment/defaults.py:94
 msgid "Mark as Paid"
-msgstr ""
-
-#: payment/defaults.py:93
-msgid "Mark as Refunded"
-msgstr ""
-
-#: payment/defaults.py:108
-msgid "Refund payment"
-msgstr ""
+msgstr "Відмітити, як оплачене"
 
 #: payment/defaults.py:109
+msgid "Mark as Refunded"
+msgstr "Відмітити, як повернуте"
+
+#: payment/defaults.py:124
+msgid "Refund payment"
+msgstr "Повернення оплати"
+
+#: payment/defaults.py:125
 msgid "Order Canceled"
-msgstr ""
+msgstr "Замовлення скасоване"
 
-#: payment/defaults.py:116
+#: payment/defaults.py:132
 msgid "Cancel Order"
-msgstr ""
+msgstr "Скасувати замовлення"
 
-#: shipping/defaults.py:24 shipping/delivery.py:20
+#: shipping/defaults.py:24 shipping/delivery.py:21
 msgid "Picking goods"
-msgstr ""
+msgstr "Збирання товарів"
 
-#: shipping/defaults.py:25 shipping/delivery.py:21
+#: shipping/defaults.py:25 shipping/delivery.py:22
 msgid "Packing goods"
-msgstr ""
+msgstr "Пакування товарів"
 
-#: shipping/defaults.py:29 shipping/delivery.py:39
+#: shipping/defaults.py:29 shipping/delivery.py:46
 msgid "Pick the goods"
-msgstr ""
+msgstr "Зібрати товари"
 
-#: shipping/defaults.py:34 shipping/delivery.py:47
+#: shipping/defaults.py:34 shipping/delivery.py:54
 msgid "Pack the goods"
-msgstr ""
+msgstr "Запакувати товари"
 
-#: shipping/delivery.py:22
+#: shipping/delivery.py:20
+msgid "Order Received"
+msgstr "Замовлення отримано"
+
+#: shipping/delivery.py:23
 msgid "Ship goods"
-msgstr ""
+msgstr "Відправити товари"
 
-#: shipping/delivery.py:53
+#: shipping/delivery.py:24
+msgid "Goods sent"
+msgstr "Товари відправлені"
+
+#: shipping/delivery.py:40
+msgid "Order is received"
+msgstr "Замовлення отримано"
+
+#: shipping/delivery.py:60
 msgid "Ship the goods"
-msgstr ""
+msgstr "Відправити товари"
+
+#: shipping/delivery.py:65
+msgid "Goods are sent"
+msgstr "Товари відправлені"
 
 #: templates/shop/admin/edit_inline/stacked-order.html:8
 msgid "Change"
-msgstr ""
+msgstr "Змінити"
 
 #: templates/shop/admin/edit_inline/stacked-order.html:10
 msgid "View on site"
-msgstr ""
+msgstr "Переглянути на сайті"
 
 #: templates/shop/admin/edit_inline/stacked-order.html:26
 #: templates/shop/cart/editable.html:89 templates/shop/cart/watch.html:49
 msgid "Remove"
-msgstr ""
+msgstr "Видалити"
 
 #: templates/shop/admin/edit_inline/stacked-order.html:27
 #, python-format
@@ -2383,172 +2415,176 @@ msgstr ""
 
 #: templates/shop/admin/order-extra.html:6
 msgid "Payment"
-msgstr ""
+msgstr "Оплата"
 
 #: templates/shop/admin/order-extra.html:7
 msgid "Annotation"
-msgstr ""
+msgstr "Анотація"
 
 #: templates/shop/auth/anonymous-base.html:17
 msgid "This page shall only be reachable by anonymous users"
-msgstr ""
+msgstr "Ця сторінка доступна лише для анонімних користувачів"
 
 #: templates/shop/auth/authenticated-base.html:17
 msgid "This page shall only be reachable by authenticated users"
-msgstr ""
+msgstr "Ця сторінка доступна лише для автентифікованих користувачів"
 
 #: templates/shop/auth/change.html:4 templates/shop/auth/change.html:33
 msgid "Change Password"
-msgstr ""
+msgstr "Змінити пароль"
 
 #: templates/shop/auth/change.html:11 templates/shop/auth/change.html:14
 #: templates/shop/auth/password-reset-confirm.html:11
 msgid "New Password"
-msgstr ""
+msgstr "Новий пароль"
 
 #: templates/shop/auth/change.html:22 templates/shop/auth/change.html:25
 #: templates/shop/auth/password-reset-confirm.html:17
 msgid "Confirm Password"
-msgstr ""
+msgstr "Підтвердити пароль"
 
 #: templates/shop/auth/continue-as-guest.html:4
 msgid "Proceed as guest"
-msgstr ""
+msgstr "Продовжити, як гість"
 
 #: templates/shop/auth/login-reset.html:7 templates/shop/auth/reset.html:4
 #: templates/shop/navbar/login-logout.html:65
 msgid "Password Forgotten?"
-msgstr ""
+msgstr "Забули пароль?"
 
 #: templates/shop/auth/login-reset.html:17 templates/shop/auth/reset.html:14
 #: templates/shop/email/customer-information.html:6
 msgid "Email"
-msgstr ""
+msgstr "Електронна пошта"
 
 #: templates/shop/auth/login-reset.html:20 templates/shop/auth/login.html:17
 #: templates/shop/auth/register-user.html:17
 #: templates/shop/auth/register-user.html:36
 #: templates/shop/auth/register-user.html:50 templates/shop/auth/reset.html:17
 msgid "This field is required."
-msgstr ""
+msgstr "Необхідне поле"
 
 #: templates/shop/auth/login-reset.html:21
 #: templates/shop/auth/register-user.html:18 templates/shop/auth/reset.html:18
 msgid "Enter a valid email address."
-msgstr ""
+msgstr "Введіть правильний email"
 
 #: templates/shop/auth/login-reset.html:28 templates/shop/auth/reset.html:25
 msgid "Reset Password"
-msgstr ""
+msgstr "Скинути пароль"
 
 #: templates/shop/auth/login.html:4
 msgid "Sign In"
-msgstr ""
+msgstr "Увійти"
 
 #: templates/shop/auth/login.html:14
 msgid "Email or Username"
-msgstr ""
+msgstr "Email чи ім'я"
 
 #: templates/shop/auth/login.html:31 templates/shop/navbar/login-logout.html:58
 msgid "Login"
-msgstr ""
+msgstr "Увійти"
 
 #: templates/shop/auth/logout.html:4 templates/shop/auth/logout.html:10
 #: templates/shop/navbar/login-logout.html:24
 msgid "Logout"
-msgstr ""
+msgstr "Вийти"
 
 #: templates/shop/auth/password-reset-confirm.html:4
 #, python-format
 msgid "New password for '%(user_name)s'"
-msgstr ""
+msgstr "Новий пароль для   '%(user_name)s'"
 
 #: templates/shop/auth/password-reset-confirm.html:10
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
+"Будь ласка, введіть новий пароль двічі, щоб ми могли перевірити правильність "
+"його введення."
 
 #: templates/shop/auth/password-reset-confirm.html:20
 msgid "Confirm password"
-msgstr ""
+msgstr "Підтвердіть пароль"
 
 #: templates/shop/auth/password-reset-confirm.html:24
 msgid "Change my password"
-msgstr ""
+msgstr "Змінити пароль"
 
 #: templates/shop/auth/password-reset-decline.html:4
 msgid "Password reset unsuccessful"
-msgstr ""
+msgstr "Помилка скидання паролю"
 
 #: templates/shop/auth/password-reset-decline.html:7
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
 msgstr ""
+"Посилання на зміну пароля недійсне, можливо, тому, що воно вже було "
+"використано. Надішліть запит на новий пароль."
 
 #: templates/shop/auth/register-user.html:4
 #: templates/shop/navbar/login-logout.html:68
 msgid "Register Yourself"
-msgstr ""
+msgstr "Зареєструйтесь"
 
 #: templates/shop/auth/register-user.html:37
 #: templates/shop/auth/register-user.html:51
 msgid "Password is too short"
-msgstr ""
+msgstr "Пароль занадто короткий"
 
 #: templates/shop/auth/register-user.html:59
 msgid "Register"
-msgstr ""
+msgstr "Реєстрація"
 
-#: templates/shop/breadcrumb/catalog.html:20
+#: templates/shop/breadcrumb/catalog.html:23
 msgid "Found Products"
-msgstr ""
+msgstr "Знайдені продукти"
 
 #: templates/shop/cart/editable.html:24 templates/shop/cart/static.html:8
 #: templates/shop/catalog/product-add2cart.html:21
-#: templates/shop/email/order.html:12 templates/shop/order/detail.html:19
+#: templates/shop/email/order.html:12 templates/shop/order/detail.html:16
 #: templates/shop/print/order.html:10
 msgid "Quantity"
-msgstr ""
+msgstr "Кількість"
 
 #: templates/shop/cart/editable.html:26 templates/shop/cart/static.html:10
 #: templates/shop/cart/watch.html:17
 #: templates/shop/catalog/product-add2cart.html:22
-#: templates/shop/order/detail.html:21 templates/shop/print/order.html:11
+#: templates/shop/order/detail.html:19 templates/shop/print/order.html:11
 msgid "Unit Price"
-msgstr ""
+msgstr "Ціна за одиницю"
 
 #: templates/shop/cart/editable.html:31
 msgid "There are no items in the cart"
-msgstr ""
+msgstr "Кошик порожній"
 
 #: templates/shop/cart/editable.html:93
 msgid "Watch Item"
-msgstr ""
+msgstr "Переглянути зразок"
 
 #: templates/shop/cart/summary.html:5
 msgid "Number of items"
-msgstr ""
+msgstr "Кількість"
 
 #: templates/shop/cart/watch.html:46
-#: templates/shop/catalog/product-add2cart.html:54
+#: templates/shop/catalog/product-add2cart.html:58
 msgid "Add to cart"
-msgstr ""
+msgstr "Додати до кошика"
 
 #: templates/shop/catalog/paginator.html:17
 msgid "Loading more products"
-msgstr ""
+msgstr "Завантажуємо ще продукти"
 
 #: templates/shop/catalog/paginator.html:21
 msgid "No products found"
-msgstr ""
+msgstr "Подуктів не знайдено"
 
 #: templates/shop/catalog/product-add2cart.html:15
 msgid "Order Product"
-msgstr ""
+msgstr "Замовити продукт"
 
-#: templates/shop/catalog/product-add2cart.html:39
+#: templates/shop/catalog/product-add2cart.html:40
 msgid ""
 "\n"
 "\t\t\t\tBy adding a product to the cart you are giving consent to cookies "
@@ -2557,42 +2593,38 @@ msgid ""
 "\t\t\t"
 msgstr ""
 
-#: templates/shop/catalog/product-add2cart.html:50
-msgid "Watch product"
-msgstr ""
-
-#: templates/shop/catalog/product-add2cart.html:67
+#: templates/shop/catalog/product-add2cart.html:71
 msgid "The product has been successfully placed in the shopping cart:"
-msgstr ""
+msgstr "Продукт успішно оданий до кошика:"
 
-#: templates/shop/catalog/product-add2cart.html:68
+#: templates/shop/catalog/product-add2cart.html:72
 msgid "Watching this product"
-msgstr ""
+msgstr "Переглянути продукт"
 
-#: templates/shop/catalog/product-add2cart.html:75
+#: templates/shop/catalog/product-add2cart.html:79
 msgid "for {{ context.unit_price }} per piece: {{ context.subtotal }}"
-msgstr ""
+msgstr "за {{ context.unit_price }} на суму: {{ context.subtotal }}"
 
-#: templates/shop/catalog/product-add2cart.html:83
+#: templates/shop/catalog/product-add2cart.html:87
 msgid "Show Cart"
-msgstr ""
+msgstr "Переглянути Кошик"
 
-#: templates/shop/catalog/product-add2cart.html:85
+#: templates/shop/catalog/product-add2cart.html:89
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Продовжити покупки"
 
-#: templates/shop/catalog/product-add2cart.html:86
+#: templates/shop/catalog/product-add2cart.html:90
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
 #: templates/shop/catalog/product-figure.html:10
 #: templates/shop/email/order.html:13
 msgid "Price"
-msgstr ""
+msgstr "Ціна"
 
 #: templates/shop/checkout/billing-address-form.html:29
 msgid "Choose a previously used billing address"
-msgstr ""
+msgstr "Вибрати раніше використовувану адресу виставлення рахунку"
 
 #: templates/shop/checkout/billing-address-form.html:34
 msgid "Add a new billing address"
@@ -2601,14 +2633,14 @@ msgstr ""
 #: templates/shop/checkout/billing-address-form.html:44
 #: templates/shop/checkout/shipping-address-form.html:45
 msgid "Remove this address"
-msgstr ""
+msgstr "Видалити цю адресу"
 
 #: templates/shop/checkout/payment-method-form.html:22
 #: templates/shop/checkout/payment-method-form.html:25
 #: templates/shop/checkout/shipping-method-form.html:22
 #: templates/shop/checkout/shipping-method-form.html:25
 msgid "Additional charge"
-msgstr ""
+msgstr "Додатковий збір"
 
 #: templates/shop/checkout/payment-method-form.html:31
 msgid "No payment method available"
@@ -2616,27 +2648,31 @@ msgstr ""
 
 #: templates/shop/checkout/required-form-fields.html:1
 msgid "These fields are required"
-msgstr ""
+msgstr "Ці поля необхідно заповнити"
 
 #: templates/shop/checkout/shipping-address-form.html:30
 msgid "Choose a previously used shipping address"
-msgstr ""
+msgstr "Вибрати раніше використовувану адресу доставки"
 
 #: templates/shop/checkout/shipping-address-form.html:35
 msgid "Add a new shipping address"
+msgstr "Додати нову дресу доставки"
+
+#: templates/shop/checkout/shipping-method-form.html:28
+msgid "Test"
 msgstr ""
 
-#: templates/shop/checkout/shipping-method-form.html:31
+#: templates/shop/checkout/shipping-method-form.html:34
 msgid "No shipping method available"
-msgstr ""
+msgstr "Метод доставки не доступний"
 
 #: templates/shop/email/customer-information.html:4
 msgid "Your Details"
-msgstr ""
+msgstr "Ваші дані"
 
 #: templates/shop/email/order.html:7
 msgid "Summary of Your Order"
-msgstr ""
+msgstr "ПІдсумок Вашого замовлення"
 
 #: templates/shop/email/register-user-body.txt:2
 #, python-format
@@ -2657,13 +2693,13 @@ msgstr ""
 #: templates/shop/email/register-user-body.txt:8
 #: templates/shop/email/reset-password-body.txt:8
 msgid "Thanks for using our site!"
-msgstr ""
+msgstr "Дякуємо за користування нашим сайтом!"
 
 #: templates/shop/email/register-user-body.txt:10
 #: templates/shop/email/reset-password-body.txt:10
 #, python-format
 msgid "The %(site_name)s team"
-msgstr ""
+msgstr "Команда %(site_name)s"
 
 #: templates/shop/email/register-user-subject.txt:2
 #, python-format
@@ -2689,24 +2725,24 @@ msgstr ""
 
 #: templates/shop/navbar/language-chooser.html:4
 msgid "Language"
-msgstr ""
+msgstr "Мова"
 
 #: templates/shop/navbar/login-logout.html:18
 msgid "Sign in"
-msgstr ""
+msgstr "Вхід"
 
 #: templates/shop/navbar/login-logout.html:44
 #: templates/shop/navbar/login-logout.html:47
 msgid "E-Mail"
-msgstr ""
+msgstr "Ел. пошта"
 
 #: templates/shop/navbar/search-form.html:14
 msgid "Search"
-msgstr ""
+msgstr "Пошук"
 
 #: templates/shop/navbar/search-form.html:16
 msgid "Refine your search"
-msgstr ""
+msgstr "Уточнити пошук"
 
 #: templates/shop/order/addenum-form.html:9
 #: templates/shop/order/cancel-button.html:9
@@ -2721,79 +2757,74 @@ msgstr ""
 
 #: templates/shop/order/addenum-form.html:14
 msgid "Previous annotations"
-msgstr ""
+msgstr "Попередні анотації"
 
 #: templates/shop/order/cancel-button.html:22
 msgid "This Order can't be cancelled"
-msgstr ""
+msgstr "Неможливо скасувати це замовлення"
 
-#: templates/shop/order/detail.html:10
-msgctxt "order-detail"
-msgid "from"
-msgstr ""
+#: templates/shop/order/detail.html:18
+msgid "Size"
+msgstr "Розмір"
 
-#: templates/shop/order/detail.html:72
+#: templates/shop/order/detail.html:71
 msgid "Thereof Paid"
-msgstr ""
+msgstr "Оплачено"
 
 #: templates/shop/order/list.html:14
 msgid "Order Date"
-msgstr ""
+msgstr "Дата заамовлення"
 
 #: templates/shop/order/list.html:15
 msgid "Sum"
-msgstr ""
+msgstr "Сума"
 
 #: templates/shop/print/delivery-note.html:6
 #: templates/shop/print/order-confirmation.html:6
 msgid "Order confirmation for"
-msgstr ""
-
-#: templates/shop/print/invoice.html:4 templates/shop/print/invoice.html:7
-msgid "Invoice"
-msgstr ""
+msgstr "Підтвердження замовлння для"
 
 #: templates/shop/search/results.html:16
 msgid "Searching for '{{ searchQuery }}' did not return any results"
-msgstr ""
+msgstr "За умовою  '{{ searchQuery }}' нічого не знайдено"
 
 #: templates/shop/search/results.html:22
 msgid "{{ search_data.count }} matching products found"
-msgstr ""
+msgstr "{{ search_data.count }} відповідних продуктів знайдено"
 
 #: templates/shop/search/results.html:23
 msgid "Base Price"
-msgstr ""
+msgstr "Базова ціна"
 
 #: templates/shop/search/results.html:37
 msgid "Details"
-msgstr ""
+msgstr "Деталі"
 
 #: templates/shop/search/results.html:49
 msgid "Loading search results"
-msgstr ""
+msgstr "Завантаження результатів пошуку"
 
 #: templates/shop/templatetags/cart-icon.html:19
 msgctxt "cart icon"
 msgid "1 Item"
-msgstr ""
+msgstr "1 одиниця"
 
 #: templates/shop/templatetags/cart-icon.html:19
 msgctxt "cart icon"
 msgid "{} Items"
-msgstr ""
+msgstr " {} одиниці"
 
 #: views/auth.py:43
 msgid "Successfully registered yourself."
-msgstr ""
+msgstr "Успішна реєстрація"
 
 #: views/auth.py:101
 msgid "Successfully logged out."
-msgstr ""
+msgstr "Успішний вихід."
 
 #: views/auth.py:112
 msgid "Password has been changed successfully."
-msgstr ""
+msgstr "Пароль успішно змінено."
 
 #: views/auth.py:139
 #, python-brace-format
@@ -2802,4 +2833,12 @@ msgstr ""
 
 #: views/auth.py:190
 msgid "Password has been reset with the new password."
-msgstr ""
+msgstr "Пароль скинуто і замінено на новий."
+
+#~ msgctxt "admin"
+#~ msgid "Status"
+#~ msgstr "Статус"
+
+#~ msgctxt "admin"
+#~ msgid "Total"
+#~ msgstr "Разом"

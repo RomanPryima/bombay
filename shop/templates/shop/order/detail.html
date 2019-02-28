@@ -5,12 +5,11 @@
 {% block shop-order-table %}
 
 	{% block shop-order-caption %}
+	<div class="row" style="margin-bottom: 5%;">
 	<caption>
-		<h4>{% trans "Order" %} {{ data.number }}
-			<small>{% trans "from" context "order-detail" %} <span shop-timestamp="{{ data.created_at }}"></span></small>
-			<span class="label label-default pull-right">{% trans "Status" %}: {{ data.status }}</span>
-		</h4>
+		<h4 class="label label-default pull-right" style="color: #ffff; background-color: #016d8b;">{% trans "Status" %}: {{ data.status }}</h4>
 	</caption>
+	</div>
 	{% endblock %}
 
 	{% block shop-order-thead %}
@@ -18,6 +17,7 @@
 		<tr>
 			<th class="text-center">{% trans "Quantity" %}</th>
 			<th class="text-center">{% trans "Product" %}</th>
+			<th class="text-right shop-order-price-col">{% trans "Size" %}</th>
 			<th class="text-right shop-order-price-col">{% trans "Unit Price" %}</th>
 			<th class="text-right shop-order-price-col">{% trans "Total" %}</th>
 		</tr>
@@ -30,6 +30,7 @@
 		<tr>
 			<td class="text-center">{{ item.quantity }}</td>
 			<td rowspan="2">{{ item.summary.media|safe }}</td>
+			<td class="text-right">{{ item.product_size }}</td>
 			<td class="text-right">{{ item.unit_price }}</td>
 			<td class="text-right">{{ item.line_total }}</td>
 		</tr>

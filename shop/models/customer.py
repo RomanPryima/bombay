@@ -193,7 +193,7 @@ class BaseCustomer(with_metaclass(deferred.ForeignKeyBuilder, models.Model)):
     object is created for anonymous customers also (with unusable password).
     """
     user = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
+        settings.Fz,
         primary_key=True,
     )
 
@@ -254,6 +254,14 @@ class BaseCustomer(with_metaclass(deferred.ForeignKeyBuilder, models.Model)):
     @email.setter
     def email(self, value):
         self.user.email = value
+
+    @property
+    def phone(self):
+        return self.user.phone
+
+    @phone.setter
+    def phone(self, value):
+        self.user.phone = value
 
     @property
     def date_joined(self):

@@ -17,9 +17,11 @@ class PartialDeliveryWorkflowMixin(object):
     the ordered goods for delivery.
     """
     TRANSITION_TARGETS = {
+        'order_received': _("Order Received"),
         'pick_goods': _("Picking goods"),
         'pack_goods': _("Packing goods"),
         'ship_goods': _("Ship goods"),
+        'goods_sent': _("Goods sent"),
     }
 
     @cached_property
@@ -33,6 +35,11 @@ class PartialDeliveryWorkflowMixin(object):
 
     def ready_for_delivery(self):
         return self.is_fully_paid() and self.unfulfilled_items > 0
+
+    @transition(field='status', source=['created'], target='order_received',
+                custom=dict(admin=True, button_name=_("Order is received")))
+    def order_received(self, by=None):
+        """Use selected shipping object and change status to 'goods_sent'."""
 
     @transition(field='status', source=['payment_confirmed', 'pack_goods', 'ship_goods'],
                 target='pick_goods', conditions=[ready_for_delivery],
@@ -53,3 +60,8 @@ class PartialDeliveryWorkflowMixin(object):
         custom=dict(admin=True, button_name=_("Ship the goods")))
     def ship_goods(self, by=None):
         """Use selected shipping object and change status to 'ship_goods'."""
+
+    @transition(field='status', source=['ship_goods'], target='goods_sent',
+                custom=dict(admin=True, button_name=_("Goods are sent")))
+    def goods_sent(self, by=None):
+        """Use selected shipping object and change status to 'goods_sent'."""

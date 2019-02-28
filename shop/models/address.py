@@ -330,7 +330,7 @@ class CountryField(models.CharField):
     def __init__(self, *args, **kwargs):
         defaults = {
             'max_length': 3,
-            'choices': ISO_3166_CODES,
+            'choices': [('UA', _("Ukraine"))],
         }
         defaults.update(kwargs)
         super(CountryField, self).__init__(*args, **defaults)

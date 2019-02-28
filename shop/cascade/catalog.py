@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from random import shuffle
 
 from django.contrib.admin import StackedInline
 from django.forms import widgets
@@ -9,10 +10,12 @@ from django.utils.translation import ugettext_lazy as _, ugettext, get_language
 
 from cms.plugin_pool import plugin_pool
 from cms.utils.compat.dj import is_installed
+from cmsplugin_cascade.bootstrap3.carousel import CarouselPlugin
 from cmsplugin_cascade.mixins import WithSortableInlineElementsMixin
 from cmsplugin_cascade.models import SortableInlineCascadeElement
 from cmsplugin_cascade.fields import GlossaryField
 
+from contact_us.models import Feedback
 from shop.conf import app_settings
 from shop.models.categories import Category
 from shop.models.product import ProductModel
@@ -90,6 +93,25 @@ class ShopCategoryPlugin(ShopPluginBase):
         return ugettext("Manual Pagination")
 
 plugin_pool.register_plugin(ShopCategoryPlugin)
+
+
+class OpinionsListPlugin(ShopPluginBase):
+    pass
+    name = _("Opinions List View")
+    require_parent = True
+    parent_classes = ('BootstrapColumnPlugin', 'SimpleWrapperPlugin',)
+    cache = False
+    render_template = 'shop/catalog/opinions-list.html'
+
+    def render(self, context, instance, placeholder):
+        context = super(OpinionsListPlugin, self).render(context, instance, placeholder)
+        opinions_all = Feedback.objects.filter(publish=True)
+        opinions = [_ for _ in opinions_all]
+        shuffle(opinions)
+        context['opinions'] = opinions[:5]
+        return context
+
+plugin_pool.register_plugin(OpinionsListPlugin)
 
 
 class ShopAddToCartPlugin(ShopPluginBase):

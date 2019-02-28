@@ -10,7 +10,7 @@ class DefaultShippingProvider(ShippingProvider):
     """
     Default shipping provider for items without explicit shipping.
     """
-    namespace = 'default-shipping'
+    namespace = 'nova-poshta-shipping'
 
 
 class CommissionGoodsWorkflowMixin(object):

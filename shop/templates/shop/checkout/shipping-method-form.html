@@ -24,6 +24,9 @@
 		{% if shipping_modifiers.initial_row %}
 		<p ng-if="!cart.extra_rows">{% trans "Additional charge" %}: {{ shipping_modifiers.initial_row.amount }}</p>
 		{% endif %}
+		{% if shipping_modifiers.extra_field %}
+		<p ng-if="!cart.extra_rows">{% trans "Test" %}: {{ shipping_modifiers.extra_row.amount }}</p>
+		{% endif %}
 	</div>
 	{% endif %}
 {% else %}
@@ -31,5 +34,20 @@
 	<p class="bg-danger">{% trans "No shipping method available" %}</p>
 {% endif %}
 </form>
+<script>
+	$('#shippingmethod_shipping_modifier input').click()
+	$(function(){
+  $('#shippingmethod_shipping_modifier input').click(function(){
+    if ($(':input[value="nova-poshta-shipping"]').is(':checked'))
+    {
+      $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').show();
+    }
+    else
+    {
+    $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').hide();
+    }
+  });
+});
+</script>
 	{% block shipping-provider-form %}{% endblock %}
 {% endblock %}

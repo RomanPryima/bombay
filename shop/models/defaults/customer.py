@@ -27,6 +27,8 @@ class Customer(BaseCustomer):
         _("Salutation"),
         max_length=5,
         choices=SALUTATION,
+        null=True,
+        blank=True
     )
 
     def get_number(self):
