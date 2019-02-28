@@ -34,6 +34,7 @@ RUN pip install --upgrade pip
 RUN pip install psycopg2-binary uWSGI 'Django<2.0' 'django-select2<6.1' 'django-angular<2.1'
 RUN pip install .
 RUN pip install -r /web/requirements/myshop.txt
+RUN pip install --no-deps -e .
 RUN npm install
 RUN useradd -M -d /web -s /bin/bash django
 
