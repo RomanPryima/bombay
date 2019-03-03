@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-24 22:25+0200\n"
-"PO-Revision-Date: 2019-02-24 22:44+0200\n"
+"POT-Creation-Date: 2019-03-03 14:01+0200\n"
+"PO-Revision-Date: 2019-03-03 14:09+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -19,13 +19,20 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: myshop/admin/bombay.py:132 myshop/admin/manufacturer.py:18
+#: myshop/admin/bombay.py:37 myshop/admin/bombay.py:135
+#: myshop/admin/manufacturer.py:18
 msgid "Translatable Fields"
 msgstr ""
 
-#: myshop/admin/bombay.py:154
-msgid "Price starting at"
-msgstr "Ціна починається від"
+#: myshop/admin/bombay.py:40
+msgid "Properties"
+msgstr "Властивості"
+
+#: myshop/admin/bombay.py:157
+#, fuzzy
+#| msgid "Unit Price"
+msgid "Price"
+msgstr "Ціна за одиницю"
 
 #: myshop/apps.py:13
 msgid "My Shop"
@@ -59,26 +66,67 @@ msgstr ""
 msgid "Initialize the workdir to run the bombay myshop."
 msgstr ""
 
-#: myshop/models/bombay/commodity.py:17 myshop/models/bombay/dresses.py:26
+#: myshop/models/bombay/commodity.py:19 myshop/models/bombay/dresses.py:28
 #: myshop/models/bombay/smartcard.py:16 myshop/models/bombay/smartphone.py:167
 msgid "Unit price"
 msgstr "Ціна за одиницю"
 
-#: myshop/models/bombay/commodity.py:19 myshop/models/bombay/dresses.py:28
+#: myshop/models/bombay/commodity.py:21 myshop/models/bombay/dresses.py:30
 #: myshop/models/bombay/smartcard.py:18 myshop/models/bombay/smartphone.py:169
 msgid "Net price for this product"
 msgstr "Ціна продукту"
 
-#: myshop/models/bombay/commodity.py:23 myshop/models/bombay/dresses.py:38
+#: myshop/models/bombay/commodity.py:25 myshop/models/bombay/dresses.py:40
 #: myshop/models/bombay/smartcard.py:38 myshop/models/bombay/smartphone.py:161
 msgid "Product code"
 msgstr "Код продукту"
 
-#: myshop/models/bombay/commodity.py:35
+#: myshop/models/bombay/commodity.py:31 myshop/models/bombay/dresses.py:34
+msgid "Price without discount"
+msgstr "Ціна без знижки"
+
+#: myshop/models/bombay/commodity.py:33 myshop/models/bombay/dresses.py:36
+msgid "Price for this product without applying a discount."
+msgstr "Ціна продукта без знижки"
+
+#: myshop/models/bombay/commodity.py:43 myshop/models/bombay/dresses.py:54
+#: myshop/models/bombay/smartcard.py:50 myshop/models/bombay/smartphone.py:110
+msgid "Description"
+msgstr "Опис"
+
+#: myshop/models/bombay/commodity.py:45
+msgid "Full description used in the catalog's detail view of Commodity."
+msgstr "Повний опис для перегляду деталей товару"
+
+#: myshop/models/bombay/commodity.py:47
+msgid "Color and shades of product"
+msgstr "Колір і відтінки продукту"
+
+#: myshop/models/bombay/commodity.py:50
+msgid "Type of hair"
+msgstr "Тип волосся"
+
+#: myshop/models/bombay/commodity.py:52
+msgid "Classification of the commodity"
+msgstr "Класифікація товару"
+
+#: myshop/models/bombay/commodity.py:53
+msgid "Classification of the commodityl"
+msgstr "Класифікація товару"
+
+#: myshop/models/bombay/commodity.py:55 myshop/models/bombay/commodity.py:56
+msgid "Package"
+msgstr "Упаковка"
+
+#: myshop/models/bombay/commodity.py:57 myshop/models/bombay/commodity.py:58
+msgid "Weight/Volume"
+msgstr "Вага/Об'єм"
+
+#: myshop/models/bombay/commodity.py:64
 msgid "Commodity"
 msgstr "Товар"
 
-#: myshop/models/bombay/commodity.py:36
+#: myshop/models/bombay/commodity.py:65
 msgid "Commodities"
 msgstr "Товари"
 
@@ -106,80 +154,69 @@ msgstr "Осінь"
 msgid "Winter"
 msgstr "Зима"
 
-#: myshop/models/bombay/dresses.py:32
-msgid "Price without discount"
-msgstr "Ціна без знижки"
-
-#: myshop/models/bombay/dresses.py:34
-msgid "Price for this product without applying a discount."
-msgstr "Ціна продукта без знижки"
-
-#: myshop/models/bombay/dresses.py:43
+#: myshop/models/bombay/dresses.py:45
+#: myshop/templates/myshop/catalog/clothes-detail.html:50
+#: myshop/templates/myshop/catalog/commodity-detail.html:50
 msgid "Gender"
 msgstr "Стать"
 
-#: myshop/models/bombay/dresses.py:44
+#: myshop/models/bombay/dresses.py:46
 msgid "Seson"
 msgstr "Сезон"
 
-#: myshop/models/bombay/dresses.py:46
+#: myshop/models/bombay/dresses.py:48
 msgid "new"
 msgstr "Новий"
 
-#: myshop/models/bombay/dresses.py:46
+#: myshop/models/bombay/dresses.py:48
 msgid "New"
 msgstr "Новий"
 
-#: myshop/models/bombay/dresses.py:46
+#: myshop/models/bombay/dresses.py:48
 msgid "used"
-msgstr ""
+msgstr "користований"
 
-#: myshop/models/bombay/dresses.py:46
+#: myshop/models/bombay/dresses.py:48
 msgid "Used"
 msgstr "Користований"
 
-#: myshop/models/bombay/dresses.py:47
+#: myshop/models/bombay/dresses.py:49
 msgid "Condition of product"
 msgstr "Стан продукту"
 
-#: myshop/models/bombay/dresses.py:52 myshop/models/bombay/smartcard.py:50
-#: myshop/models/bombay/smartphone.py:110
-msgid "Description"
-msgstr "Опис"
-
-#: myshop/models/bombay/dresses.py:54
+#: myshop/models/bombay/dresses.py:56
 msgid "Full description used in the catalog's detail view of Clothes."
 msgstr "Повний опис для перегляду деталей продукту (одяг)"
 
-#: myshop/models/bombay/dresses.py:56
+#: myshop/models/bombay/dresses.py:58
 msgid "Color of product"
 msgstr "Колір продукту"
 
-#: myshop/models/bombay/dresses.py:58
+#: myshop/models/bombay/dresses.py:60
 msgid "Fabric of product"
 msgstr "Тканина продукту"
 
-#: myshop/models/bombay/dresses.py:60 myshop/models/bombay/dresses.py:61
+#: myshop/models/bombay/dresses.py:62 myshop/models/bombay/dresses.py:63
 msgid "Composition of product material"
 msgstr "Склад матеріалу продукту"
 
-#: myshop/models/bombay/dresses.py:63 myshop/models/bombay/dresses.py:64
+#: myshop/models/bombay/dresses.py:65 myshop/models/bombay/dresses.py:66
 msgid "Decoration and features"
 msgstr "Оздоблення"
 
-#: myshop/models/bombay/dresses.py:76 myshop/models/bombay/dresses.py:77
+#: myshop/models/bombay/dresses.py:78 myshop/models/bombay/dresses.py:79
 msgid "Clothes"
 msgstr "Одяг"
 
-#: myshop/models/bombay/dresses.py:104
+#: myshop/models/bombay/dresses.py:112
 msgid "Clothes name"
 msgstr "Назва одягу"
 
-#: myshop/models/bombay/dresses.py:109
+#: myshop/models/bombay/dresses.py:117
 msgid "Product size"
 msgstr "Розмір товару"
 
-#: myshop/models/bombay/dresses.py:110
+#: myshop/models/bombay/dresses.py:118
 msgid "Size of Item"
 msgstr "Розмір одиниці"
 
@@ -216,7 +253,8 @@ msgid "Slug"
 msgstr "Відображення для пошукових систем"
 
 #: myshop/models/bombay/product.py:62
-#: myshop/templates/myshop/catalog/clothes-detail.html:61
+#: myshop/templates/myshop/catalog/clothes-detail.html:65
+#: myshop/templates/myshop/catalog/commodity-detail.html:65
 #: myshop/templates/myshop/catalog/smartcard-detail.html:29
 #: myshop/templates/myshop/catalog/smartphonemodel-detail.html:25
 msgid "Manufacturer"
@@ -224,12 +262,14 @@ msgstr "Виробник"
 
 #: myshop/models/bombay/product.py:68 myshop/models/manufacturer.py:20
 #: myshop/models/manufacturer.py:26
-#: myshop/templates/myshop/catalog/clothes-detail.html:55
+#: myshop/templates/myshop/catalog/clothes-detail.html:59
+#: myshop/templates/myshop/catalog/commodity-detail.html:59
 msgid "Country of origin"
 msgstr "Країна походження"
 
 #: myshop/models/bombay/product.py:74
-#: myshop/templates/myshop/catalog/clothes-detail.html:50
+#: myshop/templates/myshop/catalog/clothes-detail.html:54
+#: myshop/templates/myshop/catalog/commodity-detail.html:54
 msgid "Category"
 msgstr "Категорія"
 
@@ -429,31 +469,31 @@ msgstr "Самовивіз"
 msgid "Cash on delivery"
 msgstr "Післяплата («Наложенный платёж»)"
 
-#: myshop/settings.py:452
+#: myshop/settings.py:454
 msgid "Default Page"
 msgstr ""
 
-#: myshop/settings.py:453
+#: myshop/settings.py:455
 msgid "Test Page"
 msgstr ""
 
-#: myshop/settings.py:530
+#: myshop/settings.py:532
 msgid "Product Heading"
 msgstr "Заголовок продукту"
 
-#: myshop/settings.py:531
+#: myshop/settings.py:533
 msgid "Manufacturer Filter"
 msgstr "Фільтрувати за виробником"
 
-#: myshop/settings.py:534
+#: myshop/settings.py:536
 msgid "Default"
 msgstr "За замовчуванням"
 
-#: myshop/settings.py:535
+#: myshop/settings.py:537
 msgid "Add Commodity to Cart"
 msgstr "Додати товар до кошика"
 
-#: myshop/settings.py:673
+#: myshop/settings.py:675
 msgid "Thanks for purchasing at MyShop"
 msgstr "Дякуємо за покупку в нашому магазині."
 
@@ -505,27 +545,33 @@ msgstr "Попередній підсумок"
 msgid "Add to cart"
 msgstr "Додати до кошика"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:67
+#: myshop/templates/myshop/catalog/clothes-detail.html:71
+#: myshop/templates/myshop/catalog/commodity-detail.html:71
 msgid "Color"
 msgstr "Колір"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:73
+#: myshop/templates/myshop/catalog/clothes-detail.html:77
+#: myshop/templates/myshop/catalog/commodity-detail.html:77
 msgid "Season"
 msgstr "Сезон"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:79
+#: myshop/templates/myshop/catalog/clothes-detail.html:83
+#: myshop/templates/myshop/catalog/commodity-detail.html:83
 msgid "Fabric"
 msgstr "Тканина"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:85
+#: myshop/templates/myshop/catalog/clothes-detail.html:89
+#: myshop/templates/myshop/catalog/commodity-detail.html:89
 msgid "Composition"
 msgstr "Склад"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:91
+#: myshop/templates/myshop/catalog/clothes-detail.html:95
+#: myshop/templates/myshop/catalog/commodity-detail.html:95
 msgid "Decoration"
 msgstr "Оздоблення"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:97
+#: myshop/templates/myshop/catalog/clothes-detail.html:101
+#: myshop/templates/myshop/catalog/commodity-detail.html:101
 msgid "Condition"
 msgstr "Стан"
 
@@ -582,12 +628,22 @@ msgstr "Написати нам"
 msgid "Bombay - The Shop of color women's clothes."
 msgstr "Бомбей - магазин колоритного жіночого одягу."
 
+#: myshop/templates/myshop/pages/navbar.html:8
+msgid ""
+"МОДА ВІД 40 ДО 68 РОЗМІРУ................ГАРАНТІЯ ПОВЕРНЕННЯ ТА ОБМІНУ "
+"ТОВАРУ................ГНУЧКА СИСТЕМА ЗНИЖОК"
+msgstr ""
+
+#: myshop/templates/myshop/pages/navbar.html:15
+msgid "м.Львів,  вул. Дудаєва, 3"
+msgstr ""
+
 #: myshop/templates/myshop/pages/password-reset-confirm.html:4
 msgid "Password Reset Confirm"
 msgstr "Підтвердження скидання паролю"
 
-#~ msgid "Properties"
-#~ msgstr "Властивості"
+#~ msgid "Price starting at"
+#~ msgstr "Ціна починається від"
 
 #~ msgid "Product season"
 #~ msgstr "Сезон продукту"

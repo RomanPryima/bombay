@@ -81,7 +81,7 @@ class ShopCategoryPlugin(ShopPluginBase):
 
     def render(self, context, instance, placeholder):
         context = super(ShopCategoryPlugin, self).render(context, instance, placeholder)
-        categories = Category.objects.all().language(get_language())
+        categories = Category.objects.all().order_by('id')
         context['categories'] = [_ for _ in categories]
         context['infinite_scroll'] = bool(instance.glossary.get('infinite_scroll', True))
         return context

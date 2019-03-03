@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-shop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-24 23:04+0200\n"
-"PO-Revision-Date: 2019-02-24 23:24+0200\n"
+"POT-Creation-Date: 2019-03-03 16:04+0200\n"
+"PO-Revision-Date: 2019-03-03 16:06+0200\n"
 "Last-Translator: chrisglass <tribaal@gmail.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -161,37 +161,31 @@ msgid "Mail Recipient"
 msgstr "Получатель почты"
 
 #: admin/order.py:70 admin/order.py:137
-#, fuzzy
-#| msgctxt "admin"
-#| msgid "Extra data"
 msgid "Extra data"
 msgstr "Дополнительные данные"
 
-#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:9
+#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:10
 #: templates/shop/order/list.html:17
 msgid "Status"
 msgstr "Статус"
 
 #: admin/order.py:115
-#, fuzzy
-#| msgctxt "admin"
-#| msgid "Order number"
 msgid "Order number"
 msgstr "Номер заказа"
 
 #: admin/order.py:119 models/order.py:204 templates/shop/cart/editable.html:27
 #: templates/shop/cart/editable.html:58 templates/shop/cart/static.html:11
 #: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
-#: templates/shop/email/order.html:51 templates/shop/order/detail.html:20
-#: templates/shop/order/detail.html:65 templates/shop/print/order.html:12
+#: templates/shop/email/order.html:51 templates/shop/order/detail.html:22
+#: templates/shop/order/detail.html:67 templates/shop/print/order.html:12
 #: templates/shop/print/order.html:58
 msgid "Total"
 msgstr "Всего к оплате за товары"
 
 #: admin/order.py:123 models/order.py:199 templates/shop/cart/editable.html:48
 #: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
-#: templates/shop/catalog/product-add2cart.html:23
-#: templates/shop/email/order.html:41 templates/shop/order/detail.html:53
+#: templates/shop/catalog/product-add2cart.html:25
+#: templates/shop/email/order.html:41 templates/shop/order/detail.html:55
 #: templates/shop/print/order.html:44
 msgid "Subtotal"
 msgstr "Стоимость корзины"
@@ -204,15 +198,10 @@ msgid "Outstanding amount"
 msgstr "Осталось оплатить"
 
 #: admin/order.py:149
-#, fuzzy
-#| msgid "Customer's Details"
 msgid "Customer's data"
-msgstr "Данные о покупателе"
+msgstr "Данные покупателя"
 
 #: admin/order.py:215
-#, fuzzy
-#| msgctxt "admin"
-#| msgid "Order Confirmation"
 msgid "Order Confirmation"
 msgstr "Подтверждение заказа"
 
@@ -254,10 +243,8 @@ msgid "Shared Login/Logout Form"
 msgstr "Вход/Выход"
 
 #: cascade/auth.py:22
-#, fuzzy
-#| msgid "Password Reset Form"
 msgid "Password Reset Form"
-msgstr "Восстановление пароля"
+msgstr "Форма восстановления пароля"
 
 #: cascade/auth.py:23
 msgid "Change Password Form"
@@ -395,7 +382,7 @@ msgstr "Выберите продукт"
 #: cascade/catalog.py:176 cascade/plugin_base.py:121 models/order.py:477
 #: models/product.py:105 templates/shop/cart/editable.html:25
 #: templates/shop/cart/static.html:9 templates/shop/cart/watch.html:16
-#: templates/shop/email/order.html:11 templates/shop/order/detail.html:17
+#: templates/shop/email/order.html:11 templates/shop/order/detail.html:19
 #: templates/shop/print/order.html:9
 msgid "Product"
 msgstr "Продукт"
@@ -2125,7 +2112,7 @@ msgstr ""
 
 #: models/notification.py:90
 msgid "Name"
-msgstr "Название"
+msgstr "Имя"
 
 #: models/notification.py:99
 msgid "Whom to notify"
@@ -2632,16 +2619,16 @@ msgid "Found Products"
 msgstr "Найденные товары"
 
 #: templates/shop/cart/editable.html:24 templates/shop/cart/static.html:8
-#: templates/shop/catalog/product-add2cart.html:21
-#: templates/shop/email/order.html:12 templates/shop/order/detail.html:16
+#: templates/shop/catalog/product-add2cart.html:23
+#: templates/shop/email/order.html:12 templates/shop/order/detail.html:18
 #: templates/shop/print/order.html:10
 msgid "Quantity"
 msgstr "Количество"
 
 #: templates/shop/cart/editable.html:26 templates/shop/cart/static.html:10
 #: templates/shop/cart/watch.html:17
-#: templates/shop/catalog/product-add2cart.html:22
-#: templates/shop/order/detail.html:19 templates/shop/print/order.html:11
+#: templates/shop/catalog/product-add2cart.html:24
+#: templates/shop/order/detail.html:21 templates/shop/print/order.html:11
 msgid "Unit Price"
 msgstr "Стоимость единицы"
 
@@ -2658,7 +2645,7 @@ msgid "Number of items"
 msgstr "Количество элементов"
 
 #: templates/shop/cart/watch.html:46
-#: templates/shop/catalog/product-add2cart.html:58
+#: templates/shop/catalog/product-add2cart.html:60
 msgid "Add to cart"
 msgstr "Добавить в корзину"
 
@@ -2670,11 +2657,11 @@ msgstr "Загрузка товаров"
 msgid "No products found"
 msgstr "Товары не найдены"
 
-#: templates/shop/catalog/product-add2cart.html:15
+#: templates/shop/catalog/product-add2cart.html:17
 msgid "Order Product"
 msgstr "Заказанный продукт"
 
-#: templates/shop/catalog/product-add2cart.html:40
+#: templates/shop/catalog/product-add2cart.html:42
 msgid ""
 "\n"
 "\t\t\t\tBy adding a product to the cart you are giving consent to cookies "
@@ -2689,34 +2676,38 @@ msgstr ""
 "сайта.\n"
 "\t\t\t"
 
-#: templates/shop/catalog/product-add2cart.html:71
+#: templates/shop/catalog/product-add2cart.html:73
 msgid "The product has been successfully placed in the shopping cart:"
 msgstr "Товар успешно добавлен в корзину:"
 
-#: templates/shop/catalog/product-add2cart.html:72
+#: templates/shop/catalog/product-add2cart.html:74
 msgid "Watching this product"
 msgstr "Товар добавлен в список просмотренных товаров"
 
-#: templates/shop/catalog/product-add2cart.html:79
+#: templates/shop/catalog/product-add2cart.html:81
 msgid "for {{ context.unit_price }} per piece: {{ context.subtotal }}"
 msgstr "за {{ context.unit_price }}. Итого: {{ context.subtotal }}"
 
-#: templates/shop/catalog/product-add2cart.html:87
+#: templates/shop/catalog/product-add2cart.html:89
 msgid "Show Cart"
 msgstr "Показать корзину"
 
-#: templates/shop/catalog/product-add2cart.html:89
+#: templates/shop/catalog/product-add2cart.html:91
 msgid "Continue Shopping"
 msgstr "Продолжить покупки"
 
-#: templates/shop/catalog/product-add2cart.html:90
+#: templates/shop/catalog/product-add2cart.html:92
 msgid "Cancel"
 msgstr "Отменить"
 
-#: templates/shop/catalog/product-figure.html:10
+#: templates/shop/catalog/product-figure.html:14
 #: templates/shop/email/order.html:13
 msgid "Price"
 msgstr "Цена"
+
+#: templates/shop/catalog/product-figure.html:21
+msgid "Available sizes"
+msgstr "Размеры в наличии"
 
 #: templates/shop/checkout/billing-address-form.html:29
 msgid "Choose a previously used billing address"
@@ -2871,11 +2862,11 @@ msgstr "Предыдущее примечание"
 msgid "This Order can't be cancelled"
 msgstr "Этот заказ не может быть отменен"
 
-#: templates/shop/order/detail.html:18
+#: templates/shop/order/detail.html:20
 msgid "Size"
 msgstr "Размер"
 
-#: templates/shop/order/detail.html:71
+#: templates/shop/order/detail.html:73
 msgid "Thereof Paid"
 msgstr "Уже заплачено"
 

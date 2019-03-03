@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-24 23:04+0200\n"
-"PO-Revision-Date: 2019-02-25 09:24+0200\n"
+"POT-Creation-Date: 2019-03-03 16:04+0200\n"
+"PO-Revision-Date: 2019-03-03 16:10+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -163,7 +163,7 @@ msgstr "Адресат"
 msgid "Extra data"
 msgstr "Додаткові дані"
 
-#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:9
+#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:10
 #: templates/shop/order/list.html:17
 msgid "Status"
 msgstr "Статус"
@@ -175,16 +175,16 @@ msgstr "Номер замовлення"
 #: admin/order.py:119 models/order.py:204 templates/shop/cart/editable.html:27
 #: templates/shop/cart/editable.html:58 templates/shop/cart/static.html:11
 #: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
-#: templates/shop/email/order.html:51 templates/shop/order/detail.html:20
-#: templates/shop/order/detail.html:65 templates/shop/print/order.html:12
+#: templates/shop/email/order.html:51 templates/shop/order/detail.html:22
+#: templates/shop/order/detail.html:67 templates/shop/print/order.html:12
 #: templates/shop/print/order.html:58
 msgid "Total"
 msgstr "Підсумок"
 
 #: admin/order.py:123 models/order.py:199 templates/shop/cart/editable.html:48
 #: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
-#: templates/shop/catalog/product-add2cart.html:23
-#: templates/shop/email/order.html:41 templates/shop/order/detail.html:53
+#: templates/shop/catalog/product-add2cart.html:25
+#: templates/shop/email/order.html:41 templates/shop/order/detail.html:55
 #: templates/shop/print/order.html:44
 msgid "Subtotal"
 msgstr "Попередній підсумок"
@@ -380,7 +380,7 @@ msgstr "Вибрати відповідний продукт"
 #: cascade/catalog.py:176 cascade/plugin_base.py:121 models/order.py:477
 #: models/product.py:105 templates/shop/cart/editable.html:25
 #: templates/shop/cart/static.html:9 templates/shop/cart/watch.html:16
-#: templates/shop/email/order.html:11 templates/shop/order/detail.html:17
+#: templates/shop/email/order.html:11 templates/shop/order/detail.html:19
 #: templates/shop/print/order.html:9
 msgid "Product"
 msgstr "Продукт"
@@ -2542,16 +2542,16 @@ msgid "Found Products"
 msgstr "Знайдені продукти"
 
 #: templates/shop/cart/editable.html:24 templates/shop/cart/static.html:8
-#: templates/shop/catalog/product-add2cart.html:21
-#: templates/shop/email/order.html:12 templates/shop/order/detail.html:16
+#: templates/shop/catalog/product-add2cart.html:23
+#: templates/shop/email/order.html:12 templates/shop/order/detail.html:18
 #: templates/shop/print/order.html:10
 msgid "Quantity"
 msgstr "Кількість"
 
 #: templates/shop/cart/editable.html:26 templates/shop/cart/static.html:10
 #: templates/shop/cart/watch.html:17
-#: templates/shop/catalog/product-add2cart.html:22
-#: templates/shop/order/detail.html:19 templates/shop/print/order.html:11
+#: templates/shop/catalog/product-add2cart.html:24
+#: templates/shop/order/detail.html:21 templates/shop/print/order.html:11
 msgid "Unit Price"
 msgstr "Ціна за одиницю"
 
@@ -2568,7 +2568,7 @@ msgid "Number of items"
 msgstr "Кількість"
 
 #: templates/shop/cart/watch.html:46
-#: templates/shop/catalog/product-add2cart.html:58
+#: templates/shop/catalog/product-add2cart.html:60
 msgid "Add to cart"
 msgstr "Додати до кошика"
 
@@ -2580,11 +2580,11 @@ msgstr "Завантажуємо ще продукти"
 msgid "No products found"
 msgstr "Подуктів не знайдено"
 
-#: templates/shop/catalog/product-add2cart.html:15
+#: templates/shop/catalog/product-add2cart.html:17
 msgid "Order Product"
 msgstr "Замовити продукт"
 
-#: templates/shop/catalog/product-add2cart.html:40
+#: templates/shop/catalog/product-add2cart.html:42
 msgid ""
 "\n"
 "\t\t\t\tBy adding a product to the cart you are giving consent to cookies "
@@ -2593,34 +2593,38 @@ msgid ""
 "\t\t\t"
 msgstr ""
 
-#: templates/shop/catalog/product-add2cart.html:71
+#: templates/shop/catalog/product-add2cart.html:73
 msgid "The product has been successfully placed in the shopping cart:"
 msgstr "Продукт успішно оданий до кошика:"
 
-#: templates/shop/catalog/product-add2cart.html:72
+#: templates/shop/catalog/product-add2cart.html:74
 msgid "Watching this product"
 msgstr "Переглянути продукт"
 
-#: templates/shop/catalog/product-add2cart.html:79
+#: templates/shop/catalog/product-add2cart.html:81
 msgid "for {{ context.unit_price }} per piece: {{ context.subtotal }}"
 msgstr "за {{ context.unit_price }} на суму: {{ context.subtotal }}"
 
-#: templates/shop/catalog/product-add2cart.html:87
+#: templates/shop/catalog/product-add2cart.html:89
 msgid "Show Cart"
 msgstr "Переглянути Кошик"
 
-#: templates/shop/catalog/product-add2cart.html:89
+#: templates/shop/catalog/product-add2cart.html:91
 msgid "Continue Shopping"
 msgstr "Продовжити покупки"
 
-#: templates/shop/catalog/product-add2cart.html:90
+#: templates/shop/catalog/product-add2cart.html:92
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: templates/shop/catalog/product-figure.html:10
+#: templates/shop/catalog/product-figure.html:14
 #: templates/shop/email/order.html:13
 msgid "Price"
 msgstr "Ціна"
+
+#: templates/shop/catalog/product-figure.html:21
+msgid "Available sizes"
+msgstr "Наявні розміри"
 
 #: templates/shop/checkout/billing-address-form.html:29
 msgid "Choose a previously used billing address"
@@ -2644,7 +2648,7 @@ msgstr "Додатковий збір"
 
 #: templates/shop/checkout/payment-method-form.html:31
 msgid "No payment method available"
-msgstr ""
+msgstr "Відсутній метод оплати"
 
 #: templates/shop/checkout/required-form-fields.html:1
 msgid "These fields are required"
@@ -2763,11 +2767,11 @@ msgstr "Попередні анотації"
 msgid "This Order can't be cancelled"
 msgstr "Неможливо скасувати це замовлення"
 
-#: templates/shop/order/detail.html:18
+#: templates/shop/order/detail.html:20
 msgid "Size"
 msgstr "Розмір"
 
-#: templates/shop/order/detail.html:71
+#: templates/shop/order/detail.html:73
 msgid "Thereof Paid"
 msgstr "Оплачено"
 

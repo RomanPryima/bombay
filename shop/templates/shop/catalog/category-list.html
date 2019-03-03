@@ -19,7 +19,7 @@
 	<div>
 		{% for category in categories %}
 		 <div class="col-md-4 col-sm-6">
-		<div class="box" style="max-width:80%; max-height:80%;">
+		<div class="box" style="max-width:80%; height: 30em; margin-bottom: 2em;">
 			<a href="{% page_url category.page %}">
 			<img  src="{{ category.image.url }}" alt="{{ category.name }}">
 			<div class="box-content">

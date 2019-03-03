@@ -2,17 +2,20 @@
 {% load i18n djng_tags %}
 {% angularjs ng %}
 <figure>
-	{% if product.discount %}
+	{% ifnotequal  product.discount "- 0 %" %}
 	<h3 class= "pull-right" style="color: #016d8b; background-color: transparent;"><em><strong>{{ product.discount }}</strong></em></h3>
-	{% else %}
-	{% endif %}
+	{% endifnotequal %}
 	<a href="{{ product.product_url }}" class="text-center">
 		<div {% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
 		<h4>{{ product.product_name }}</h4>
 	</a>
 	<figcaption>
 		<div>
-			<strong>{% trans "Price" %}: </strong> <strike>{{ product.price_without_discount }}</strike> <h3 style="color: #016d8b;">{{ product.price }}</h3>
+			<strong>{% trans "Price" %}: </strong>
+			{% ifnotequal  product.discount "- 0 %" %}
+			<strike>{{ product.price_without_discount }}</strike>
+			{% endifnotequal %}
+			<h3 style="color: #016d8b;">{{ product.price }}</h3>
 		</div>
 		<div>
 			<h5> <strong>{% trans "Available sizes" %}: </strong>
