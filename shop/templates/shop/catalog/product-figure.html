@@ -2,13 +2,17 @@
 {% load i18n djng_tags %}
 {% angularjs ng %}
 <figure>
-	<a href="{{ product.product_url }}">
-		<div{% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
-		<h4 class="text-center">{{ product.product_name }}</h4>
+	{% if product.discount %}
+	<h3 class= "pull-right" style="color: #016d8b; background-color: transparent;"><em><strong>{{ product.discount }}</strong></em></h3>
+	{% else %}
+	{% endif %}
+	<a href="{{ product.product_url }}" class="text-center">
+		<div {% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
+		<h4>{{ product.product_name }}</h4>
 	</a>
 	<figcaption>
 		<div>
-		<strong>{% trans "Price" %}: {{ product.price }}</strong>
+			<strong>{% trans "Price" %}: </strong> <strike>{{ product.price_without_discount }}</strike> <h3 style="color: #016d8b;">{{ product.price }}</h3>
 		</div>
 		<div>
 			<h5> <strong>{% trans "Available sizes" %}: </strong>

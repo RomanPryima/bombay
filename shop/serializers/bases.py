@@ -32,6 +32,7 @@ class ProductSerializer(serializers.ModelSerializer):
     Common serializer for our product model.
     """
     price = serializers.SerializerMethodField()
+    price_without_discount = serializers.SerializerMethodField()
     availability = serializers.SerializerMethodField()
     product_type = serializers.CharField(read_only=True)
     product_model = serializers.CharField(read_only=True)
@@ -54,6 +55,9 @@ class ProductSerializer(serializers.ModelSerializer):
 
     def get_availability(self, product):
         return product.get_availability(self.context['request'])
+
+    def get_price_without_discount(self, product):
+        return product.price_without_discount
 
     def render_html(self, product, postfix):
         """
