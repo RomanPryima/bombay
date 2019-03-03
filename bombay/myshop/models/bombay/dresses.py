@@ -21,6 +21,7 @@ SEASONS = (
 
 SIZES = [(_, _) for _ in range(44, 68)]
 
+
 class Clothes(Product):
     # common product fields
     unit_price = MoneyField(
@@ -96,6 +97,12 @@ class Clothes(Product):
             return self.variants.get(**kwargs)
         except ClothesVariant.DoesNotExist as e:
             raise Clothes.DoesNotExist(e)
+
+    @property
+    def size_range(self):
+        variants = self.variants.all()
+        sizes = [variant.product_size for variant in variants]
+        return '{} - {}'.format(min(sizes), max(sizes))
 
 
 

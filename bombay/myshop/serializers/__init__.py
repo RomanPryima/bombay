@@ -21,12 +21,16 @@ __all__ = ['ProductSummarySerializer', 'ProductSearchSerializer', 'CatalogSearch
 
 class ProductSummarySerializer(ProductSerializer):
     media = serializers.SerializerMethodField()
+    size_range = serializers.CharField(max_length=30, allow_null=True, allow_blank=True)
 
     class Meta(ProductSerializer.Meta):
-        fields = ['id', 'product_name', 'product_url', 'product_model', 'price', 'media', 'caption']
+        fields = ['id', 'product_name', 'product_url', 'product_model', 'price', 'media', 'caption', 'size_range']
 
     def get_media(self, product):
         return self.render_html(product, 'media')
+
+    def get_size_range(self, product):
+        return product.size_range
 
 
 class ProductSearchSerializer(BaseProductSearchSerializer):

@@ -1,6 +1,6 @@
 {% load thumbnail %}
-{% thumbnail product.sample_image 80x80 crop as thumb %}
-{% thumbnail product.sample_image 160x160 crop as thumb2 %}
+{% thumbnail product.sample_image 80x80  as thumb %}
+{% thumbnail product.sample_image 160x160  as thumb2 %}
 <div class="media-left">
 {% block media-left %}
 	<a href="{{ product.get_absolute_url }}">

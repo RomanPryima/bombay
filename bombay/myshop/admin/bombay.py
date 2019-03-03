@@ -16,31 +16,34 @@ from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildMode
 
 from shop.admin.product import CMSPageAsCategoryMixin, ProductImageInline, InvalidateProductCacheMixin, CMSPageFilter
 
-from myshop.models import Product, Commodity, SmartCard, SmartPhoneVariant, SmartPhoneModel, Clothes, ClothesVariant
+from myshop.models import Product, Commodity, Clothes, ClothesVariant
 # from myshop.models.bombay.smartphone import OperatingSystem
 
 
-# @admin.register(Commodity)
-# class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
-#                      PlaceholderAdminMixin, CMSPageAsCategoryMixin, admin.ModelAdmin):
-#     """
-#     Since our Commodity model inherits from polymorphic Product, we have to redefine its admin class.
-#     """
-#     base_model = Product
-#     fieldsets = [
-#         (None, {
-#             'fields': ['product_name', 'slug', 'product_code', 'unit_price', 'active'],
-#         }),
-#         (_("Translatable Fields"), {
-#             'fields': ['caption'],
-#         }),
-#         (_("Properties"), {
-#             'fields': ['manufacturer', 'country_of_origin'],
-#         }),
-#     ]
-#     filter_horizontal = ['cms_pages']
-#     inlines = [ProductImageInline]
-#     prepopulated_fields = {'slug': ['product_name']}
+@admin.register(Commodity)
+class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+                     PlaceholderAdminMixin, CMSPageAsCategoryMixin, admin.ModelAdmin):
+    """
+    Since our Commodity model inherits from polymorphic Product, we have to redefine its admin class.
+    """
+    base_model = Product
+    fieldsets = [
+        (None, {
+            'fields': ['product_name', 'availability', 'category',
+                       'slug', 'product_code', 'unit_price',
+                       'price_without_discount', 'active',
+                       ],
+        }),
+        (_("Translatable Fields"), {
+            'fields': ['color', 'hair_type', 'classification', 'package', 'weight', 'caption', 'description'],
+        }),
+        (_("Properties"), {
+            'fields': ['manufacturer', 'country_of_origin'],
+        }),
+    ]
+    filter_horizontal = ['cms_pages']
+    inlines = [ProductImageInline]
+    prepopulated_fields = {'slug': ['product_code']}
 
 
 # @admin.register(SmartCard)
@@ -141,7 +144,7 @@ class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatable
 @admin.register(Product)
 class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     base_model = Product
-    child_models = [Clothes]
+    child_models = [Clothes, Commodity]
     list_display = ['product_name', 'get_price', 'product_type', 'active']
     list_display_links = ['product_name']
     search_fields = ['product_name']
@@ -151,4 +154,4 @@ class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
 
     def get_price(self, obj):
         return str(obj.get_real_instance().get_price(None))
-    get_price.short_description = _("Price starting at")
+    get_price.short_description = _("Price")

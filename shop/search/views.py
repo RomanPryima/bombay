@@ -125,7 +125,6 @@ class CMSPageCatalogWrapper(object):
         self.list_view = type(str('CatalogListView'), bases, attrs).as_view(
             serializer_class=self.model_serializer_class,
         )
-
         return self
 
     def __call__(self, request):
