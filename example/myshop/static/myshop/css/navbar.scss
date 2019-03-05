@@ -56,12 +56,3 @@
 	padding: 5px 10px;
 	line-height: 20px;
 }
-
-body {
-	@media (max-width: $screen-sm-min) {
-		padding-top: 290px;  // determined empirically
-	}
-	@media (min-width: $screen-sm-min) {
-		padding-top: $navbar-height + $navbar-extra-top-height + 3;
-	}
-}

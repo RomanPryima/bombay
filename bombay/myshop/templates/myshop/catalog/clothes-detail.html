@@ -33,7 +33,7 @@
 				</a>
 				{% endfor %}
 			</div>
-			<div class="images col-xs-8 col-md-8 text-center">
+			<div class="images col-xs-12 col-md-6">
 				<div class="easyzoom easyzoom--overlay easyzoom--with-thumbnails is-ready">
 					<a href="{{ product.images.all.0.url }}">
 						<img src="{{ product.images.all.0.url }}" style="max-height: 35em;"
@@ -41,11 +41,9 @@
 					</a>
 				</div>
 			</div>
-		</div>
-		<div class="col-xs-12 col-md-8">
-			{{ product.description|safe }}
-			<table class="table table-bordered">
-				<tbody class="table-striped">
+		<div class="col-xs-12 col-md-3">
+			<table class="table">
+				<tbody class="">
 					<tr>
 						<td>{% trans "Gender" %}</td>
 						<td>{{ product.get_gender_display }}</td>
@@ -104,9 +102,15 @@
 					{% endif %}
 				</tbody>
 			</table>
-			<!-- include "Add to Cart" dialog box -->
-			{% include "myshop/catalog/clothes-add2cart.html" %}
 		</div>
+		</div>
+		<div class="col-xs-12 col-md-12">
+			{{ product.description|safe }}
+		</div>
+	<div class="col-xs-12 col-md-8">
+		<!-- include "Add to Cart" dialog box -->
+		{% include "myshop/catalog/clothes-add2cart.html" %}
+	</div>
 	</div>
 </div>
 

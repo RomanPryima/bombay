@@ -2,6 +2,7 @@
 !email_auth/
 !bombay/
 !contact_us/
+!email_auth
 !shop/
 !requirements/
 !setup.py

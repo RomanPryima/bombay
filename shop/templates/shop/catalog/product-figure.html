@@ -17,11 +17,13 @@
 			{% endifnotequal %}
 			<h3 style="color: #016d8b;">{{ product.price }}</h3>
 		</div>
+		{% if product.size_range %}
 		<div>
 			<h5> <strong>{% trans "Available sizes" %}: </strong>
 			{% if ng %}<ng-bind-html ng-bind-html="product.size_range"></ng-bind-html>{% else %}{{ product.size_range|safe }}{% endif %}
 			</h5>
 		</div>
+		{% endif %}
 	</figcaption>
 </figure>
 {% endangularjs %}

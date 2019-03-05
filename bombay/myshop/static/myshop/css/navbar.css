@@ -11,11 +11,11 @@
 
 @media (min-width: 1200px) {
   .navbar-form.shop-search-form input.form-control {
-    width: 40em; } }
+    width: 28em; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .navbar-form.shop-search-form input.form-control {
-    width: 28em; } }
+    width: 15em; } }
 
 .navbar-form.shop-search-form .input-group-addon {
   cursor: pointer; }
@@ -31,7 +31,3 @@
 .alert {
   padding: 5px 10px;
   line-height: 20px; }
-
-
-
-

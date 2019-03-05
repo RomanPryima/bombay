@@ -55,7 +55,6 @@ def compress(context, data, name):
     compressable_node = CompressorNode(nodelist=TextNode(data), kind=name, mode='file')
     data = ''.join(parser.elem_str(e) for e in deferred_elements)
     deferred_node = CompressorNode(nodelist=TextNode(data), kind=name, mode='file')
-
     return '\n'.join([
         expanded_node.get_original_content(context=context),
         compressable_node.render(context=context),

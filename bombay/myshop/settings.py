@@ -170,7 +170,7 @@ if os.getenv('POSTGRES_DB') and os.getenv('POSTGRES_USER'):
 # Internationalization
 # https://docs.djangoproject.com/en/stable/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'en' if os.environ.get('ENABLE_EN') else 'uk'
 
 LOCALE_PATHS = (
     os.path.join(WORK_DIR, 'locale'),
@@ -181,24 +181,27 @@ LOCALE_PATHS = (
 
 USE_I18N = True
 
-LANGUAGES = (
-    ('en', 'English'),
+LANGUAGES = [
     ('uk', 'Українська'),
     ('ru', 'Русский'),
-)
+]
+if os.environ.get('ENABLE_EN'):
+    LANGUAGES.insert(0, ('en', 'English'))
 
 PARLER_DEFAULT_LANGUAGE = 'uk'
 
 PARLER_LANGUAGES = {
-    1: (
-        # {'code': 'en'},
+    1: [
         {'code': 'uk'},
         {'code': 'ru'},
-    ),
+    ],
     'default': {
-        'fallbacks': ['en'],
+        'fallbacks': ['uk'],
     },
 }
+
+if os.environ.get('ENABLE_EN'):
+    PARLER_LANGUAGES[1].insert(0, {'code': 'en'})
 
 CMS_LANGUAGES = {
     'default': {
@@ -207,14 +210,7 @@ CMS_LANGUAGES = {
         'public': True,
         'hide_untranslated': False,
     },
-    1: (
-        {
-        'public': True,
-        'code': 'en',
-        'hide_untranslated': False,
-        'name': 'English',
-        'redirect_on_fallback': True,
-    },
+    1: [
         {
         'public': True,
             'code': 'uk',
@@ -227,8 +223,18 @@ CMS_LANGUAGES = {
             'hide_untranslated': False,
             'name': 'Русский',
         'redirect_on_fallback': True,
-    },)
+        }, ]
 }
+
+if os.environ.get('ENABLE_EN'):
+    CMS_LANGUAGES[1].insert(0, {
+        'public': True,
+        'code': 'en',
+        'hide_untranslated': False,
+        'name': 'English',
+        'redirect_on_fallback': True,
+    }, )
+
 
 USE_L10N = True
 

@@ -66,3 +66,9 @@ class Commodity(Product):
 
     def get_price(self, request):
         return self.unit_price
+
+    @property
+    def discount(self):
+        return '- {} %'.format(
+            int(round((self.price_without_discount.__float__() - self.unit_price.__float__()) /
+                      self.unit_price.__float__() * 100, 0)))

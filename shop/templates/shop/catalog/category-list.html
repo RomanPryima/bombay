@@ -1,4 +1,4 @@
-{% load i18n cms_tags static menu_tags sekizai_tags sass_tags %}
+{% load i18n cms_tags static menu_tags sekizai_tags sass_tags thumbnail %}
 {% addtoblock "js" %}
 <script src="{% static 'node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.min.js' %}"></script>
 {% endaddtoblock %}
@@ -21,7 +21,8 @@
 		 <div class="col-md-4 col-sm-6">
 		<div class="box" style="max-width:80%; height: 30em; margin-bottom: 2em;">
 			<a href="{% page_url category.page %}">
-			<img  src="{{ category.image.url }}" alt="{{ category.name }}">
+				{% thumbnail category.image 300x300 crop as thumb %}
+				<img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ category.name }}"/>
 			<div class="box-content">
 				<h3 class="title">
 					{{ category.name }}
