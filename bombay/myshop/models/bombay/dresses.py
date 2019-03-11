@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import json
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -17,9 +16,10 @@ SEASONS = (
     ('summer', _('Summer')),
     ('fall', _('Fall')),
     ('winter', _('Winter')),
+    ('whole_year', _('Whole year')),
 )
 
-SIZES = [(_, _) for _ in range(44, 68)]
+SIZES = [(_, _) for _ in range(40, 69, 2)]
 
 
 class Clothes(Product):
@@ -45,7 +45,7 @@ class Clothes(Product):
     gender = models.CharField(_('Gender'), max_length=15, choices=GENDERS)
     season = models.CharField(_('Seson'), max_length=15, choices=SEASONS)
 
-    condition = models.CharField(choices=[(_('new'), _('New')), (_('used'), _('Used'))],
+    condition = models.CharField(choices=(('new', _('New')), ('used', _('Used'))),
                                  verbose_name=_('Condition of product'), help_text=_('Condition of product'),
                                  max_length=255, null=True, blank=True)
 
@@ -85,11 +85,12 @@ class Clothes(Product):
         from shop.models.cart import CartItemModel
         try:
             product_code = kwargs['product_code']
+            product_size = kwargs['extra']['product_size']
         except KeyError:
             return
         cart_item_qs = CartItemModel.objects.filter(cart=cart, product=self)
         for cart_item in cart_item_qs:
-            if cart_item.product_code == product_code:
+            if cart_item.product_code == product_code and cart_item.extra.get('product_size') ==  product_size:
                 return cart_item
 
     def get_product_variant(self, **kwargs):

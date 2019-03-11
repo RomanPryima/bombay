@@ -8,7 +8,6 @@
 			<th>{% trans "Size" %}</th>
 			<th>{% trans "Quantity" %}</th>
 			<th>{% trans "Unit Price" %}</th>
-			<th>{% trans "Subtotal" %}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,7 +27,6 @@
 				</div>
 			</td>
 			<td ng-bind="context.unit_price"></td>
-			<td ng-bind="context.subtotal"></td>
 		</tr>
 		{% if request.session.is_empty %}
 		<tr>
@@ -39,6 +37,8 @@
 			<td colspan="2">
 				<button class="btn btn-primary btn-block" ng-click="addToCart('{% url 'shop:cart-list' %}')">{% trans "Add to cart" %}</button>
 			</td>
+			<th>{% trans "Subtotal" %}</th>
+			<td ng-bind="context.subtotal"></td>
 		</tr>
 	</tbody>
 </table>

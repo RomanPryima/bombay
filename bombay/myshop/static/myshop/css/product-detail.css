@@ -2303,7 +2303,7 @@ output {
 
 .form-control {
   display: block;
-  width: 100%;
+  width: auto;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
@@ -8673,4 +8673,3 @@ shop-auth-form .ng-invalid.ng-touched {
 	background: linear-gradient(135deg, #a9db80 0%,#96c56f 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9db80', endColorstr='#96c56f',GradientType=1 );
 }
-

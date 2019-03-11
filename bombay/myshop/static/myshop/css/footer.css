@@ -172,9 +172,8 @@ z-inedx:4;}
   color: #ffff;
   width: 180px;
   padding: 4px 0;
-  position: absolute;
+  position: relative;
   border: none;
-  transform: translateX(-50%) translateY(60%);
 }
 .btn-contactus p {
   text-align: center;
