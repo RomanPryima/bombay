@@ -14,7 +14,6 @@ https://docs.djangoproject.com/en/stable/ref/settings/
 import os
 from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
-from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse_lazy
 
 from cmsplugin_cascade.utils import format_lazy
@@ -649,11 +648,11 @@ SHOP_PRODUCT_SUMMARY_SERIALIZER = 'myshop.serializers.ProductSummarySerializer'
 
 SHOP_CART_MODIFIERS = ['myshop.polymorphic_modifiers.MyShopCartModifier']
 SHOP_CART_MODIFIERS.extend([
-    # 'shop.modifiers.taxes.CartExcludedTaxModifier',
-    'myshop.modifiers.PostalShippingModifier',
-    'myshop.modifiers.CustomerPickupModifier',
-    'myshop.modifiers.AddressDeliveryModifier',
+    'shop.modifiers.taxes.CartDiscountModifier',
     'myshop.modifiers.NovaPoshtaModifier',
+    'myshop.modifiers.CustomerPickupModifier',
+    # 'myshop.modifiers.AddressDeliveryModifier',
+    'myshop.modifiers.PostalShippingModifier',
     'myshop.modifiers.CashOnDeliveryPaymentModifier',
     'shop.modifiers.defaults.PayInAdvanceModifier',
 ])

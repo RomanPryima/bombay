@@ -17,10 +17,10 @@ class SmartCardSerializer(ProductSerializer):
                   'product_code', 'storage']
 
 
-class SmartPhoneSerializer(ProductSerializer):
-    class Meta:
-        model = SmartPhoneModel
-        fields = ['product_name', 'slug', 'battery_type', 'battery_capacity']
+# class SmartPhoneSerializer(ProductSerializer):
+#     class Meta:
+#         model = SmartPhoneModel
+#         fields = ['product_name', 'slug', 'battery_type', 'battery_capacity']
 
 
 class ClothesSerializer(ProductSerializer):
@@ -29,30 +29,30 @@ class ClothesSerializer(ProductSerializer):
         fields = ['product_name', 'product_code', 'slug', 'size']
 
 
-class AddSmartPhoneToCartSerializer(AddToCartSerializer):
-    """
-    Modified AddToCartSerializer which handles SmartPhones
-    """
-    def get_instance(self, context, data, extra_args):
-        product = context['product']
-        if data is empty:
-            product_code = None
-            extra = {}
-        else:
-            product_code = data.get('product_code')
-            extra = data.get('extra', {})
-        try:
-            variant = product.get_product_variant(product_code=product_code)
-        except product.DoesNotExist:
-            variant = product.variants.first()
-        extra.update(storage=variant.storage)
-        instance = {
-            'product': product.id,
-            'product_code': variant.product_code,
-            'unit_price': variant.unit_price,
-            'extra': extra,
-        }
-        return instance
+# class AddSmartPhoneToCartSerializer(AddToCartSerializer):
+#     """
+#     Modified AddToCartSerializer which handles SmartPhones
+#     """
+#     def get_instance(self, context, data, extra_args):
+#         product = context['product']
+#         if data is empty:
+#             product_code = None
+#             extra = {}
+#         else:
+#             product_code = data.get('product_code')
+#             extra = data.get('extra', {})
+#         try:
+#             variant = product.get_product_variant(product_code=product_code)
+#         except product.DoesNotExist:
+#             variant = product.variants.first()
+#         extra.update(storage=variant.storage)
+#         instance = {
+#             'product': product.id,
+#             'product_code': variant.product_code,
+#             'unit_price': variant.unit_price,
+#             'extra': extra,
+#         }
+#         return instance
 
 
 class AddClothesToCartSerializer(AddToCartSerializer):

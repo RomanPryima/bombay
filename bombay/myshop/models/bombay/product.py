@@ -5,6 +5,8 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from djangocms_text_ckeditor.fields import HTMLField
+
+from filer.fields import image
 from parler.models import TranslatableModelMixin, TranslatedFieldsModel
 from parler.fields import TranslatedField
 from parler.managers import TranslatableManager, TranslatableQuerySet
@@ -20,6 +22,13 @@ AVAILABILITY = (
     ('not_available', _('Not available')),
     ('on_order', _('On Order')),
     ('avaiting_delivery', _('Avaiting Delivery')),
+)
+
+PROMO_OPTIONS = (
+    ('best_seller', _('Best Seller')),
+    ('sale', _('Sale')),
+    ('new_product', _('New Product')),
+    ('best_price', _('Best Price')),
 )
 
 class ProductQuerySet(TranslatableQuerySet, PolymorphicQuerySet):
@@ -47,6 +56,13 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
         _('Availability'),
         max_length=50,
         choices=AVAILABILITY
+    )
+
+    promo_option = models.CharField(
+        _('Promo option'),
+        max_length=50,
+        choices=PROMO_OPTIONS,
+        null=True, blank=True,
     )
 
     slug = models.SlugField(
@@ -92,6 +108,11 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
         through=ProductImage,
     )
 
+    title_image = image.FilerImageField(
+        related_name='+',
+        blank=True, null=True
+    )
+
     class Meta:
         ordering = ('order',)
         verbose_name = _("Product")
@@ -107,7 +128,7 @@ class Product(CMSPageReferenceMixin, TranslatableModelMixin, BaseProduct):
 
     @property
     def sample_image(self):
-        return self.images.first()
+        return self.title_image
 
 
 class ProductTranslation(TranslatedFieldsModel):

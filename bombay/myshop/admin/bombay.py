@@ -31,7 +31,7 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
         (None, {
             'fields': ['product_name', 'availability', 'category',
                        'slug', 'product_code', 'unit_price',
-                       'price_without_discount', 'active',
+                       'price_without_discount', 'active', 'title_image'
                        ],
         }),
         (_("Translatable Fields"), {
@@ -115,6 +115,7 @@ class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatable
         (None, {
             'fields': ['product_name',
                        'availability',
+                       'promo_option',
                        'product_code',
                        'slug',
                        'price_without_discount',
@@ -127,9 +128,9 @@ class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatable
                        'season',
                        'composition',
                        'decoration',
-                       'condition',
                        'manufacturer',
                        'gender',
+                       'title_image',
                        ],
         }),
         (_("Translatable Fields"), {

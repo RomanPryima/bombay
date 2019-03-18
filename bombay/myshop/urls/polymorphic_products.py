@@ -12,7 +12,7 @@ from shop.search.views import CMSPageCatalogWrapper
 from shop.views.catalog import AddToCartView, ProductRetrieveView
 
 from myshop.filters import ManufacturerFilterSet, CountryOfOriginFilterSet
-from myshop.serializers import (AddClothesToCartSerializer, AddSmartPhoneToCartSerializer, CatalogSearchSerializer)
+from myshop.serializers import (AddClothesToCartSerializer, CatalogSearchSerializer)
 
 
 urlpatterns = [
@@ -24,8 +24,5 @@ urlpatterns = [
     url(r'^(?P<slug>[\w-]+)/add-to-cart', AddToCartView.as_view()),
     url(r'^(?P<slug>[\w-]+)/add-clothes-to-cart', AddToCartView.as_view(
         serializer_class=AddClothesToCartSerializer,
-    )),
-    url(r'^(?P<slug>[\w-]+)/add-smartphone-to-cart', AddToCartView.as_view(
-        serializer_class=AddSmartPhoneToCartSerializer,
     )),
 ]

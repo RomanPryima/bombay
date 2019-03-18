@@ -26,10 +26,10 @@
 	&.shop-search-form {
 		input.form-control {
 			@media (min-width: $screen-lg-min) {
-				width: 40em;
+				width: 25em;
 			}
 			@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-				width: 28em;
+				width: 18em;
 			}
 		}
 		.input-group-addon {
@@ -53,8 +53,3 @@
 	line-height: 20px;
 }
 
-body {
-	@media (min-width: $screen-sm-min) {
-		padding-top: $navbar-height + $navbar-extra-top-height + 3;
-	}
-}

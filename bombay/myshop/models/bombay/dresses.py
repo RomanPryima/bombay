@@ -12,9 +12,7 @@ from .product import Product
 
 GENDERS = (('m', _('Men')), ('w', _('Women')))
 SEASONS = (
-    ('spring', _('Spring')),
-    ('summer', _('Summer')),
-    ('fall', _('Fall')),
+    ('spring-summer-fall', _('Spring, Summer, Fall')),
     ('winter', _('Winter')),
     ('whole_year', _('Whole year')),
 )
@@ -43,11 +41,7 @@ class Clothes(Product):
     )
 
     gender = models.CharField(_('Gender'), max_length=15, choices=GENDERS)
-    season = models.CharField(_('Seson'), max_length=15, choices=SEASONS)
-
-    condition = models.CharField(choices=(('new', _('New')), ('used', _('Used'))),
-                                 verbose_name=_('Condition of product'), help_text=_('Condition of product'),
-                                 max_length=255, null=True, blank=True)
+    season = models.CharField(_('Seson'), max_length=30, choices=SEASONS)
 
     multilingual = TranslatedFields(
         description=HTMLField(
@@ -104,7 +98,6 @@ class Clothes(Product):
         variants = self.variants.all()
         sizes = [variant.product_size for variant in variants]
         return '{} - {}'.format(min(sizes), max(sizes))
-
 
 
 class ClothesVariant(models.Model):

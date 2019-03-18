@@ -5,10 +5,19 @@
 
 {% block navbar %}
 	<div class="navbar-extra-top" style="background-color: #fff;">
+		<div
+			style="line-height:40px; text-align:center; width:100%; color:#595959; background-color: #b3e6ff; font-size:20px;">
+			<em>{% trans "САЙТ НА СТАДІЇ НАПОВНЕННЯ. ВИБАЧТЕ ЗА ТИМЧАСОВІ НЕЗРУЧНОСТІ." %}</em></div>
 		<div style="line-height:40px; text-align:center; width:100%; color:white; background-color: #016d8b; font-size:15px;"><em>{% trans "МОДА ВІД 40 ДО 68 РОЗМІРУ................ГАРАНТІЯ ПОВЕРНЕННЯ ТА ОБМІНУ ТОВАРУ................ГНУЧКА СИСТЕМА ЗНИЖОК" %}</em></div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12">
+					<div class="visble-xs hidden-sm hidden-lg text-center">
+						<a href="/">
+							<img class="brand-logo" src="{% static 'shop/bombay-shop-logo.png' %}" alt="Bombay-SHOP" style="margin-top: 1em;"
+								 height="72"/>
+						</a>
+					</div>
 					<div class="row">
 							<ul class="nav navbar-nav">
 							<li>

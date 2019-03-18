@@ -1,5 +1,3 @@
-.navbar .navbar-extra-top {
-  height: 90px;
 
 @media (max-width: 768px) {
   .navbar .expanded-nav {
@@ -11,11 +9,11 @@
 
 @media (min-width: 1200px) {
   .navbar-form.shop-search-form input.form-control {
-    width: 28em; } }
+    width: 20em; } }
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .navbar-form.shop-search-form input.form-control {
-    width: 15em; } }
+    width: 12em; } }
 
 .navbar-form.shop-search-form .input-group-addon {
   cursor: pointer; }

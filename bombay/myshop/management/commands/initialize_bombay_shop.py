@@ -58,7 +58,7 @@ class Command(BaseCommand):
         from compressor.conf import settings as s
 
         cache_dir = os.path.join(s.STATIC_ROOT, s.COMPRESS_OUTPUT_DIR)
-        if settings.COMPRESS_ENABLED is False or os.listdir(cache_dir) != []:
+        if settings.COMPRESS_ENABLED is False:
             return
         try:
             caches['compressor'].clear()
