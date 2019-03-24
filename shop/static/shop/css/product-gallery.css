@@ -15,9 +15,13 @@ bsp-scrollpanel ul {
     white-space: initial; }
     bsp-scrollpanel ul li figure {
       border: 1px solid #ddd;
-      border-radius: 4px;
+      background-color: #fff;
+      border-radius: 8px;
       padding: 10px;
-      min-height: 340px; }
+      margin-top: 1em;
+      min-height: 480px;
+      position:relative;
+      }
       bsp-scrollpanel ul li figure a:hover, bsp-scrollpanel ul li figure a:active {
         text-decoration: none; }
       bsp-scrollpanel ul li figure h4 {

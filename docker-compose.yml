@@ -51,9 +51,10 @@ services:
       - shopmedia:/web/workdir
 #      - ./bombay/myshop:/web/myshop
 #      - ./contact_us:/web/contact_us
-#      - ./bombay/media:/web/media
+      - ./bombay/media:/web/media
 #      - ./bombay/static:/web/static
-#      - ./bombay/myfixtures/bombay.json:/web/bombay/myfixtures/bombay.json
+      - ./bombay/myfixtures/bombay.json:/web/fixtures/bombay.json
+      - ./bombay/docker-files/uwsgi.ini:/web/uwsgi.ini
     command: uwsgi --ini uwsgi.ini
     depends_on:
       - postgresdb
@@ -78,7 +79,7 @@ services:
       - shopmedia:/web/workdir
 #      - ./contact_us:/web/contact_us
 #      - ./bombay/myshop:/web/myshop
-#      - ./bombay/media:/web/media
+      - ./bombay/media:/web/media
 #      - ./bombay/static:/web/static
     depends_on:
       - postgresdb

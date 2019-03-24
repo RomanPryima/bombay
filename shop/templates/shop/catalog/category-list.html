@@ -19,10 +19,9 @@
 	<div>
 		{% for category in categories %}
 		 <div class="col-md-4 col-sm-6">
-		<div class="box" style="max-width:80%; height: 30em; margin-bottom: 2em;">
+		<div class="box box-card">
 			<a href="{% page_url category.page %}">
-				{% thumbnail category.image 300x300 crop as thumb %}
-				<img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ category.name }}"/>
+				<img src="{{ category.image.url }}" alt="{{ category.name }}"/>
 			<div class="box-content">
 				<h3 class="title">
 					{{ category.name }}

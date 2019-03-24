@@ -24,9 +24,7 @@
 		{% if shipping_modifiers.initial_row %}
 		<p ng-if="!cart.extra_rows">{% trans "Additional charge" %}: {{ shipping_modifiers.initial_row.amount }}</p>
 		{% endif %}
-		{% if shipping_modifiers.extra_field %}
-		<p ng-if="!cart.extra_rows">{% trans "Test" %}: {{ shipping_modifiers.extra_row.amount }}</p>
-		{% endif %}
+
 	</div>
 	{% endif %}
 {% else %}
@@ -35,17 +33,44 @@
 {% endif %}
 </form>
 <script>
-	$('#shippingmethod_shipping_modifier input').click()
+	$('[name="shipping_method_form"]').ready(
+	function(){
+		$('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').hide();
+		$('label[for=shippingmethod_address], #shippingmethod_address').hide();
+		$('label[for=shippingmethod_city], #shippingmethod_city').hide();
+		$('label[for=shippingmethod_zip_code], #shippingmethod_zip_code').hide();
+		$('label[for=shippingmethod_region], #shippingmethod_region').hide();
+	}
+	);
 	$(function(){
-  $('#shippingmethod_shipping_modifier input').click(function(){
+  $('#shippingmethod_shipping_modifier input').change(function(){
     if ($(':input[value="nova-poshta-shipping"]').is(':checked'))
     {
-      $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').show();
+      $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').show().prop('ng-ng-required', true);
+      $('label[for=shippingmethod_city], #shippingmethod_city').show().prop('ng-required', true);
+      $('label[for=shippingmethod_region], #shippingmethod_region').show().prop('ng-required', true);
+      $('label[for=shippingmethod_zip_code], #shippingmethod_zip_code').hide().prop('ng-required', false);
+      $('label[for=shippingmethod_address], #shippingmethod_address').hide().prop('ng-required', false);
     }
-    else
+    else if ($(':input[value="postal-shipping"]').is(':checked'))
     {
-    $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').hide();
+	  $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').hide().prop('ng-required', false);
+	  $('label[for=shippingmethod_address], #shippingmethod_address').show().prop('ng-required', true);
+	  $('label[for=shippingmethod_city], #shippingmethod_city').show().prop('ng-required', true);
+	  $('label[for=shippingmethod_zip_code], #shippingmethod_zip_code').show().prop('ng-required', true);
+	  $('label[for=shippingmethod_region], #shippingmethod_region').show().prop('ng-required', true);
     }
+    else if ($(':input[value="customer-pickup"]').is(':checked'))
+    {
+	  $('label[for=shippingmethod_np_branch], #shippingmethod_np_branch').hide().prop('ng-required', false);
+	  $('label[for=shippingmethod_address], #shippingmethod_address').hide().prop('ng-required', false);
+	  $('label[for=shippingmethod_city], #shippingmethod_city').hide().prop('ng-required', false);
+	  $('label[for=shippingmethod_zip_code], #shippingmethod_zip_code').hide().prop('ng-required', false);
+	  $('label[for=shippingmethod_region], #shippingmethod_region').hide().prop('ng-required', false);
+    }
+  });
+  $(document).ready( function (){
+  	$(':input[value="customer-pickup"]').click();
   });
 });
 </script>

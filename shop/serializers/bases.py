@@ -71,9 +71,9 @@ class ProductSerializer(serializers.ModelSerializer):
         request = self.context['request']
         cache_key = 'product:{0}|{1}-{2}-{3}-{4}-{5}'.format(product.id, app_label, self.label,
             product.product_model, postfix, get_language_from_request(request))
-        content = cache.get(cache_key)
-        if content:
-            return mark_safe(content)
+        # content = cache.get(cache_key)
+        # if content:
+        #     return mark_safe(content)
         params = [
             (app_label, self.label, product.product_model, postfix),
             (app_label, self.label, 'product', postfix),

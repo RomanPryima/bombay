@@ -133,6 +133,12 @@ class BaseOrderAdmin(FSMTransitionMixin, admin.ModelAdmin):
         return False
 
     def render_as_html_extra(self, obj):
+        for modif in cart_modifiers_pool.get_shipping_modifiers():
+            if modif.identifier == obj.extra.get('shipping_modifier'):
+                obj.extra['shipping_modifier'] = modif.get_choice()[1]
+        for modif in cart_modifiers_pool.get_payment_modifiers():
+            if modif.identifier == obj.extra.get('payment_modifier'):
+                obj.extra['payment_modifier'] = modif.get_choice()[1]
         return self.extra_template.render(obj.extra)
     render_as_html_extra.short_description = pgettext_lazy('admin', _("Extra data"))
 
@@ -167,7 +173,7 @@ class PrintOrderAdminMixin(object):
     """
     def get_fields(self, request, obj=None):
         fields = list(super(PrintOrderAdminMixin, self).get_fields(request, obj))
-        fields.append('print_out')
+        # fields.append('print_out')
         return fields
 
     def get_readonly_fields(self, request, obj=None):

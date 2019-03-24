@@ -9,13 +9,13 @@ from shop.models.defaults.customer import Customer
 
 __all__ = ['ShippingAddress', 'BillingAddress', 'Cart', 'CartItem', 'Customer', 'OrderItem',
            'Commodity', 'SmartCard', 'SmartPhoneModel', 'SmartPhoneVariant', 'Delivery', 'DeliveryItem',
-           'Clothes']
+           'Clothes', 'UniversalClothes']
 
 from .bombay.dresses import Clothes
 from .bombay.order import OrderItem
 from .bombay.product import Product
 from .bombay.commodity import Commodity
-from .bombay.dresses import Clothes, ClothesVariant
+from .bombay.dresses import Clothes, ClothesVariant, UniversalClothes
 from .bombay.smartcard import SmartCard
 from .bombay.smartphone import SmartPhoneModel, SmartPhoneVariant
 from shop.models.defaults.delivery import Delivery, DeliveryItem

@@ -16,7 +16,7 @@ from polymorphic.admin import (PolymorphicParentModelAdmin, PolymorphicChildMode
 
 from shop.admin.product import CMSPageAsCategoryMixin, ProductImageInline, InvalidateProductCacheMixin, CMSPageFilter
 
-from myshop.models import Product, Commodity, Clothes, ClothesVariant
+from myshop.models import Product, Commodity, Clothes, ClothesVariant, UniversalClothes
 # from myshop.models.bombay.smartphone import OperatingSystem
 
 
@@ -46,64 +46,44 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
     prepopulated_fields = {'slug': ['product_code']}
 
 
-# @admin.register(SmartCard)
-# class SmartCardAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
-#                      CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
-#     base_model = Product
-#     fieldsets = [
-#         (None, {
-#             'fields': ['product_name', 'slug', 'product_code', 'unit_price', 'active'],
-#         }),
-#         (_("Translatable Fields"), {
-#             'fields': ['caption', 'description'],
-#         }),
-#         (_("Properties"), {
-#             'fields': ['manufacturer', 'storage', 'card_type', 'speed'],
-#         }),
-#     ]
-#     filter_horizontal = ['cms_pages']
-#     inlines = [ProductImageInline]
-    # prepopulated_fields = {'slug': ['product_name']}
-
-# admin.site.register(OperatingSystem, admin.ModelAdmin)
-
-
-# class SmartPhoneInline(admin.TabularInline):
-#     model = SmartPhoneVariant
-#     extra = 0
-
-
-# @admin.register(SmartPhoneModel)
-# class SmartPhoneAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
-#                       CMSPageAsCategoryMixin, PlaceholderAdminMixin, PolymorphicChildModelAdmin):
-#     base_model = Product
-#     fieldsets = [
-#         (None, {
-#             'fields': ['product_name', 'slug', 'active'],
-#         }),
-#         (_("Translatable Fields"), {
-#             'fields': ['caption', 'description'],
-#         }),
-#     ]
-#     filter_horizontal = ['cms_pages']
-#     inlines = [ProductImageInline, SmartPhoneInline]
-#     prepopulated_fields = {'slug': ['product_name'],}
-#
-#     def save_model(self, request, obj, form, change):
-#         if not change:
-#             # since SortableAdminMixin is missing on this class, ordering has to be computed by hand
-#             max_order = self.base_model.objects.aggregate(max_order=Max('order'))['max_order']
-#             obj.order = max_order + 1 if max_order else 1
-#         super(SmartPhoneAdmin, self).save_model(request, obj, form, change)
-#
-#     def render_text_index(self, instance):
-#         template = get_template('search/indexes/myshop/commodity_text.txt')
-#         return template.render(Context({'object': instance}))
-#     render_text_index.short_description = _("Text Index")
+@admin.register(UniversalClothes)
+class UniversalClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, TranslatableAdmin, FrontendEditableAdminMixin,
+                     PlaceholderAdminMixin, CMSPageAsCategoryMixin, admin.ModelAdmin):
+    base_model = Product
+    fieldsets = [
+        (None, {
+            'fields': ['product_name',
+                       'availability',
+                       'promo_option',
+                       'product_code',
+                       'slug',
+                       'price_without_discount',
+                       'unit_price',
+                       'active',
+                       'country_of_origin',
+                       'category',
+                       'color',
+                       'fabric',
+                       'season',
+                       'composition',
+                       'decoration',
+                       'manufacturer',
+                       'gender',
+                       'title_image',
+                       ],
+        }),
+        (_("Translatable Fields"), {
+            'fields': ['caption', 'description'],
+        }),
+    ]
+    filter_horizontal = ['cms_pages']
+    inlines = [ProductImageInline]
+    prepopulated_fields = {'slug': ['product_code']}
 
 
 class ClothesInline(admin.TabularInline):
     model = ClothesVariant
+    min_num = 1
     extra = 0
 
 

@@ -186,7 +186,7 @@ class ShopProductGallery(WithSortableInlineElementsMixin, ShopPluginBase):
     # we hide the a "add row" button and instead use `extra = 5` in ProductGalleryInline
 
     class Media:
-        css = {'all': ('shop/css/admin/product-gallery.css',)}
+        css = {'all': ('shop/css/admin/product-list.css',)}
 
     def get_render_template(self, context, instance, placeholder):
         templates = []

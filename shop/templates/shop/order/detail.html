@@ -5,11 +5,13 @@
 {% block shop-order-table %}
 
 	{% block shop-order-caption %}
+    {% comment %}
 	<div class="row" style="margin-bottom: 5%;">
 	<caption>
 		<h4 class="label label-default pull-right" style="color: #ffff; background-color: #016d8b;">{% trans "Status" %}: {{ data.status }}</h4>
 	</caption>
 	</div>
+	{% endcomment %}
 	{% endblock %}
 
 	{% block shop-order-thead %}

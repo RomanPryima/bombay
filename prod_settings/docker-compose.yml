@@ -17,7 +17,7 @@ services:
       - 'redisdata:/data'
     networks:
       - shopnet
-
+      - nginx-proxy
   elasticsearch:
     image: elasticsearch:1.7.5
     container_name: elasticsearch
@@ -43,7 +43,8 @@ services:
 #      - DJANGO_DEBUG=1
       - VIRTUAL_HOST=bombayshop.com.ua,www.bombayshop.com.ua
       - VIRTUAL_PROTO=uwsgi
-      - VIRTUAL_PORT=9009
+#      - VIRTUAL_PORT=9009
+#      - VIRTUAL_PORT=443
       - LETSENCRYPT_HOST=bombayshop.com.ua,www.bombayshop.com.ua
       - LETSENCRYPT_EMAIL=ssladmin@bombayshop.com.ua
     env_file:
@@ -83,8 +84,10 @@ services:
   nginx-proxy:
     image: jwilder/nginx-proxy
     volumes:
-      - /root/ssl:/etc/nginx/certs
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - '/var/run/docker.sock:/tmp/docker.sock:ro'
+      - '/etc/nginx/vhost.d'
+      - '/usr/share/nginx/html'
+      - '/etc/nginx/certs'
       - shopmedia:/app/media
     depends_on:
       - wsgiapp
@@ -92,8 +95,16 @@ services:
       - shopnet
       - nginx-proxy
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
+
+  letsencrypt-nginx-proxy-companion:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    volumes_from:
+      - 'nginx-proxy'
+
 
 networks:
   shopnet:
@@ -105,4 +116,4 @@ volumes:
   redisdata:
   shopmedia:
   esdata:
-
+  nginx_settings:

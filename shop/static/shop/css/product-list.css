@@ -4,9 +4,15 @@
    }
   .shop-list-item figure {
     border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #fff;
+    border-radius: 8px;
     padding: 10px;
-    min-height: 340px; }
+    margin-top: 1em;
+    min-height: 480px;
+    -webkit-box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
+    -moz-box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
+    box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
+    }
     .shop-list-item figure a:hover, .shop-list-item figure a:active {
       text-decoration: none; }
     .shop-list-item figure h4 {
@@ -17,6 +23,16 @@
 
 .pagination {
   margin-top: 15px !important; }
+
+.box-card {
+  max-width:80%;
+  height: 30em;
+  margin-bottom: 2em;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(143,143,143,1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(143,143,143,1);
+  box-shadow: 10px 10px 5px 0px rgba(143,143,143,1);
+  background-color: #fff;
+}
 
 
 .box {
@@ -45,10 +61,13 @@
   width: 100%;
   height: auto;
   transition: all 0.3s ease 0s;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 .box:hover img {
   opacity: 0.7;
-  transform: scale(1.2);
 }
 .box .box-content {
   background-color: #fff;
@@ -122,10 +141,16 @@
   .box {
     margin-bottom: 30px;
   }
+  .box .box-content {
+    position:inherit
+  }
 }
 @media only screen and (max-width: 479px) {
   .box .title {
     font-size: 20px;
+  }
+  .box .box-content {
+    position:inherit
   }
 }
 

@@ -124,6 +124,7 @@ INSTALLED_APPS = [
     'shop',
     'shop_stripe',
     'myshop',
+    'contact_us'
 ]
 if SHOP_TUTORIAL in ['i18n_commodity', 'i18n_smartcard', 'i18n_polymorphic']:
     INSTALLED_APPS.append('parler')

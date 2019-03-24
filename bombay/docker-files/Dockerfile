@@ -42,9 +42,10 @@ RUN useradd -M -d /web -s /bin/bash django
 ENV DJANGO_STATIC_ROOT=$DJANGO_STATIC_ROOT
 ENV DJANGO_MEDIA_ROOT=$DJANGO_MEDIA_ROOT
 ENV DJANGO_WORKDIR=$DJANGO_WORKDIR
-COPY ./bombay/media  $DJANGO_MEDIA_ROOT
-COPY ./bombay/myfixtures/bombay.json /web/fixtures/bombay.json
+#COPY ./bombay/media  $DJANGO_MEDIA_ROOT
+#COPY ./bombay/myfixtures/bombay.json /web/fixtures/bombay.json
 RUN mkdir -p $DJANGO_STATIC_ROOT/CACHE
+RUN mkdir -p $DJANGO_MEDIA_ROOT
 RUN python manage.py compilescss
 RUN python manage.py collectstatic --noinput --ignore='*.scss'
 RUN chmod -R 777 $DJANGO_STATIC_ROOT

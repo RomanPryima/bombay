@@ -74,4 +74,4 @@ class Product(CMSPageReferenceMixin, BaseProduct):
 
     @property
     def sample_image(self):
-        return self.images.first()
+        return self.images.latest('modified_at')

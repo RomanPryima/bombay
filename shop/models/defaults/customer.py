@@ -23,14 +23,6 @@ class Customer(BaseCustomer):
         unique=True,
     )
 
-    salutation = models.CharField(
-        _("Salutation"),
-        max_length=5,
-        choices=SALUTATION,
-        null=True,
-        blank=True
-    )
-
     def get_number(self):
         return self.number
 

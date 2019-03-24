@@ -2,6 +2,8 @@
 {% for row in rows %}
 <label>&emsp;{{ row.1.label }}:</label><p>{{ row.1.amount }}</p>
 {% endfor %}
-<label>&emsp;{% trans "Shipping" %}:</label><p>{{ shipping_modifier|default:"–" }}</p>
-<label>&emsp;{% trans "Payment" %}:</label><p>{{ payment_modifier|default:"–" }}</p>
-<label>&emsp;{% trans "Annotation" %}:</label><p>{{ annotation|default:"–" }}</p>
+<ul>
+<li><label>&emsp;{% trans "Shipping" %}:</label><h4>{{ shipping_modifier|default:"–" }}</h4></li>
+<li><label>&emsp;{% trans "Payment" %}:</label><h4>{{ payment_modifier|default:"–" }}</h4></li>
+<li><label>&emsp;{% trans "Annotation" %}:</label><h4>{{ annotation|default:"–" }}</h4></li>
+</ul>

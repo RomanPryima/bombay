@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-03 16:04+0200\n"
-"PO-Revision-Date: 2019-03-03 16:10+0200\n"
+"POT-Creation-Date: 2019-03-18 12:19+0200\n"
+"PO-Revision-Date: 2019-03-15 20:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -64,7 +64,7 @@ msgstr "Останній вхід"
 msgid "Unexpired"
 msgstr "Дійсний"
 
-#: admin/customer.py:151 admin/order.py:145 models/cart.py:169
+#: admin/customer.py:151 admin/order.py:151 models/cart.py:169
 #: models/order.py:182
 msgid "Customer"
 msgstr "Замовник"
@@ -86,7 +86,7 @@ msgid "Customer Number"
 msgstr "Номер замовника"
 
 #: admin/defaults/customer.py:25 cascade/checkout.py:147
-#: templates/shop/admin/order-extra.html:5
+#: templates/shop/admin/order-extra.html:6
 msgid "Shipping"
 msgstr "Доставка"
 
@@ -94,7 +94,7 @@ msgstr "Доставка"
 msgid "Billing"
 msgstr "Оплата"
 
-#: admin/defaults/customer.py:46 models/defaults/customer.py:27
+#: admin/defaults/customer.py:46
 msgid "Salutation"
 msgstr "Привітання"
 
@@ -131,7 +131,7 @@ msgstr "кількість/одиниць"
 msgid "Delivery Note"
 msgstr "Коментар для доставки"
 
-#: admin/delivery.py:147 admin/order.py:225
+#: admin/delivery.py:147 admin/order.py:231
 msgid "Print out"
 msgstr "Роздрук документа"
 
@@ -159,12 +159,11 @@ msgstr "Вкладення"
 msgid "Mail Recipient"
 msgstr "Адресат"
 
-#: admin/order.py:70 admin/order.py:137
+#: admin/order.py:70 admin/order.py:143
 msgid "Extra data"
 msgstr "Додаткові дані"
 
-#: admin/order.py:74 models/order.py:189 templates/shop/order/detail.html:10
-#: templates/shop/order/list.html:17
+#: admin/order.py:74 models/order.py:189 templates/shop/order/list.html:17
 msgid "Status"
 msgstr "Статус"
 
@@ -175,8 +174,8 @@ msgstr "Номер замовлення"
 #: admin/order.py:119 models/order.py:204 templates/shop/cart/editable.html:27
 #: templates/shop/cart/editable.html:58 templates/shop/cart/static.html:11
 #: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
-#: templates/shop/email/order.html:51 templates/shop/order/detail.html:22
-#: templates/shop/order/detail.html:67 templates/shop/print/order.html:12
+#: templates/shop/email/order.html:51 templates/shop/order/detail.html:25
+#: templates/shop/order/detail.html:70 templates/shop/print/order.html:12
 #: templates/shop/print/order.html:58
 msgid "Total"
 msgstr "Підсумок"
@@ -184,7 +183,7 @@ msgstr "Підсумок"
 #: admin/order.py:123 models/order.py:199 templates/shop/cart/editable.html:48
 #: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
 #: templates/shop/catalog/product-add2cart.html:25
-#: templates/shop/email/order.html:41 templates/shop/order/detail.html:55
+#: templates/shop/email/order.html:41 templates/shop/order/detail.html:58
 #: templates/shop/print/order.html:44
 msgid "Subtotal"
 msgstr "Попередній підсумок"
@@ -193,15 +192,15 @@ msgstr "Попередній підсумок"
 msgid "Outstanding amount"
 msgstr "Залишилось до оплати"
 
-#: admin/order.py:149
+#: admin/order.py:155
 msgid "Customer's data"
 msgstr "Дані замовника"
 
-#: admin/order.py:215
+#: admin/order.py:221
 msgid "Order Confirmation"
 msgstr "Підтвердження замовлення"
 
-#: admin/order.py:217 templates/shop/print/invoice.html:4
+#: admin/order.py:223 templates/shop/print/invoice.html:4
 #: templates/shop/print/invoice.html:7
 msgid "Invoice"
 msgstr "Рахунок"
@@ -380,7 +379,7 @@ msgstr "Вибрати відповідний продукт"
 #: cascade/catalog.py:176 cascade/plugin_base.py:121 models/order.py:477
 #: models/product.py:105 templates/shop/cart/editable.html:25
 #: templates/shop/cart/static.html:9 templates/shop/cart/watch.html:16
-#: templates/shop/email/order.html:11 templates/shop/order/detail.html:19
+#: templates/shop/email/order.html:11 templates/shop/order/detail.html:22
 #: templates/shop/print/order.html:9
 msgid "Product"
 msgstr "Продукт"
@@ -457,7 +456,7 @@ msgstr ""
 
 #: cascade/checkout.py:233
 msgid "Payment Method Form"
-msgstr "Форма метода оплати"
+msgstr "Форма способу оплати"
 
 #: cascade/checkout.py:239 cascade/checkout.py:270
 msgid "Show additional charge"
@@ -471,7 +470,7 @@ msgstr ""
 
 #: cascade/checkout.py:264
 msgid "Shipping Method Form"
-msgstr "Форма методу доставки"
+msgstr "Форма способу доставки"
 
 #: cascade/checkout.py:272
 msgid ""
@@ -726,18 +725,34 @@ msgstr ""
 
 #: forms/checkout.py:279
 msgid "Payment Method"
-msgstr "Метод оплати"
+msgstr "Спосіб оплати"
 
 #: forms/checkout.py:312
 msgid "Shipping Method"
-msgstr "Метод доставки"
+msgstr "Спосіб доставки"
 
 #: forms/checkout.py:316
-msgid "City and branch No. if Nova Poshta delivery was chosen"
-msgstr ""
-"Населений пункт і номер відділення, якщо вибрана доставка \"Новою Поштою\"."
+msgid "Branch No. if Nova Poshta delivery was chosen"
+msgstr "Hомер відділення, якщо вибрана доставка \"Новою Поштою\""
 
-#: forms/checkout.py:348
+#: forms/checkout.py:320
+msgid "Zip code"
+msgstr "Поштовий індекс"
+
+#: forms/checkout.py:324
+msgid "Address if Ukrposhta was chosen."
+msgstr "Адреса, якщо вибрано доставку \"Укрпоштою\""
+
+#: forms/checkout.py:328 models/defaults/address.py:16
+#: models/defaults/order.py:81
+msgid "City"
+msgstr "Нас. пункт"
+
+#: forms/checkout.py:332 models/defaults/address.py:15
+msgid "Region"
+msgstr "Область"
+
+#: forms/checkout.py:364
 msgid "Extra annotation for this order"
 msgstr "Додаткова інформація для цього замовлення"
 
@@ -779,7 +794,7 @@ msgstr ""
 msgid "Priority for using this address"
 msgstr ""
 
-#: models/address.py:55
+#: models/address.py:55 models/defaults/order.py:80
 msgid "Address"
 msgstr "Адреса"
 
@@ -1864,14 +1879,6 @@ msgstr "Адреса"
 msgid "ZIP / Postal code"
 msgstr "Поштовий індекс"
 
-#: models/defaults/address.py:15
-msgid "Region"
-msgstr "Область"
-
-#: models/defaults/address.py:16
-msgid "City"
-msgstr "Нас. пункт"
-
 #: models/defaults/address.py:17
 msgid "Country"
 msgstr "Країна"
@@ -1963,6 +1970,14 @@ msgctxt "order_models"
 msgid "Orders"
 msgstr "Замовлення"
 
+#: models/defaults/order.py:78
+msgid "Nova Poshta branch"
+msgstr "Відділення \"Нової Пошти\""
+
+#: models/defaults/order.py:79
+msgid "zip code"
+msgstr "Поштовий індекс"
+
 #: models/defaults/order_item.py:12
 msgid "Ordered quantity"
 msgstr "Замовлена кількість"
@@ -1981,7 +1996,7 @@ msgstr "Доставлено"
 
 #: models/delivery.py:43
 msgid "Shipping method"
-msgstr "Метод доставки"
+msgstr "Спосіб доставки"
 
 #: models/delivery.py:45
 msgid "The shipping backend used to deliver the items for this order"
@@ -2122,7 +2137,7 @@ msgstr "Отримано"
 
 #: models/order.py:432
 msgid "Payment method"
-msgstr "Метод оплати"
+msgstr "Спосіб оплати"
 
 #: models/order.py:434
 msgid "The payment backend used to process the purchase"
@@ -2204,7 +2219,9 @@ msgstr "Зображення продукту"
 
 #: modifiers/defaults.py:41
 msgid "Pay in advance"
-msgstr "Оплата наперед"
+msgstr ""
+"Передоплата на картку Приватбанку (реквізити будуть надіслані у смс-"
+"повідомленні)"
 
 #: modifiers/defaults.py:53
 msgid "Self collection"
@@ -2217,6 +2234,10 @@ msgstr ""
 #: modifiers/taxes.py:46
 msgid "{}% VAT incl."
 msgstr ""
+
+#: modifiers/taxes.py:66
+msgid "{}% Discount"
+msgstr "{}% Знижка"
 
 #: money/fields.py:71
 #, python-format
@@ -2413,11 +2434,11 @@ msgstr "Видалити"
 msgid "Add another %(verbose_name)s"
 msgstr ""
 
-#: templates/shop/admin/order-extra.html:6
+#: templates/shop/admin/order-extra.html:7
 msgid "Payment"
 msgstr "Оплата"
 
-#: templates/shop/admin/order-extra.html:7
+#: templates/shop/admin/order-extra.html:8
 msgid "Annotation"
 msgstr "Анотація"
 
@@ -2543,7 +2564,7 @@ msgstr "Знайдені продукти"
 
 #: templates/shop/cart/editable.html:24 templates/shop/cart/static.html:8
 #: templates/shop/catalog/product-add2cart.html:23
-#: templates/shop/email/order.html:12 templates/shop/order/detail.html:18
+#: templates/shop/email/order.html:12 templates/shop/order/detail.html:21
 #: templates/shop/print/order.html:10
 msgid "Quantity"
 msgstr "Кількість"
@@ -2551,7 +2572,7 @@ msgstr "Кількість"
 #: templates/shop/cart/editable.html:26 templates/shop/cart/static.html:10
 #: templates/shop/cart/watch.html:17
 #: templates/shop/catalog/product-add2cart.html:24
-#: templates/shop/order/detail.html:21 templates/shop/print/order.html:11
+#: templates/shop/order/detail.html:24 templates/shop/print/order.html:11
 msgid "Unit Price"
 msgstr "Ціна за одиницю"
 
@@ -2568,9 +2589,13 @@ msgid "Number of items"
 msgstr "Кількість"
 
 #: templates/shop/cart/watch.html:46
-#: templates/shop/catalog/product-add2cart.html:60
+#: templates/shop/catalog/product-add2cart.html:57
 msgid "Add to cart"
 msgstr "Додати до кошика"
+
+#: templates/shop/catalog/opinions-list.html:46
+msgid "Add opinion"
+msgstr "Додати відгук"
 
 #: templates/shop/catalog/paginator.html:17
 msgid "Loading more products"
@@ -2584,36 +2609,27 @@ msgstr "Подуктів не знайдено"
 msgid "Order Product"
 msgstr "Замовити продукт"
 
-#: templates/shop/catalog/product-add2cart.html:42
-msgid ""
-"\n"
-"\t\t\t\tBy adding a product to the cart you are giving consent to cookies "
-"being used.<br>\n"
-"\t\t\t\tFor technical reasons cookies can not be disabled here.\n"
-"\t\t\t"
-msgstr ""
-
-#: templates/shop/catalog/product-add2cart.html:73
+#: templates/shop/catalog/product-add2cart.html:70
 msgid "The product has been successfully placed in the shopping cart:"
 msgstr "Продукт успішно оданий до кошика:"
 
-#: templates/shop/catalog/product-add2cart.html:74
+#: templates/shop/catalog/product-add2cart.html:71
 msgid "Watching this product"
 msgstr "Переглянути продукт"
 
-#: templates/shop/catalog/product-add2cart.html:81
+#: templates/shop/catalog/product-add2cart.html:78
 msgid "for {{ context.unit_price }} per piece: {{ context.subtotal }}"
 msgstr "за {{ context.unit_price }} на суму: {{ context.subtotal }}"
 
-#: templates/shop/catalog/product-add2cart.html:89
+#: templates/shop/catalog/product-add2cart.html:86
 msgid "Show Cart"
 msgstr "Переглянути Кошик"
 
-#: templates/shop/catalog/product-add2cart.html:91
+#: templates/shop/catalog/product-add2cart.html:88
 msgid "Continue Shopping"
 msgstr "Продовжити покупки"
 
-#: templates/shop/catalog/product-add2cart.html:92
+#: templates/shop/catalog/product-add2cart.html:89
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -2622,7 +2638,7 @@ msgstr "Скасувати"
 msgid "Price"
 msgstr "Ціна"
 
-#: templates/shop/catalog/product-figure.html:21
+#: templates/shop/catalog/product-figure.html:22
 msgid "Available sizes"
 msgstr "Наявні розміри"
 
@@ -2648,7 +2664,7 @@ msgstr "Додатковий збір"
 
 #: templates/shop/checkout/payment-method-form.html:31
 msgid "No payment method available"
-msgstr "Відсутній метод оплати"
+msgstr "Відсутній спосіб оплати"
 
 #: templates/shop/checkout/required-form-fields.html:1
 msgid "These fields are required"
@@ -2662,13 +2678,9 @@ msgstr "Вибрати раніше використовувану адресу 
 msgid "Add a new shipping address"
 msgstr "Додати нову дресу доставки"
 
-#: templates/shop/checkout/shipping-method-form.html:28
-msgid "Test"
-msgstr ""
-
-#: templates/shop/checkout/shipping-method-form.html:34
+#: templates/shop/checkout/shipping-method-form.html:32
 msgid "No shipping method available"
-msgstr "Метод доставки не доступний"
+msgstr "Спосіб доставки не доступний"
 
 #: templates/shop/email/customer-information.html:4
 msgid "Your Details"
@@ -2767,11 +2779,11 @@ msgstr "Попередні анотації"
 msgid "This Order can't be cancelled"
 msgstr "Неможливо скасувати це замовлення"
 
-#: templates/shop/order/detail.html:20
+#: templates/shop/order/detail.html:23
 msgid "Size"
 msgstr "Розмір"
 
-#: templates/shop/order/detail.html:73
+#: templates/shop/order/detail.html:76
 msgid "Thereof Paid"
 msgstr "Оплачено"
 

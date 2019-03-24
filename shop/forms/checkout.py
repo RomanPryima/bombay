@@ -21,10 +21,10 @@ class CustomerForm(DialogModelForm):
     scope_prefix = 'customer'
     legend = _("Customer's Details")
 
-    # email = fields.EmailField(label=_("Email address"), required=False)
     first_name = fields.CharField(label=_("First Name"))
     last_name = fields.CharField(label=_("Last Name"))
     phone = fields.CharField(label=_("Phone"))
+    email = fields.EmailField(label=_("Email address"), required=False)
 
     class Meta:
         model = CustomerModel
@@ -313,9 +313,25 @@ class ShippingMethodForm(DialogForm):
         widget=RadioSelect(attrs={'ng-change': 'updateMethod()'}),
     )
 
-    np_branch = fields.CharField(label=_("City and branch No. if Nova Poshta delivery was chosen"),
+    np_branch = fields.IntegerField(label=_("Branch No. if Nova Poshta delivery was chosen"),
+                                 required=False,
+                                 widget=widgets.NumberInput)
+
+    zip_code = fields.IntegerField(label=_("Zip code"),
                                  required=False,
                                  widget=widgets.TextInput)
+
+    address = fields.CharField(label=_("Address if Ukrposhta was chosen."),
+                            required=False,
+                            widget=widgets.TextInput)
+
+    city = fields.CharField(label=_("City"),
+                                 required=False,
+                                 widget=widgets.TextInput)
+
+    region = fields.CharField(label=_("Region"),
+                            required=False,
+                            widget=widgets.TextInput)
 
     def __init__(self, *args, **kwargs):
         choices = [m.get_choice() for m in cart_modifiers_pool.get_shipping_modifiers()

@@ -1,3 +1,8 @@
+POSTGRES_USER=myshop
+POSTGRES_PASSWORD=zz77xxvv
+POSTGRES_HOST=postgresdb
+REDIS_HOST=redishost
+ELASTICSEARCH_HOST=elasticsearch
 DJANGO_EMAIL_HOST=smtp.gmail.com
 DJANGO_EMAIL_PORT=587
 DJANGO_EMAIL_USER=bombay.adwords@gmail.com
@@ -5,4 +10,3 @@ DJANGO_EMAIL_PASSWORD=bombay2017
 DJANGO_EMAIL_USE_TLS=true
 DJANGO_EMAIL_FROM=info@bombayshop.com.ua
 DJANGO_EMAIL_REPLY_TO=india_na@ukr.net
-

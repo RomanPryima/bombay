@@ -3,9 +3,14 @@
   padding-right: 5px;
   figure {
     border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #fff;
+    border-radius: 8px;
     padding: 10px;
-    min-height: 340px;
+    margin-top: 1em;
+    min-height: 480px;
+    -webkit-box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
+	-moz-box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
+	box-shadow: 9px 10px 5px -4px rgba(0,0,0,0.56);
     a {
       &:hover, &:active {
         text-decoration: none;
@@ -130,10 +135,15 @@
   .box {
     margin-bottom: 30px;
   }
+  .box .box-content {
+    position:inherit
+  }
 }
-
 @media only screen and (max-width: 479px) {
   .box .title {
     font-size: 20px;
+  }
+  .box .box-content {
+    position:inherit
   }
 }

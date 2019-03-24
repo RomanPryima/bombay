@@ -62,7 +62,8 @@ class Order(order.BaseOrder):
         return dict(number=''.join(bits))
 
     def populate_from_cart(self, cart, request):
-        self.shipping_address_text = cart.shipping_address.as_text() if cart.shipping_address else ''
+        self.shipping_address_text = cart.shipping_address.as_text() if cart.shipping_address else \
+            self.extra_data_to_shipping(cart)
         self.billing_address_text = cart.billing_address.as_text() if cart.billing_address else ''
 
         # in case one of the addresses was None, the customer presumably intended the other one.
@@ -71,3 +72,16 @@ class Order(order.BaseOrder):
         if not self.billing_address_text:
             self.billing_address_text = self.shipping_address_text
         super(Order, self).populate_from_cart(cart, request)
+
+    def extra_data_to_shipping(self, cart):
+        shipping = {
+            _('Nova Poshta branch'): cart.extra.get('np_branch', '--'),
+            _('zip code'): cart.extra.get('zip_code', '--'),
+            _('Address'): cart.extra.get('address', '--'),
+            _('City'): cart.extra.get('city', '--'),
+        }
+        fields_as_text = []
+        for field, value in shipping.items():
+            if value:
+                fields_as_text.append('{}: {}'.format(field, value))
+        return '\n'.join( fields_as_text)

@@ -78,7 +78,8 @@ class ProductListView(generics.ListAPIView):
         return response
 
     def get_queryset(self):
-        qs = self.product_model.objects.filter(self.limit_choices_to, active=True)
+        qs = self.product_model.objects.filter(
+            self.limit_choices_to, active=True).order_by('translations__product_name')
         # restrict queryset by language
         if hasattr(self.product_model, 'translations'):
             language = get_language_from_request(self.request)

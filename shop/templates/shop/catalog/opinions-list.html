@@ -1,7 +1,7 @@
 {% load i18n static sekizai_tags sass_tags %}
 
 
-<div id="OpinionCarousel" class="carousel slide"  style="margin-top: 3em; margin-bottom: 3em" data-ride="carousel">
+<div id="OpinionCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
 	  {% for opinion in opinions %}
@@ -38,5 +38,13 @@
   <a class="right carousel-control" href="#OpinionCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
     <span class="sr-only">Next</span>
-  </a>
+  </a>`
+</div>
+	<div class="row">
+			 <div class="text-center">
+				<button class="btn-contactus" data-toggle="modal" data-target=".log-sign" style="margin-top: 1em;">
+					<h3>{% trans "Add opinion" %}&nbsp;<i class="glyphicon glyphicon-pencil"></i></h3>
+				</button>
+			 </div>
+		</div>
 </div>

@@ -10,7 +10,7 @@ from shop.admin.customer import CustomerProxy, CustomerInlineAdminBase, Customer
 
 class CustomerInlineAdmin(CustomerInlineAdminBase):
     fieldsets = [
-        (None, {'fields': ['get_number', 'salutation']}),
+        (None, {'fields': ['get_number']}),
         (_("Addresses"), {'fields': ['get_shipping_addresses', 'get_billing_addresses']})
     ]
     readonly_fields = ['get_number', 'get_shipping_addresses', 'get_billing_addresses']
@@ -36,12 +36,5 @@ class CustomerAdmin(CustomerAdminBase):
 
     def get_list_display(self, request):
         list_display = list(super(CustomerAdmin, self).get_list_display(request))
-        list_display.insert(1, 'salutation')
         return list_display
 
-    def salutation(self, user):
-        if hasattr(user, 'customer'):
-            return user.customer.get_salutation_display()
-        return ''
-    salutation.short_description = _("Salutation")
-    salutation.admin_order_field = 'customer__salutation'

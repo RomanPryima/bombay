@@ -47,3 +47,25 @@ class CartExcludedTaxModifier(BaseCartModifier):
             'amount': amount,
         }
         cart.extra_rows[self.identifier] = ExtraCartRow(instance)
+
+
+class CartDiscountModifier(BaseCartModifier):
+    """
+    This calculator reduces cart  total for a percent defined in app settings in case some ammount
+    (also defined in the settings) was reached.
+    """
+    discount_percent = 5
+
+    def add_extra_cart_row(self, cart, request):
+        """
+        Add a field on cart.extra_price_fields:
+        """
+        if cart.total.as_decimal() >= 3000:
+            discount = self.discount_percent * cart.subtotal / 100
+            instance = {
+                'label': _("{}% Discount").format(self.discount_percent),
+                'amount': discount,
+            }
+            cart.extra_rows[self.identifier] = ExtraCartRow(instance)
+            cart.total -= discount
+        return

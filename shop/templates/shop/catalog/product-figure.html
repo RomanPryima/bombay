@@ -2,9 +2,6 @@
 {% load i18n djng_tags %}
 {% angularjs ng %}
 <figure>
-	{% ifnotequal  product.discount "- 0 %" %}
-	<h3 class= "pull-right" style="color: #016d8b; background-color: transparent;"><em><strong>{{ product.discount }}</strong></em></h3>
-	{% endifnotequal %}
 	<a href="{{ product.product_url }}" class="text-center">
 		<div {% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
 		<h4>{{ product.product_name }}</h4>
