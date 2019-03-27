@@ -5,7 +5,8 @@ from django.contrib import admin
 from django.db.models import Max
 from django.template.context import Context
 from django.template.loader import get_template
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, pgettext_lazy
+from django.utils.safestring import mark_safe
 
 from adminsortable2.admin import SortableAdminMixin, PolymorphicSortableAdminMixin
 
@@ -27,6 +28,9 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
     Since our Commodity model inherits from polymorphic Product, we have to redefine its admin class.
     """
     base_model = Product
+    search_fields = ['translations__product_name']
+    list_display = ['titled_image', 'product_name', 'get_price', 'product_type', 'active']
+
     fieldsets = [
         (None, {
             'fields': ['product_name', 'availability', 'category',
@@ -44,6 +48,20 @@ class CommodityAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatab
     filter_horizontal = ['cms_pages']
     inlines = [ProductImageInline]
     prepopulated_fields = {'slug': ['product_code']}
+
+    def get_price(self, obj):
+        return str(obj.get_real_instance().get_price(None))
+
+    get_price.short_description = _("Price")
+
+    def titled_image(self, obj=None):
+        if hasattr(obj, 'title_image'):
+            return mark_safe('<img src="{url}" width="auto" height="144px" />'.format(
+                url=obj.title_image.url)
+            )
+        else:
+            return mark_safe('<img src="/static/shop/bombay-shop-logo.png" width="auto" height="144px" />')
+    titled_image.short_description = pgettext_lazy('admin', _("Product picture"))
 
 
 @admin.register(UniversalClothes)
@@ -126,9 +144,9 @@ class ClothesAdmin(InvalidateProductCacheMixin, SortableAdminMixin, Translatable
 class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     base_model = Product
     child_models = [Clothes, Commodity]
-    list_display = ['product_name', 'get_price', 'product_type', 'active']
+    list_display = ['titled_image', 'product_name', 'get_price', 'product_type', 'active']
     list_display_links = ['product_name']
-    search_fields = ['product_name']
+    search_fields = ['translations__product_name']
     list_filter = [PolymorphicChildModelFilter, CMSPageFilter]
     list_per_page = 50
     list_max_show_all = 1000
@@ -136,3 +154,12 @@ class ProductAdmin(PolymorphicSortableAdminMixin, PolymorphicParentModelAdmin):
     def get_price(self, obj):
         return str(obj.get_real_instance().get_price(None))
     get_price.short_description = _("Price")
+
+    def titled_image(self, obj=None):
+        if hasattr(obj, 'title_image'):
+            return mark_safe('<img src="{url}" width="auto" height="80px"/>'.format(
+                url=obj.title_image.url)
+            )
+        else:
+            return mark_safe('<img src="/static/shop/bombay-shop-logo.png" width="auto" height="144px" />')
+    titled_image.short_description = pgettext_lazy('admin', _("Product picture"))

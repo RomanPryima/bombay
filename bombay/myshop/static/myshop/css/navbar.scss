@@ -26,10 +26,10 @@
 	&.shop-search-form {
 		input.form-control {
 			@media (min-width: $screen-lg-min) {
-				width: 25em;
+				width: 20em;
 			}
 			@media (min-width: $screen-md-min) and (max-width: $screen-lg-min) {
-				width: 18em;
+				width: 12em;
 			}
 		}
 		.input-group-addon {

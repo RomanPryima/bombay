@@ -11,6 +11,7 @@ from django.template import RequestContext
 from django.template.loader import select_template
 from django.utils.html import format_html
 from django.utils.translation import pgettext_lazy, ugettext_lazy as _
+from django.utils.safestring import mark_safe
 
 from fsm_admin.mixins import FSMTransitionMixin
 
@@ -44,12 +45,21 @@ class OrderItemInline(admin.StackedInline):
     model = OrderItemModel
     extra = 0
     fields = [
-        ('product_code', 'unit_price', 'line_total',),
+        ('titled_image', 'product_code', 'unit_price', 'line_total',),
         ('quantity',),
         'render_as_html_extra',
     ]
-    readonly_fields = ['product_code', 'quantity', 'unit_price', 'line_total', 'render_as_html_extra']
+    readonly_fields = ['titled_image', 'product_code', 'quantity', 'unit_price', 'line_total', 'render_as_html_extra']
     template = 'shop/admin/edit_inline/stacked-order.html'
+
+    def titled_image(self, obj=None):
+        if hasattr(obj.product, 'title_image'):
+            return mark_safe('<img src="{url}" width="auto" height="144px" />'.format(
+                url=obj.product.title_image.url)
+            )
+        else:
+            return mark_safe('<img src="/static/shop/bombay-shop-logo.png" width="auto" height="144px" />')
+    titled_image.short_description = pgettext_lazy('admin', _("Product picture"))
 
     def has_add_permission(self, request, obj=None):
         return False

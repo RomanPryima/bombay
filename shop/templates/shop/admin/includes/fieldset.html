@@ -22,16 +22,18 @@
                         {% endif %}
                         {% endwith %}
                     {% else %}
-                        {{ field.label_tag }}
+					<h4>{{ field.label_tag }}</h4>
                         {% if field.is_readonly %}
                             <p>{{ field.contents }}</p>
                         {% else %}
                             {{ field.field }}
                         {% endif %}
                     {% endif %}
+			{% comment %}
                     {% if field.field.help_text %}
                         <p class="help">{{ field.field.help_text|safe }}</p>
                     {% endif %}
+			{% endcomment %}
                 </div>
             {% endfor %}
         </div>
