@@ -55,7 +55,7 @@ class Email(OriginalEmail):
         else:
             mailmsg = EmailMessage(
                 subject=subject, body=message, from_email=self.from_email,
-                to=self.to, bcc=self.bcc, cc=self.cc,
+                to=self.to[0], bcc=self.bcc[0], cc=self.cc[0],
                 connection=connection, headers=self.headers)
 
         for attachment in self.attachments.all():

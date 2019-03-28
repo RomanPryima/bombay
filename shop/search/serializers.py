@@ -14,7 +14,7 @@ class ProductSearchSerializer(HaystackSerializer):
     price = serializers.SerializerMethodField()
 
     class Meta:
-        fields = ['text', 'autocomplete', 'product_name', 'product_url', 'price']
+        fields = ['text', 'autocomplete', 'translations__product_name', 'product_url', 'price']
         ignore_fields = ['text', 'autocomplete']
         field_aliases = {'q': 'text'}
 

@@ -29,7 +29,7 @@ class CustomerForm(DialogModelForm):
     class Meta:
         model = CustomerModel
         exclude = ['user', 'recognized', 'number', 'last_access']
-        custom_fields = ['first_name', 'last_name', 'phone', ]
+        custom_fields = ['first_name', 'last_name', 'phone', 'email']
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         initial = dict(initial) if initial else {}
@@ -56,12 +56,14 @@ class GuestForm(UniqueEmailValidationMixin, DialogModelForm):
     form_name = 'customer_form'  # Override form name to reuse template `customer-form.html`
     legend = _("Customer's Data")
 
-    # email = fields.EmailField(label=_("Email address"), required=False,)
-    phone = fields.IntegerField(label=_("Phone"))
+    first_name = fields.CharField(label=_("First Name"))
+    last_name = fields.CharField(label=_("Last Name"))
+    phone = fields.CharField(label=_("Phone"))
+    email = fields.EmailField(label=_("Email address"), required=False)
 
     class Meta:
         model = get_user_model()  # since we only use the email field, use the User model directly
-        fields = ['phone', 'first_name', 'last_name']
+        fields = ['first_name', 'last_name', 'phone', 'email']
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         if isinstance(instance, CustomerModel):

@@ -13,7 +13,7 @@
 	<div class="row product-detail">
 		<div class="col-xs-12 col-md-12">
 			<div class="col-xs-8 col-md-8">
-				<h1>{% render_model product "product_name" %}</h1>
+				<h1>{{ product.product_name|safe }}</h1>
 			</div>
 			<div class="col-xs-4 col-md-4">
 				{% if product.unit_price != product.price_without_discount %}

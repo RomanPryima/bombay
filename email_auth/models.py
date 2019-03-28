@@ -74,5 +74,5 @@ class User(AbstractUser):
         super(User, self).validate_unique(exclude)
         if self.phone and get_user_model().objects.exclude(id=self.id).filter(is_active=True,
                                                                               phone__exact=self.phone).exists():
-            msg = _("A customer with the e-mail address ‘{phone}’ already exists.")
+            msg = _("A customer with the phone ‘{phone}’ already exists.")
             raise ValidationError({'phone': msg.format(phone=self.phone)})
