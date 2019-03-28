@@ -103,8 +103,8 @@ class UniqueEmailValidationMixin(object):
     A mixin added to forms which have to validate for the uniqueness of email addresses.
     """
     def clean_email(self):
-        if not self.cleaned_data['email']:
-            raise ValidationError(_("Please provide a valid e-mail address"))
+        # if not self.cleaned_data['email']:
+        #     raise ValidationError(_("Please provide a valid e-mail address"))
         # check for uniqueness of email address
         if get_user_model().objects.filter(is_active=True, email=self.cleaned_data['email']).exists():
             msg = _("A customer with the e-mail address '{email}' already exists.\n"
