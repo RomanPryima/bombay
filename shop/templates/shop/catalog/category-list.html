@@ -21,7 +21,8 @@
 		 <div class="col-md-4 col-sm-6">
 		<div class="box box-card">
 			<a href="{% page_url category.page %}">
-				<img src="{{ category.image.url }}" alt="{{ category.name }}"/>
+				{% thumbnail category.image 800x800 HIGH_RESOLUTION as thumb %}
+				<img src="{{ thumb.url }}" alt="{{ category.name }}"/>
 			<div class="box-content">
 				<h3 class="title">
 					{{ category.name }}

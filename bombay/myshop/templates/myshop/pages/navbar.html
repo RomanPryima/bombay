@@ -18,7 +18,7 @@
 								 height="72"/>
 						</a>
 					</div>
-					<div class="row">
+					<div class="row hidden-xs">
 							<ul class="nav navbar-nav">
 							<li>
 								<a href="tel:+380939227227" style="padding-top: 5px;"><h4><i class="fa fa-phone"></i>&nbsp;<em>+380939227227&nbsp;&nbsp;&nbsp;</em></h4></a>
@@ -44,6 +44,19 @@
 						<li>{% include "shop/navbar/login-logout.html" %}</li>
 						{% endwith %}
 						{% endwith %}
+						</ul>
+					</div>
+					<div class="row visible-xs">
+						<ul class="nav navbar-nav">
+							<li class="text-center" style="padding-top: 5px;">
+								<a href="tel:+380939227227" class="col-xs-6"><h5><i class="fa fa-phone"></i>&nbsp;<em>+380939227227</em></h5></a>
+								<a href="mailto:india_na@ukr.net" class="col-xs-6"><h5><i class="fa fa-envelope"></i>&nbsp;india_na@ukr.net</h5></a>
+								<h5 style="color: #777"><i class="fa fa-clock-o"></i>&nbsp;ПН-ПТ 9.00-17.00, СБ 10.00-12.00</h5>
+							</li>
+							{% with "text-center" as dropdown_extra_class %}
+							{% language_chooser "shop/navbar/language-chooser.html" %}
+							{% include "shop/navbar/login-logout.html" %}
+							{% endwith %}
 						</ul>
 					</div>
 				</div>
