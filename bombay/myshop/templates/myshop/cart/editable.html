@@ -4,11 +4,11 @@
 {% block shop-cart-thead %}
 	<thead ng-if="cart.num_items>0">
 		<tr>
-			<th class="col-xs-2 col-md-1 text-center">{% trans "Quantity" %}</th>
-			<th class="col-xs-6 text-center">{% trans "Product" %}</th>
-			<th class="col-xs-1 text-center">{% trans "Size" %}</th>
-			<th class="col-xs-1 text-right">{% trans "Unit Price" %}</th>
-			<th class="col-xs-1 col-md-2 text-right">{% trans "Total" %}</th>
+			<th class="hidden-xs col-xs-2 col-md-1 text-center">{% trans "Quantity" %}</th>
+			<th class="hidden-xs col-xs-6 text-center">{% trans "Product" %}</th>
+			<th class="hidden-xs col-xs-1 text-center">{% trans "Size" %}</th>
+			<th class="hidden-xs col-xs-1 text-right">{% trans "Unit Price" %}</th>
+			<th class="hidden-xs col-xs-1 col-md-2 text-right">{% trans "Total" %}</th>
 			<th class="col-xs-1"></th>
 		</tr>
 	</thead>
@@ -17,27 +17,43 @@
 
 {% block shop-cart-item %}
 	<td>
-		<div class="form-group">
+		<div class="hidden-xs form-group">
 			<input type="number" class="form-control" ng-model="cart_item.quantity" ng-model-options="{{ EDITCART_NG_MODEL_OPTIONS }}" ng-change="updateCartItem(cart_item)" />
 		</div>
+		<strong class="hidden-md visible-xs text-center">{% trans "Product" %}</strong>
+		<div class="media hidden-md visible-xs" ng-bind-html="cart_item.summary.media"></div>
 		<small class="text-nowrap">{% trans "Product Code" %}:</small>
 		<strong ng-bind="cart_item.product_code"></strong>
 	</td>
-	<td>
+	<td class="hidden-xs">
 		<div class="media" ng-bind-html="cart_item.summary.media"><!-- rendered by products/cart-`product`-media.html --></div>
 	</td>
 	<td class="text-center text-nowrap">
-		<p ng-if="cart_item.extra.product_size" ng-bind="cart_item.extra.product_size"></p>
+		<div class="visible-xs form-group">
+			<strong>{% trans "Quantity" %}</strong>
+			<input type="number" class="form-control" ng-model="cart_item.quantity" ng-model-options="{{ EDITCART_NG_MODEL_OPTIONS }}" ng-change="updateCartItem(cart_item)" />
+		</div>
+		<strong class="visible-xs">{% trans "Unit Price" %}</strong>
+		<p class="visible-xs" ng-bind="cart_item.unit_price"></p>
+		<div class="visible-xs" ng-repeat="extra_row in cart_item.extra_rows" ng-bind="extra_row.label"></div>
+		<strong class="visible-xs">{% trans "Size" %}</strong>
+		<p class="visible-xs" ng-if="cart_item.extra.product_size" ng-bind="cart_item.extra.product_size"></p>
+		<strong class="visible-xs">{% trans "Total" %}</strong>
+		<p class="visible-xs" ng-bind="cart_item.line_total"></p>
+		<div class="visible-xs" ng-repeat="extra_row in cart_item.extra_rows" ng-bind="extra_row.amount"></div>
+		<button class="visible-xs" type="button" class="btn btn-xs btn-danger btn-block" ng-click="deleteCartItem(cart_item)">
+			<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;{% trans "Remove" %}
+		</button>
 	</td>
-	<td class="text-right text-nowrap">
+	<td class="hidden-xs text-right text-nowrap">
 		<p ng-bind="cart_item.unit_price"></p>
 		<div ng-repeat="extra_row in cart_item.extra_rows" ng-bind="extra_row.label"></div>
 	</td>
-	<td class="text-right text-nowrap">
+	<td class="hidden-xs text-right text-nowrap">
 		<p ng-bind="cart_item.line_total"></p>
 		<div ng-repeat="extra_row in cart_item.extra_rows" ng-bind="extra_row.amount"></div>
 	</td>
-	<td>
+	<td class="hidden-xs">
 		<button type="button" class="btn btn-xs btn-danger btn-block" ng-click="deleteCartItem(cart_item)">
 			<span class="glyphicon glyphicon-remove-circle"></span>&nbsp;{% trans "Remove" %}
 		</button>

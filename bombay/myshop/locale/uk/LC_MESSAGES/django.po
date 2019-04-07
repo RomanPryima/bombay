@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-22 22:08+0200\n"
-"PO-Revision-Date: 2019-03-22 22:09+0200\n"
+"POT-Creation-Date: 2019-04-07 23:45+0300\n"
+"PO-Revision-Date: 2019-04-07 22:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -19,18 +19,24 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
-#: myshop/admin/bombay.py:37 myshop/admin/bombay.py:75
-#: myshop/admin/bombay.py:116 myshop/admin/manufacturer.py:18
+#: myshop/admin/bombay.py:41 myshop/admin/bombay.py:93
+#: myshop/admin/bombay.py:134 myshop/admin/manufacturer.py:18
 msgid "Translatable Fields"
 msgstr ""
 
-#: myshop/admin/bombay.py:40
+#: myshop/admin/bombay.py:44
 msgid "Properties"
 msgstr "Властивості"
 
-#: myshop/admin/bombay.py:138
+#: myshop/admin/bombay.py:55 myshop/admin/bombay.py:156
 msgid "Price"
 msgstr "Ціна"
+
+#: myshop/admin/bombay.py:64 myshop/admin/bombay.py:165
+#, fuzzy
+#| msgid "Product code"
+msgid "Product picture"
+msgstr "Код продукту"
 
 #: myshop/apps.py:13
 msgid "My Shop"
@@ -103,7 +109,7 @@ msgid "Full description used in the catalog's detail view of Commodity."
 msgstr "Повний опис для перегляду деталей товару"
 
 #: myshop/models/bombay/commodity.py:47
-#: myshop/templates/myshop/catalog/commodity-detail.html:80
+#: myshop/templates/myshop/catalog/commodity-detail.html:84
 msgid "Color and shades of product"
 msgstr "Колір і відтінки продукту"
 
@@ -120,12 +126,12 @@ msgid "Classification of the commodityl"
 msgstr "Класифікація товару"
 
 #: myshop/models/bombay/commodity.py:55 myshop/models/bombay/commodity.py:56
-#: myshop/templates/myshop/catalog/commodity-detail.html:98
+#: myshop/templates/myshop/catalog/commodity-detail.html:102
 msgid "Package"
 msgstr "Упаковка"
 
 #: myshop/models/bombay/commodity.py:57 myshop/models/bombay/commodity.py:58
-#: myshop/templates/myshop/catalog/commodity-detail.html:104
+#: myshop/templates/myshop/catalog/commodity-detail.html:108
 msgid "Weight/Volume"
 msgstr "Вага/Об'єм"
 
@@ -158,7 +164,8 @@ msgid "Whole year"
 msgstr "Круглий рік"
 
 #: myshop/models/bombay/dresses.py:43 myshop/models/bombay/dresses.py:137
-#: myshop/templates/myshop/catalog/clothes-detail.html:63
+#: myshop/templates/myshop/catalog/clothes-detail.html:67
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:67
 msgid "Gender"
 msgstr "Стать"
 
@@ -261,23 +268,26 @@ msgid "Slug"
 msgstr "Відображення для пошукових систем"
 
 #: myshop/models/bombay/product.py:78
-#: myshop/templates/myshop/catalog/clothes-detail.html:78
-#: myshop/templates/myshop/catalog/commodity-detail.html:74
+#: myshop/templates/myshop/catalog/clothes-detail.html:82
+#: myshop/templates/myshop/catalog/commodity-detail.html:78
 #: myshop/templates/myshop/catalog/smartcard-detail.html:29
 #: myshop/templates/myshop/catalog/smartphonemodel-detail.html:25
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:82
 msgid "Manufacturer"
 msgstr "Виробник"
 
 #: myshop/models/bombay/product.py:84 myshop/models/manufacturer.py:20
 #: myshop/models/manufacturer.py:26
-#: myshop/templates/myshop/catalog/clothes-detail.html:72
-#: myshop/templates/myshop/catalog/commodity-detail.html:68
+#: myshop/templates/myshop/catalog/clothes-detail.html:76
+#: myshop/templates/myshop/catalog/commodity-detail.html:72
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:76
 msgid "Country of origin"
 msgstr "Країна походження"
 
 #: myshop/models/bombay/product.py:90
-#: myshop/templates/myshop/catalog/clothes-detail.html:67
-#: myshop/templates/myshop/catalog/commodity-detail.html:63
+#: myshop/templates/myshop/catalog/clothes-detail.html:71
+#: myshop/templates/myshop/catalog/commodity-detail.html:67
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:71
 msgid "Category"
 msgstr "Категорія"
 
@@ -291,6 +301,7 @@ msgstr "Виберіть список продуктів де цей проду�
 
 #: myshop/models/bombay/product.py:118
 #: myshop/templates/myshop/cart/editable.html:8
+#: myshop/templates/myshop/cart/editable.html:23
 msgid "Product"
 msgstr "Продукт"
 
@@ -459,7 +470,7 @@ msgstr "Країна походження"
 
 #: myshop/modifiers.py:18 myshop/modifiers.py:21
 msgid "Postal shipping (Ukrposhta)"
-msgstr "Доставка \"Укрпоштою\" "
+msgstr "Доставка \"Укрпоштою\"  (здійснюється лише після 100% передоплати)"
 
 #: myshop/modifiers.py:37
 msgid "Address delivery"
@@ -508,24 +519,28 @@ msgid "Thanks for purchasing at MyShop"
 msgstr "Дякуємо за покупку в нашому магазині."
 
 #: myshop/templates/myshop/cart/editable.html:7
+#: myshop/templates/myshop/cart/editable.html:33
 #: myshop/templates/myshop/catalog/clothes-add2cart.html:9
 #: myshop/templates/myshop/catalog/smartphone-add2cart.html:9
 msgid "Quantity"
 msgstr "Кількість"
 
 #: myshop/templates/myshop/cart/editable.html:9
+#: myshop/templates/myshop/cart/editable.html:39
 #: myshop/templates/myshop/catalog/clothes-add2cart.html:8
 msgid "Size"
 msgstr "Розмір"
 
 #: myshop/templates/myshop/cart/editable.html:10
-#: myshop/templates/myshop/catalog/clothes-add2cart.html:10
+#: myshop/templates/myshop/cart/editable.html:36
+#: myshop/templates/myshop/catalog/clothes-add2cart.html:31
 #: myshop/templates/myshop/catalog/commodity-add2cart.html:8
 #: myshop/templates/myshop/catalog/smartphone-add2cart.html:10
 msgid "Unit Price"
 msgstr "Ціна за одиницю"
 
 #: myshop/templates/myshop/cart/editable.html:11
+#: myshop/templates/myshop/cart/editable.html:41
 msgid "Total"
 msgstr "Підсумок"
 
@@ -533,45 +548,51 @@ msgstr "Підсумок"
 msgid "There are no items in the cart"
 msgstr "Кошик порожній"
 
-#: myshop/templates/myshop/cart/editable.html:23
+#: myshop/templates/myshop/cart/editable.html:25
 #: myshop/templates/myshop/cart/static.html:11
 #: myshop/templates/myshop/order/detail.html:10
 msgid "Product Code"
 msgstr "Код продукту"
 
-#: myshop/templates/myshop/cart/editable.html:42
+#: myshop/templates/myshop/cart/editable.html:45
+#: myshop/templates/myshop/cart/editable.html:58
 msgid "Remove"
 msgstr "Видалити"
 
-#: myshop/templates/myshop/catalog/clothes-add2cart.html:38
-#: myshop/templates/myshop/catalog/commodity-add2cart.html:24
-#: myshop/templates/myshop/catalog/smartphone-add2cart.html:43
-msgid "Add to cart"
-msgstr "Додати до кошика"
-
-#: myshop/templates/myshop/catalog/clothes-add2cart.html:40
+#: myshop/templates/myshop/catalog/clothes-add2cart.html:32
 #: myshop/templates/myshop/catalog/commodity-add2cart.html:9
 #: myshop/templates/myshop/catalog/smartphone-add2cart.html:11
 msgid "Subtotal"
 msgstr "Попередній підсумок"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:84
+#: myshop/templates/myshop/catalog/clothes-add2cart.html:41
+#: myshop/templates/myshop/catalog/commodity-add2cart.html:24
+#: myshop/templates/myshop/catalog/smartphone-add2cart.html:43
+msgid "Add to cart"
+msgstr "Додати до кошика"
+
+#: myshop/templates/myshop/catalog/clothes-detail.html:88
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:88
 msgid "Color"
 msgstr "Колір"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:90
+#: myshop/templates/myshop/catalog/clothes-detail.html:94
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:94
 msgid "Season"
 msgstr "Сезон"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:96
+#: myshop/templates/myshop/catalog/clothes-detail.html:100
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:100
 msgid "Fabric"
 msgstr "Тканина"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:102
+#: myshop/templates/myshop/catalog/clothes-detail.html:106
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:106
 msgid "Composition"
 msgstr "Склад"
 
-#: myshop/templates/myshop/catalog/clothes-detail.html:108
+#: myshop/templates/myshop/catalog/clothes-detail.html:112
+#: myshop/templates/myshop/catalog/universalclothes-detail.html:112
 msgid "Decoration"
 msgstr "Оздоблення"
 
@@ -580,11 +601,11 @@ msgstr "Оздоблення"
 msgid "Watch product"
 msgstr "Переглянути продукт"
 
-#: myshop/templates/myshop/catalog/commodity-detail.html:86
+#: myshop/templates/myshop/catalog/commodity-detail.html:90
 msgid "Hair type"
 msgstr "Тип волосся"
 
-#: myshop/templates/myshop/catalog/commodity-detail.html:92
+#: myshop/templates/myshop/catalog/commodity-detail.html:96
 msgid "Classification"
 msgstr "Класифікація товару"
 

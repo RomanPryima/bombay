@@ -7,7 +7,6 @@
 		<tr>
 			<th>{% trans "Size" %}</th>
 			<th>{% trans "Quantity" %}</th>
-			<th>{% trans "Unit Price" %}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,19 +25,21 @@
 					<input class="form-control" type="number" min="1" ng-model="context.quantity" ng-model-options="{{ ADD2CART_NG_MODEL_OPTIONS }}" ng-change="updateContext()" />
 				</div>
 			</td>
-			<td ng-bind="context.unit_price"></td>
 		</tr>
 		{% if request.session.is_empty %}
 		<tr>
-			<td colspan="4">{% block cookie-disclaimer %}{{ block.super }}{% endblock %}</td>
+			<th>{% trans "Unit Price" %}</th>
+			<th>{% trans "Subtotal" %}</th>
+			<tr>
+				<td ng-bind="context.unit_price"></td>
+				<td ng-bind="context.subtotal"></td>
+			</tr>
 		</tr>
 		{% endif %}
 		<tr>
 			<td colspan="2">
 				<button class="btn btn-primary btn-block" ng-click="addToCart('{% url 'shop:cart-list' %}')">{% trans "Add to cart" %}</button>
 			</td>
-			<th>{% trans "Subtotal" %}</th>
-			<td ng-bind="context.subtotal"></td>
 		</tr>
 	</tbody>
 </table>
