@@ -51,9 +51,9 @@ services:
       - shopmedia:/web/workdir
 #      - ./bombay/myshop:/web/myshop
 #      - ./contact_us:/web/contact_us
-      - ./bombay/media:/web/media
+      - ./bombay/media:/web/media:rw
 #      - ./bombay/static:/web/static
-      - ./bombay/myfixtures/bombay.json:/web/fixtures/bombay.json
+      - ./bombay/fixtures/bombay.json:/web/fixtures/bombay.json
       - ./bombay/docker-files/uwsgi.ini:/web/uwsgi.ini
     command: uwsgi --ini uwsgi.ini
     depends_on:
@@ -75,12 +75,8 @@ services:
       - bombay/docker-files/databases.environ
       - bombay/docker-files/email.environ
     command: su django -c /web/worker.py
-    volumes:
-      - shopmedia:/web/workdir
-#      - ./contact_us:/web/contact_us
-#      - ./bombay/myshop:/web/myshop
-      - ./bombay/media:/web/media
-#      - ./bombay/static:/web/static
+    volumes_from:
+      - 'wsgiapp'
     depends_on:
       - postgresdb
       - redishost
