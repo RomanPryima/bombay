@@ -45,11 +45,11 @@ class OrderItemInline(admin.StackedInline):
     model = OrderItemModel
     extra = 0
     fields = [
-        ('titled_image', 'product_code', 'unit_price', 'line_total',),
+        ('titled_image', 'product_code', 'get_size', 'unit_price', 'line_total',),
         ('quantity',),
         'render_as_html_extra',
     ]
-    readonly_fields = ['titled_image', 'product_code', 'quantity', 'unit_price', 'line_total', 'render_as_html_extra']
+    readonly_fields = ['titled_image', 'product_code', 'quantity', 'unit_price', 'get_size', 'line_total', 'render_as_html_extra']
     template = 'shop/admin/edit_inline/stacked-order.html'
 
     def titled_image(self, obj=None):
@@ -60,6 +60,10 @@ class OrderItemInline(admin.StackedInline):
         else:
             return mark_safe('<img src="/static/shop/bombay-shop-logo.png" width="auto" height="144px" />')
     titled_image.short_description = pgettext_lazy('admin', _("Product picture"))
+
+    def get_size(self, obj):
+        return obj.extra.get('product_size')
+    get_size.short_description = pgettext_lazy('admin', _("Size"))
 
     def has_add_permission(self, request, obj=None):
         return False
@@ -140,7 +144,7 @@ class BaseOrderAdmin(FSMTransitionMixin, admin.ModelAdmin):
         return False
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
 
     def render_as_html_extra(self, obj):
         for modif in cart_modifiers_pool.get_shipping_modifiers():

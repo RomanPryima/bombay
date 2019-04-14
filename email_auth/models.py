@@ -58,7 +58,7 @@ class User(AbstractUser):
             return full_name
         return self.get_short_name()
 
-    def captionget_short_name(self):
+    def get_short_name(self):
         short_name = super(User, self).get_short_name()
         if short_name:
             return short_name

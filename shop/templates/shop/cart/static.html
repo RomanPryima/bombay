@@ -5,10 +5,12 @@
 {% block shop-cart-thead %}
 	<thead>
 		<tr>
-			<th class="col-xs-1 text-center">{% trans "Quantity" %}</th>
-			<th class="col-xs-7 text-center">{% trans "Product" %}</th>
-			<th class="col-xs-2 text-right">{% trans "Unit Price" %}</th>
-			<th class="col-xs-2 text-right">{% trans "Total" %}</th>
+			<th class="hidden-xs col-xs-2 col-md-1 text-center">{% trans "Quantity" %}</th>
+			<th class="hidden-xs col-xs-6 text-center">{% trans "Product" %}</th>
+			<th class="hidden-xs col-xs-1 text-center">{% trans "Size" %}</th>
+			<th class="hidden-xs col-xs-1 text-right">{% trans "Unit Price" %}</th>
+			<th class="hidden-xs col-xs-1 col-md-2 text-right">{% trans "Total" %}</th>
+			<th class="col-xs-1"></th>
 		</tr>
 	</thead>
 {% endblock shop-cart-thead %}
@@ -39,7 +41,7 @@
 {% block shop-cart-tfoot %}
 	<tfoot>
 		<tr>
-			<td colspan="3" class="text-right"><strong>{% trans "Subtotal" %}</strong></td>
+			<td colspan="4" class="text-right"><strong>{% trans "Subtotal" %}</strong></td>
 			<td class="text-right">
 				<strong djng-bind-if="cart.subtotal">{{ cart.subtotal }}</strong>
 			</td>
@@ -53,7 +55,7 @@
 		{% include 'shop/cart/extra-row.html' with ng=1 %}
 		</tr>
 		<tr class="double-border">
-			<td class="hidden-xs" colspan="2" class="no-border"></td>
+			<td class="hidden-xs" colspan="3" class="no-border"></td>
 			<td class="text-right">
 				<h4><strong>{% trans "Total" %}</strong></h4>
 			</td>

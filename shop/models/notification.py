@@ -124,7 +124,7 @@ class Notification(models.Model):
 
     def get_recipient(self, order):
         if self.notify is Notify.RECIPIENT:
-            return self.recipient.email
+            return self.recipient.email if self.recipient.email != '' else None
         if self.notify is Notify.CUSTOMER:
             return order.customer.email
         if self.notify is Notify.VENDOR:

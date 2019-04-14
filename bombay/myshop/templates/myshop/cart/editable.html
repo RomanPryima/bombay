@@ -29,6 +29,7 @@
 		<div class="media" ng-bind-html="cart_item.summary.media"><!-- rendered by products/cart-`product`-media.html --></div>
 	</td>
 	<td class="text-center text-nowrap">
+		<p class="hidden-xs" ng-if="cart_item.extra.product_size" ng-bind="cart_item.extra.product_size"></p>
 		<div class="visible-xs form-group">
 			<strong>{% trans "Quantity" %}</strong>
 			<input type="number" class="form-control" ng-model="cart_item.quantity" ng-model-options="{{ EDITCART_NG_MODEL_OPTIONS }}" ng-change="updateCartItem(cart_item)" />

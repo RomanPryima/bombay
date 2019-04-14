@@ -13,8 +13,9 @@
 				</p>
 			</td>
 			<td rowspan="2" class="text-left">
-				<div class="media">{{ cart_item.summary.media }}</div>
+				<div class="media col-xs-10">{{ cart_item.summary.media }}</div>
 			</td>
+			<td class="text-right">{{ cart_item.extra.product_size }}</td>
 			<td class="text-right">{{ cart_item.unit_price }}</td>
 			<td class="text-right">{{ cart_item.line_total }}</td>
 		</tr>

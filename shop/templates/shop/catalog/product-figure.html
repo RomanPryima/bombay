@@ -4,8 +4,8 @@
 <figure class="text-center">
 	<a href="{{ product.product_url }}" class="text-center">
 		<div {% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
-		<div style="min-height: 5em;">
-			<h4 >{{ product.product_name|safe }}</h4>
+		<div style="min-height: 7em;">
+			<p style="font-size: 1.2em;">{{ product.product_name|safe|truncatechars_html:55 }}</p>
 		</div>
 	</a>
 	<figcaption>

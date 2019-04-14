@@ -18,6 +18,10 @@
 <shop-catalog-list infinite-scroll="{{ infinite_scroll|yesno:'true,false' }}">
 	<div>
 		{% for category in categories %}
+			{% if category == categories|last %}
+		 <div class="col-md-4 col-sm-12 visible-md visible-lg">
+		 </div>
+			{% endif %}
 		 <div class="col-md-4 col-sm-12">
 		<div class="box box-card">
 			<a href="{% page_url category.page %}">

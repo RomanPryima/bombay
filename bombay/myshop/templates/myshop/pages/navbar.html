@@ -5,9 +5,6 @@
 
 {% block navbar %}
 	<div class="navbar-extra-top" style="background-color: #fff;">
-		<div
-			style="line-height:40px; text-align:center; width:100%; color:#595959; background-color: #b3e6ff; font-size:20px;">
-			<em>{% trans "САЙТ НА СТАДІЇ НАПОВНЕННЯ. ВИБАЧТЕ ЗА ТИМЧАСОВІ НЕЗРУЧНОСТІ." %}</em></div>
 		<div style="line-height:40px; text-align:center; width:100%; color:white; background-color: #016d8b; font-size:15px;"><em>{% trans "МОДА ВІД 40 ДО 68 РОЗМІРУ................ГАРАНТІЯ ПОВЕРНЕННЯ ТА ОБМІНУ ТОВАРУ................ГНУЧКА СИСТЕМА ЗНИЖОК" %}</em></div>
 		<div class="container">
 			<div class="row">
@@ -21,24 +18,24 @@
 					<div class="row hidden-xs">
 							<ul class="nav navbar-nav">
 							<li>
-								<a href="tel:+380939227227" style="padding-top: 5px;"><h4><i class="fa fa-phone"></i>&nbsp;<em>+380939227227&nbsp;&nbsp;&nbsp;</em></h4></a>
+								<a href="tel:+380939227227" style="padding-top: 5px; color: black;"><h4><i class="fa fa-phone"></i>&nbsp;<em>+380939227227&nbsp;&nbsp;&nbsp;</em></h4></a>
 							</li>
 						</ul>
  						<ul class="nav navbar-nav">
 							<li>
-						<a href="mailto:india_na@ukr.net" style="padding-top: 5px;"><h5><i class="fa fa-envelope"></i>&nbsp;india_na@ukr.net</h5></a>
+						<a href="mailto:india_na@ukr.net" style="padding-top: 5px; color: black;"><h5><i class="fa fa-envelope"></i>&nbsp;india_na@ukr.net</h5></a>
 						</li>
 						</ul>
 						<ul class="nav navbar-nav">
 							<li>
-						<h5 style="padding-top: 5px; color: #777"><i class="fa fa-clock-o"></i>&nbsp;ПН-ПТ 9.00-17.00, СБ 10.00-12.00</h5>
+						<h5 style="padding-top: 5px;"><i class="fa fa-clock-o"></i>&nbsp;ПН-ПТ 9.00-17.00, <br> СБ 10.00-12.00</h5>
 						</li>
 						</ul>
 					<ul class="nav navbar-nav navbar-right">
 
 						<li>{% with dropdown_extra_class="expanded-nav h4" %}</li>
 						<li>{% include "shop/navbar/search-form.html" with search_form_classes="shop-search-form navbar-form navbar-right hidden-xs" %}</li>
-						<li>{% cart_icon %}</li>
+						<li style="font-size: 1.5em;">{% cart_icon %}</li>
 						{% with navbar as dropdown_extra_class %}
 						<li>{% language_chooser "shop/navbar/language-chooser.html" %}</li>
 						<li>{% include "shop/navbar/login-logout.html" %}</li>
