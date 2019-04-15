@@ -5,7 +5,7 @@
 	<a href="{{ product.product_url }}" class="text-center">
 		<div {% if ng %} ng-bind-html="product.media"{% endif %}>{{ product.media }}</div>
 		<div style="min-height: 7em;">
-			<p style="font-size: 1.2em;">{{ product.product_name|safe|truncatechars_html:55 }}</p>
+			<p style="font-size: 1.25em; line-height: 1.25em; max-height: 5em; overflow: hidden;">{{ product.product_name|safe }}</p>
 		</div>
 	</a>
 	<figcaption>
@@ -22,6 +22,11 @@
 			<h5> <strong>{% trans "Available sizes" %}: </strong>
 			{% if ng %}<ng-bind-html ng-bind-html="product.size_range"></ng-bind-html>{% else %}{{ product.size_range|safe }}{% endif %}
 			</h5>
+		</div>
+		{% else %}
+		<div>
+			{% get_current_language as LANGUAGE_CODE %}
+			<h5><br/>{%if LANGUAGE_CODE == 'ru'%}<br/>{% endif %}</h5>
 		</div>
 		{% endif %}
 		{% endblock size_range %}
