@@ -29,8 +29,11 @@ class User(AbstractUser):
     field in addition to the username field, which remains the primary unique identifier. The
     email field is only used in addition. It must be unique only for users marked as active.
     """
+
     objects = UserManager()
     phone = CharField(_('phone'), max_length=30, blank=True)
+    middle_name = CharField(_('middle_name'), max_length=30, blank=True)
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

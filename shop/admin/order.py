@@ -165,7 +165,8 @@ class BaseOrderAdmin(FSMTransitionMixin, admin.ModelAdmin):
     get_customer_link.short_description = pgettext_lazy('admin', _("Customer"))
 
     def get_customer_name_phone(self, obj):
-        return format_html('<h4>{} {}</br>{}</h4>', obj.customer.first_name, obj.customer.last_name, obj.customer.phone)
+        return format_html('<h4>{} {}</br>{}</br>{}</h4>', obj.customer.first_name, obj.customer.middle_name,
+                           obj.customer.last_name, obj.customer.phone)
     get_customer_name_phone.short_description = pgettext_lazy('admin', _("Customer's data"))
 
     def get_search_fields(self, request):

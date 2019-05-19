@@ -22,6 +22,7 @@ class CustomerForm(DialogModelForm):
     legend = _("Customer's Details")
 
     first_name = fields.CharField(label=_("First Name"))
+    middle_name = fields.CharField(label=_("Middle Name"), required=False)
     last_name = fields.CharField(label=_("Last Name"))
     phone = fields.CharField(label=_("Phone"))
     email = fields.EmailField(label=_("Email address"), required=False)
@@ -29,7 +30,7 @@ class CustomerForm(DialogModelForm):
     class Meta:
         model = CustomerModel
         exclude = ['user', 'recognized', 'number', 'last_access']
-        custom_fields = ['first_name', 'last_name', 'phone', 'email']
+        custom_fields = ['first_name', 'middle_name', 'last_name', 'phone', 'email']
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         initial = dict(initial) if initial else {}
@@ -57,13 +58,14 @@ class GuestForm(UniqueEmailValidationMixin, DialogModelForm):
     legend = _("Customer's Data")
 
     first_name = fields.CharField(label=_("First Name"))
+    middle_name = fields.CharField(label=_("Middle Name"), required=False)
     last_name = fields.CharField(label=_("Last Name"))
     phone = fields.CharField(label=_("Phone"))
     email = fields.EmailField(label=_("Email address"), required=False)
 
     class Meta:
         model = get_user_model()  # since we only use the email field, use the User model directly
-        fields = ['first_name', 'last_name', 'phone', 'email']
+        fields = ['first_name', 'middle_name', 'last_name', 'phone', 'email']
 
     def __init__(self, initial=None, instance=None, *args, **kwargs):
         if isinstance(instance, CustomerModel):

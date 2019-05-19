@@ -108,7 +108,7 @@ class OpinionsListPlugin(ShopPluginBase):
         opinions_all = Feedback.objects.filter(publish=True)
         opinions = [_ for _ in opinions_all]
         shuffle(opinions)
-        context['opinions'] = opinions[:5]
+        context['opinions'] = opinions
         return context
 
 plugin_pool.register_plugin(OpinionsListPlugin)

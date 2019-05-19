@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-shop\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-07 23:46+0300\n"
+"POT-Creation-Date: 2019-05-18 11:37+0300\n"
 "PO-Revision-Date: 2019-04-07 23:47+0300\n"
 "Last-Translator: chrisglass <tribaal@gmail.com>\n"
 "Language-Team: \n"
@@ -65,7 +65,7 @@ msgstr "Последний вход"
 msgid "Unexpired"
 msgstr "Не истекший по сроку действия"
 
-#: admin/customer.py:151 admin/order.py:161 models/cart.py:169
+#: admin/customer.py:151 admin/order.py:165 models/cart.py:169
 #: models/order.py:182
 msgid "Customer"
 msgstr "Покупатель"
@@ -128,7 +128,7 @@ msgstr "Количество/Элементы"
 msgid "Delivery Note"
 msgstr "Дополнительная информация о доставке"
 
-#: admin/delivery.py:147 admin/order.py:241
+#: admin/delivery.py:147 admin/order.py:245
 msgid "Print out"
 msgstr "Вывод на печать"
 
@@ -162,51 +162,56 @@ msgstr "Получатель почты"
 msgid "Product picture"
 msgstr "Название товара"
 
-#: admin/order.py:80 admin/order.py:153
+#: admin/order.py:66 templates/shop/cart/static.html:10
+#: templates/shop/order/detail.html:23
+msgid "Size"
+msgstr "Размер"
+
+#: admin/order.py:84 admin/order.py:157
 msgid "Extra data"
 msgstr "Дополнительные данные"
 
-#: admin/order.py:84 models/order.py:189 templates/shop/order/list.html:17
+#: admin/order.py:88 models/order.py:189 templates/shop/order/list.html:17
 msgid "Status"
 msgstr "Статус"
 
-#: admin/order.py:125
+#: admin/order.py:129
 msgid "Order number"
 msgstr "Номер заказа"
 
-#: admin/order.py:129 models/order.py:204 templates/shop/cart/editable.html:29
-#: templates/shop/cart/editable.html:60 templates/shop/cart/static.html:11
-#: templates/shop/cart/static.html:58 templates/shop/cart/summary.html:16
+#: admin/order.py:133 models/order.py:204 templates/shop/cart/editable.html:29
+#: templates/shop/cart/editable.html:60 templates/shop/cart/static.html:12
+#: templates/shop/cart/static.html:60 templates/shop/cart/summary.html:16
 #: templates/shop/email/order.html:51 templates/shop/order/detail.html:25
 #: templates/shop/order/detail.html:70 templates/shop/print/order.html:12
 #: templates/shop/print/order.html:58
 msgid "Total"
 msgstr "Всего к оплате за товары"
 
-#: admin/order.py:133 models/order.py:199 templates/shop/cart/editable.html:50
-#: templates/shop/cart/static.html:42 templates/shop/cart/summary.html:6
+#: admin/order.py:137 models/order.py:199 templates/shop/cart/editable.html:50
+#: templates/shop/cart/static.html:44 templates/shop/cart/summary.html:6
 #: templates/shop/catalog/product-add2cart.html:25
 #: templates/shop/email/order.html:41 templates/shop/order/detail.html:58
 #: templates/shop/print/order.html:44
 msgid "Subtotal"
 msgstr "Стоимость корзины"
 
-#: admin/order.py:137
+#: admin/order.py:141
 #, fuzzy
 #| msgctxt "admin"
 #| msgid "Outstanding amount"
 msgid "Outstanding amount"
 msgstr "Осталось оплатить"
 
-#: admin/order.py:165
+#: admin/order.py:169
 msgid "Customer's data"
 msgstr "Данные покупателя"
 
-#: admin/order.py:231
+#: admin/order.py:235
 msgid "Order Confirmation"
 msgstr "Подтверждение заказа"
 
-#: admin/order.py:233 templates/shop/print/invoice.html:4
+#: admin/order.py:237 templates/shop/print/invoice.html:4
 #: templates/shop/print/invoice.html:7
 msgid "Invoice"
 msgstr "Счёт"
@@ -729,81 +734,85 @@ msgstr ""
 msgid "Customer's Details"
 msgstr "Данные о покупателе"
 
-#: forms/checkout.py:24 forms/checkout.py:59
+#: forms/checkout.py:24 forms/checkout.py:60
 msgid "First Name"
 msgstr "Имя"
 
-#: forms/checkout.py:25 forms/checkout.py:60
+#: forms/checkout.py:25
+msgid "Middle Name"
+msgstr "Отчество"
+
+#: forms/checkout.py:26 forms/checkout.py:61
 msgid "Last Name"
 msgstr "Фамилия"
 
-#: forms/checkout.py:26 forms/checkout.py:61
+#: forms/checkout.py:27 forms/checkout.py:62
 msgid "Phone"
 msgstr "Телефон"
 
-#: forms/checkout.py:27 forms/checkout.py:62
+#: forms/checkout.py:28 forms/checkout.py:63
 #, fuzzy
 #| msgid "E-mail address"
 msgid "Email address"
 msgstr "Эл. адрес"
 
-#: forms/checkout.py:57
+#: forms/checkout.py:58
 msgid "Customer's Data"
 msgstr "Данные покупателя"
 
-#: forms/checkout.py:235 models/defaults/address.py:25
+#: forms/checkout.py:236 models/defaults/address.py:25
 #: models/defaults/order.py:21
 #: templates/shop/email/customer-information.html:14
 #: templates/shop/order/list.html:16
 msgid "Shipping Address"
 msgstr "Адрес доставки"
 
-#: forms/checkout.py:245
+#: forms/checkout.py:246
 #, fuzzy
 #| msgid "Use shipping address for billing"
 msgid "Use billing address for shipping"
 msgstr "Использовать адрес доставки в качестве адреса оплаты"
 
-#: forms/checkout.py:259 models/defaults/address.py:31
+#: forms/checkout.py:260 models/defaults/address.py:31
 #: models/defaults/order.py:28
 #: templates/shop/email/customer-information.html:10
 msgid "Billing Address"
 msgstr "Адрес плательщика"
 
-#: forms/checkout.py:266
+#: forms/checkout.py:267
 msgid "Use shipping address for billing"
 msgstr "Использовать адрес доставки в качестве адреса оплаты"
 
-#: forms/checkout.py:281
+#: forms/checkout.py:282
 msgid "Payment Method"
 msgstr "Способ оплаты"
 
-#: forms/checkout.py:314
+#: forms/checkout.py:315
 msgid "Shipping Method"
 msgstr "Способ доставки"
 
-#: forms/checkout.py:318
+#: forms/checkout.py:319
 msgid "Branch No. if Nova Poshta delivery was chosen"
 msgstr "Hомер отделения, если выбрана доставка \"Новой почтой\""
 
-#: forms/checkout.py:322
+#: forms/checkout.py:323
 msgid "Zip code"
 msgstr "Почтовый индекс"
 
-#: forms/checkout.py:326
+#: forms/checkout.py:327
 msgid "Address if Ukrposhta was chosen."
 msgstr "Адрес, если выбрана доставка по \"Укрпочте\""
 
-#: forms/checkout.py:330 models/defaults/address.py:16
+#: forms/checkout.py:331 models/defaults/address.py:16
 #: models/defaults/order.py:81
 msgid "City"
 msgstr "Город"
 
-#: forms/checkout.py:334 models/defaults/address.py:15
+#: forms/checkout.py:335 models/defaults/address.py:15
 msgid "Region"
 msgstr "Область"
 
-#: forms/checkout.py:366
+#: forms/checkout.py:367
 msgid "Extra annotation for this order"
 msgstr "Дополнительная информация об этом заказе"
 
@@ -2645,7 +2654,7 @@ msgstr "Минимальная сумма заказа - 200 грн."
 msgid "Quantity"
 msgstr "Количество"
 
-#: templates/shop/cart/editable.html:28 templates/shop/cart/static.html:10
+#: templates/shop/cart/editable.html:28 templates/shop/cart/static.html:11
 #: templates/shop/cart/watch.html:17
 #: templates/shop/catalog/product-add2cart.html:24
 #: templates/shop/order/detail.html:24 templates/shop/print/order.html:11
@@ -2868,10 +2877,6 @@ msgstr "Предыдущее примечание"
 msgid "This Order can't be cancelled"
 msgstr "Этот заказ не может быть отменен"
 
-#: templates/shop/order/detail.html:23
-msgid "Size"
-msgstr "Размер"
-
 #: templates/shop/order/detail.html:76
 msgid "Thereof Paid"
 msgstr "Уже заплачено"
@@ -2909,16 +2914,6 @@ msgstr "Посмотреть"
 msgid "Loading search results"
 msgstr "Загрузка результатов поиска"
 
-#: templates/shop/templatetags/cart-icon.html:19
-msgctxt "cart icon"
-msgid "1 Item"
-msgstr "1 товар"
-
-#: templates/shop/templatetags/cart-icon.html:19
-msgctxt "cart icon"
-msgid "{} Items"
-msgstr "{} товаров"
-
 #: views/auth.py:43
 msgid "Successfully registered yourself."
 msgstr "Вы успешно зарегестрировны."
@@ -2939,6 +2934,14 @@ msgstr "Инструкции по восстановлению пароля бы
 #: views/auth.py:190
 msgid "Password has been reset with the new password."
 msgstr "Пароль был восстановлен с новым значением."
+
+#~ msgctxt "cart icon"
+#~ msgid "1 Item"
+#~ msgstr "1 товар"
+
+#~ msgctxt "cart icon"
+#~ msgid "{} Items"
+#~ msgstr "{} товаров"
 
 #~ msgid "Salutation"
 #~ msgstr "Обращение"

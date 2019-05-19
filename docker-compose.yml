@@ -41,7 +41,7 @@ services:
       dockerfile: bombay/docker-files/Dockerfile
     image: bombayshop
     environment:
-#      - ENABLE_EN=
+      - ENABLE_EN=1
 #      - DJANGO_DEBUG=
       - POSTGRES_DB=myshop_bombay
       - DJANGO_SETTINGS_MODULE=myshop.settings
@@ -49,7 +49,8 @@ services:
       - bombay/docker-files/databases.environ
     volumes:
       - shopmedia:/web/workdir
-#      - ./bombay/myshop:/web/myshop
+      - ./bombay/myshop:/web/myshop
+      - ./shop:/web/shop
 #      - ./contact_us:/web/contact_us
       - ./bombay/media:/web/media:rw
 #      - ./bombay/static:/web/static

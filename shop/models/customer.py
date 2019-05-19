@@ -238,6 +238,16 @@ class BaseCustomer(with_metaclass(deferred.ForeignKeyBuilder, models.Model)):
         self.user.first_name = value
 
     @property
+    def middle_name(self):
+        # pending deprecation: warnings.warn("Property first_name is deprecated and will be removed")
+        return self.user.middle_name if hasattr(self.user, 'middle_name') else ''
+
+    @middle_name.setter
+    def middle_name(self, value):
+        # pending deprecation: warnings.warn("Property middle_name is deprecated and will be removed")
+        self.user.middle_name = value
+
+    @property
     def last_name(self):
         # pending deprecation: warnings.warn("Property last_name is deprecated and will be removed")
         return self.user.last_name

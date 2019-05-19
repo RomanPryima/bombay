@@ -83,7 +83,8 @@ class CustomerAdminBase(UserAdmin):
     """
     form = CustomerChangeForm
     add_form = CustomerCreationForm
-    list_display = ['get_username', 'last_name', 'first_name', 'recognized', 'last_access', 'is_unexpired']
+    list_display = [
+        'get_username', 'last_name', 'first_name', 'recognized', 'last_access', 'is_unexpired']
     segmentation_list_display = ['get_username']
     list_filter = list(UserAdmin.list_filter) + [CustomerListFilter]
     readonly_fields = ['last_login', 'date_joined', 'last_access', 'recognized']
