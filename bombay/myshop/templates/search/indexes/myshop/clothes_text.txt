@@ -1,0 +1,14 @@
+{{ object.product_name }}
+{{ object.product_code }}
+{{ object.description|striptags }}
+{# TODO: render placeholder content #}
+{% for page in object.cms_pages.all %}
+{{ page.get_title }}{% endfor %}
+
+
+{{ object.product_name }}
+{% for product_code in object.clothes_set.all %}
+{{ product_code }}{% endfor %}
+{{ object.description|striptags }}
+{% for page in object.cms_pages.all %}
+{{ page.get_title }}{% endfor %}

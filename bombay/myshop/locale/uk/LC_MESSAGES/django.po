@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-04-07 23:45+0300\n"
+"POT-Creation-Date: 2019-05-18 11:36+0300\n"
 "PO-Revision-Date: 2019-04-07 22:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -490,49 +490,49 @@ msgstr ""
 "Післяплата (зворотня доставка коштів, рос. наложенный платеж) при отриманні "
 "у відділенні Нової Пошти"
 
-#: myshop/settings.py:459
+#: myshop/settings.py:460
 msgid "Default Page"
 msgstr ""
 
-#: myshop/settings.py:460
+#: myshop/settings.py:461
 msgid "Test Page"
 msgstr ""
 
-#: myshop/settings.py:537
+#: myshop/settings.py:538
 msgid "Product Heading"
 msgstr "Заголовок продукту"
 
-#: myshop/settings.py:538
+#: myshop/settings.py:539
 msgid "Manufacturer Filter"
 msgstr "Фільтрувати за виробником"
 
-#: myshop/settings.py:541
+#: myshop/settings.py:542
 msgid "Default"
 msgstr "За замовчуванням"
 
-#: myshop/settings.py:542
+#: myshop/settings.py:543
 msgid "Add Commodity to Cart"
 msgstr "Додати товар до кошика"
 
-#: myshop/settings.py:680
+#: myshop/settings.py:681
 msgid "Thanks for purchasing at MyShop"
 msgstr "Дякуємо за покупку в нашому магазині."
 
 #: myshop/templates/myshop/cart/editable.html:7
-#: myshop/templates/myshop/cart/editable.html:33
+#: myshop/templates/myshop/cart/editable.html:34
 #: myshop/templates/myshop/catalog/clothes-add2cart.html:9
 #: myshop/templates/myshop/catalog/smartphone-add2cart.html:9
 msgid "Quantity"
 msgstr "Кількість"
 
 #: myshop/templates/myshop/cart/editable.html:9
-#: myshop/templates/myshop/cart/editable.html:39
+#: myshop/templates/myshop/cart/editable.html:40
 #: myshop/templates/myshop/catalog/clothes-add2cart.html:8
 msgid "Size"
 msgstr "Розмір"
 
 #: myshop/templates/myshop/cart/editable.html:10
-#: myshop/templates/myshop/cart/editable.html:36
+#: myshop/templates/myshop/cart/editable.html:37
 #: myshop/templates/myshop/catalog/clothes-add2cart.html:31
 #: myshop/templates/myshop/catalog/commodity-add2cart.html:8
 #: myshop/templates/myshop/catalog/smartphone-add2cart.html:10
@@ -540,7 +540,7 @@ msgid "Unit Price"
 msgstr "Ціна за одиницю"
 
 #: myshop/templates/myshop/cart/editable.html:11
-#: myshop/templates/myshop/cart/editable.html:41
+#: myshop/templates/myshop/cart/editable.html:42
 msgid "Total"
 msgstr "Підсумок"
 
@@ -554,8 +554,8 @@ msgstr "Кошик порожній"
 msgid "Product Code"
 msgstr "Код продукту"
 
-#: myshop/templates/myshop/cart/editable.html:45
-#: myshop/templates/myshop/cart/editable.html:58
+#: myshop/templates/myshop/cart/editable.html:46
+#: myshop/templates/myshop/cart/editable.html:59
 msgid "Remove"
 msgstr "Видалити"
 
@@ -649,11 +649,7 @@ msgstr "Ми присутні в:"
 msgid "Bombay - The Shop of color women's clothes."
 msgstr "Бомбей - магазин колоритного жіночого одягу."
 
-#: myshop/templates/myshop/pages/navbar.html:10
-msgid "САЙТ НА СТАДІЇ НАПОВНЕННЯ. ВИБАЧТЕ ЗА ТИМЧАСОВІ НЕЗРУЧНОСТІ."
-msgstr ""
-
-#: myshop/templates/myshop/pages/navbar.html:11
+#: myshop/templates/myshop/pages/navbar.html:8
 msgid ""
 "МОДА ВІД 40 ДО 68 РОЗМІРУ................ГАРАНТІЯ ПОВЕРНЕННЯ ТА ОБМІНУ "
 "ТОВАРУ................ГНУЧКА СИСТЕМА ЗНИЖОК"

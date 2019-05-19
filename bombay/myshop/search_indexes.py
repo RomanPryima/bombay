@@ -4,16 +4,7 @@ from __future__ import unicode_literals
 from django.conf import settings
 from haystack import indexes
 from shop.search.indexes import ProductIndex as ProductIndexBase
-
-
-if settings.SHOP_TUTORIAL in ['i18n_commodity', 'commodity']:
-    from shop.models.defaults.commodity import Commodity
-
-elif settings.SHOP_TUTORIAL in ['i18n_smartcard', 'smartcard']:
-    from myshop.models import SmartCard
-
-elif settings.SHOP_TUTORIAL in ['bombay', 'polymorphic']:
-    from myshop.models import SmartCard, SmartPhoneModel, Commodity
+from myshop.models import  Commodity, Clothes, UniversalClothes
 
 
 class ProductIndex(ProductIndexBase):
@@ -30,20 +21,18 @@ class ProductIndex(ProductIndexBase):
 
 myshop_search_index_classes = []
 
-if settings.SHOP_TUTORIAL in ['i18n_commodity', 'commodity', 'bombay', 'polymorphic']:
-    class CommodityIndex(ProductIndex, indexes.Indexable):
-        def get_model(self):
-            return Commodity
-    myshop_search_index_classes.append(CommodityIndex)
+class CommodityIndex(ProductIndex, indexes.Indexable):
+    def get_model(self):
+        return Commodity
+myshop_search_index_classes.append(CommodityIndex)
 
-if settings.SHOP_TUTORIAL in ['i18n_smartcard', 'smartcard', 'bombay', 'polymorphic']:
-    class SmartCardIndex(ProductIndex, indexes.Indexable):
-        def get_model(self):
-            return SmartCard
-    myshop_search_index_classes.append(SmartCardIndex)
+class UniversalClothesIndex(ProductIndex, indexes.Indexable):
+    def get_model(self):
+        return UniversalClothes
+myshop_search_index_classes.append(UniversalClothesIndex)
 
-if settings.SHOP_TUTORIAL in ['bombay', 'polymorphic']:
-    class SmartPhoneIndex(ProductIndex, indexes.Indexable):
-        def get_model(self):
-            return SmartPhoneModel
-    myshop_search_index_classes.append(SmartPhoneIndex)
+class ClothesIndex(ProductIndex, indexes.Indexable):
+    def get_model(self):
+        return Clothes
+myshop_search_index_classes.append(ClothesIndex)
+

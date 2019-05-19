@@ -78,3 +78,4 @@ class Command(BaseCommand):
             call_command('loaddata', fixture)
 
         call_command('fix_filer_bug_965')
+        call_command('rebuild_index', interactive=False)

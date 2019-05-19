@@ -9,7 +9,7 @@ from shop.models.defaults.customer import Customer
 
 __all__ = ['ShippingAddress', 'BillingAddress', 'Cart', 'CartItem', 'Customer', 'OrderItem',
            'Commodity', 'SmartCard', 'SmartPhoneModel', 'SmartPhoneVariant', 'Delivery', 'DeliveryItem',
-           'Clothes', 'UniversalClothes']
+           'Clothes', 'Product', 'UniversalClothes']
 
 from .bombay.dresses import Clothes
 from .bombay.order import OrderItem

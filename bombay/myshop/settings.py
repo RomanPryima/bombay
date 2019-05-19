@@ -636,6 +636,12 @@ if USE_I18N:
         'INDEX_NAME': 'myshop-bombay-uk',
     }
 
+    HAYSTACK_CONNECTIONS['ru'] = {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://{}:9200/'.format(ELASTICSEARCH_HOST),
+        'INDEX_NAME': 'myshop-bombay-ru',
+    }
+
 HAYSTACK_ROUTERS = [
     'shop.search.routers.LanguageRouter',
 ]

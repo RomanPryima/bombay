@@ -1,4 +1,4 @@
 {{ object.product_name }}
-{% for product_code in object.smartphone_set.all %}
+{% for product_code in object.universalclothes_set.all %}
 {{ product_code }}{% endfor %}
 {{ object.caption|striptags }}

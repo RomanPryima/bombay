@@ -66,4 +66,5 @@ class CatalogSearchSerializer(BaseProductSearchSerializer):
         index_classes = myshop_search_index_classes
 
     def get_media(self, search_result):
+        import pdb; pdb.set_trace()
         return mark_safe(search_result.catalog_media)
