@@ -60,8 +60,7 @@
 </div>
 {% get_current_language as LANGUAGE_CODE %}
 {% addtoblock "js" %}
-<script src="{% static 'myshop/js/footer.js' %}" type="text/javascript"></script>
-
+<script src="{% static 'myshop/js/OpenLayers.js' %}" type="text/javascript"></script>
   <script>
     map = new OpenLayers.Map("mapdiv");
     map.addLayer(new OpenLayers.Layer.OSM());
@@ -84,6 +83,6 @@
 
     map.setCenter (lonLat, zoom);
   </script>
-
+<script src="{% static 'myshop/js/footer.js' %}" type="text/javascript"></script>
 {% endaddtoblock %}
 {% endblock footer %}

@@ -1,12 +1,3 @@
-function initMap() {
-	document.getElementById('map').style.height = "16em"
-	document.getElementById('map').style.width = "100%"
-  var pos = {lat: 49.836431, lng: 24.030665};
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 17, center: pos});
-  var marker = new google.maps.Marker({position: pos, map: map, title: document.getElementById('marker-name').textContent});
-  marker.setAnimation(google.maps.Animation.BOUNCE);
-}
 
 var $button = document.querySelector('.btn-contactus');
 $button.addEventListener('click', function() {

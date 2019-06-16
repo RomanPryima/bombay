@@ -52,7 +52,7 @@ setup(
         'django-rest-auth>=0.9.1',
         'django-admin-sortable2>=0.6.19',
         'django-formtools>=1.0',
-        'djangocms-cascade>=0.15.4',
+        'djangocms-cascade==0.16',
         'bs4>=0.0.1',
     ],
     # Note: this requires setuptools >= 18.0.
