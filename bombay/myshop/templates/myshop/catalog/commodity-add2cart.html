@@ -15,14 +15,15 @@
 			<td ng-bind="context.subtotal"></td>
 		</tr>
 		<tr>
-			<td class="vertical-align-middle">
-			{% if shop_watch_list_url %}
-				<button class="btn btn-info btn-block btn-xs" ng-click="addToCart('{% url 'shop:watch-list' %}', {watch: true})">{% trans "Watch product" %}</button>
-			{% endif %}
-			</td>
-			<td>
+			{% if product.availability != 'not_available' %}
+			<td colspan="2">
 				<button class="btn btn-primary btn-block" ng-click="addToCart('{% url 'shop:cart-list' %}')">{% trans "Add to cart" %}</button>
 			</td>
+			{% else%}
+			<td colspan="2">
+				<button class="btn btn-primary btn-block disabled">{% trans "Add to cart" %}</button>
+			</td>
+			{% endif %}
 		</tr>
 	</tbody>
 </table>

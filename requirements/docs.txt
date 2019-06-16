@@ -1,4 +1,4 @@
--r common.txt
+-r common.txtclass Clo
 enum34
 django==1.10.7
 Sphinx==1.4.5
