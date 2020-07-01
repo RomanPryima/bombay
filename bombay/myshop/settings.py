@@ -204,8 +204,7 @@ if os.environ.get('ENABLE_EN'):
 
 CMS_LANGUAGES = {
     'default': {
-        'fallbacks': ['uk'],
-        'redirect_on_fallback': True,
+        'redirect_on_fallback': False,
         'public': True,
         'hide_untranslated': False,
     },
@@ -215,13 +214,14 @@ CMS_LANGUAGES = {
             'code': 'uk',
         'hide_untranslated': False,
             'name': 'Українська',
-            'redirect_on_fallback': True,
+            'redirect_on_fallback': False,
         }, {
             'public': True,
             'code': 'ru',
             'hide_untranslated': False,
             'name': 'Русский',
-        'redirect_on_fallback': True,
+            'fallbacks': ['uk'],
+            'redirect_on_fallback': True,
         }, ]
 }
 
@@ -231,9 +231,9 @@ if os.environ.get('ENABLE_EN'):
         'code': 'en',
         'hide_untranslated': False,
         'name': 'English',
+        'fallbacks': ['uk'],
         'redirect_on_fallback': True,
     }, )
-
 
 USE_L10N = True
 
@@ -310,10 +310,10 @@ if REDIS_HOST:
         'socket_timeout': 1
     }
     if six.PY3:
-        # Use the latest protocol version (default)                                                                                                                                                           
+        # Use the latest protocol version (default)
         PICKLE_V=-1
     else:
-        #py2 compatibility                                                                                                                                                                                    
+        #py2 compatibility
         PICKLE_V=2
 
     CACHES = {
@@ -321,7 +321,7 @@ if REDIS_HOST:
             'BACKEND': 'redis_cache.RedisCache',
             'LOCATION': 'redis://{}:6379/1'.format(REDIS_HOST),
              "OPTIONS": {
-                 "PICKLE_VERSION": PICKLE_V,                                                                                                
+                 "PICKLE_VERSION": PICKLE_V,
 	         }
         },
         'compressor': {

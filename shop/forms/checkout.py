@@ -52,7 +52,7 @@ class CustomerForm(DialogModelForm):
         return customer_form
 
 
-class GuestForm(UniqueEmailValidationMixin, DialogModelForm):
+class GuestForm(DialogModelForm):
     scope_prefix = 'guest'
     form_name = 'customer_form'  # Override form name to reuse template `customer-form.html`
     legend = _("Customer's Data")
@@ -330,11 +330,11 @@ class ShippingMethodForm(DialogForm):
                             widget=widgets.TextInput)
 
     city = fields.CharField(label=_("City"),
-                                 required=False,
+                                 required=True,
                                  widget=widgets.TextInput)
 
     region = fields.CharField(label=_("Region"),
-                            required=False,
+                            required=True,
                             widget=widgets.TextInput)
 
     def __init__(self, *args, **kwargs):

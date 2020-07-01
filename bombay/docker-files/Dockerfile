@@ -12,6 +12,7 @@ ARG DJANGO_MEDIA_ROOT=/web/media
 RUN apt-get upgrade -y
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs optipng jpegoptim
+RUN apt-get install -y npm
 
 # copy project relevant files into container
 ADD setup.py /web/setup.py

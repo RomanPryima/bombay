@@ -13,7 +13,7 @@ import shop.money.fields
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0009_auto_20190217_1251'),
+        ('shop', '0009_auto_20200701_1302'),
         ('myshop', '0001_initial'),
     ]
 
