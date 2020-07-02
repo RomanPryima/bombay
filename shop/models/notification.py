@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser
 from django.core.mail import EmailMessage, EmailMultiAlternatives
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import Q
 from django.http.request import HttpRequest
@@ -193,6 +194,9 @@ def order_event_notification(sender, instance=None, target=None, **kwargs):
         attachments = {}
         for notiatt in notification.notificationattachment_set.all():
             attachments[notiatt.attachment.original_filename] = notiatt.attachment.file.file
-        mail.send(recipient, template=template, context=context,
-                  attachments=attachments, render_on_delivery=True)
+        try:
+            mail.send(recipient, template=template, context=context,
+                      attachments=attachments, render_on_delivery=True)
+        except ValidationError:
+            pass
     email_queued()

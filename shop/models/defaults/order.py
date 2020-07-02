@@ -79,6 +79,7 @@ class Order(order.BaseOrder):
             _('zip code'): cart.extra.get('zip_code', '--'),
             _('Address'): cart.extra.get('address', '--'),
             _('City'): cart.extra.get('city', '--'),
+            _('Region'): cart.extra.get('region', '--'),
         }
         fields_as_text = []
         for field, value in shipping.items():

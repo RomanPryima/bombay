@@ -334,7 +334,7 @@ class ShippingMethodForm(DialogForm):
                                  widget=widgets.TextInput)
 
     region = fields.CharField(label=_("Region"),
-                            required=True,
+                            required=False,
                             widget=widgets.TextInput)
 
     def __init__(self, *args, **kwargs):
